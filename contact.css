@@ -1,0 +1,29 @@
+/*#name{
+	width: 20%;
+}
+
+#emailAddress{
+	width: 40%;
+}*/
+
+.btn{
+	border: 1px solid white;
+	background: black;
+}
+
+.btn{
+	color: white;
+}
+
+form{
+	margin-top: 50px;
+}
+
+hr{
+	background: white;
+	margin-top: 20px;
+}
+
+.alt-contact{
+	margin-top: 100px;
+}
