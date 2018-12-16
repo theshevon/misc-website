@@ -11,15 +11,15 @@ p{
 	text-align: justify;
 }
 
-#committee p{
-	text-align: center;
-}
-
 section{
 	margin-bottom: 4rem;
 }
 
-img{
+#committee p{
+	text-align: center;
+}
+
+#committee img{
 	height: 100px;
 	width: 100px;
 	border-radius: 50%;
@@ -28,4 +28,8 @@ img{
 
 .row{
 	margin-bottom: 2rem;
+}
+
+#about-umisc{
+	margin-top: 4rem;
 }
