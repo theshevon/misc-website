@@ -27,3 +27,13 @@ hr{
 .alt-contact{
 	margin-top: 100px;
 }
+
+label span{
+	color: red;
+}
+
+@media(max-width:550px) {
+  h3{
+    font-size: 1.25rem;
+  }
+}

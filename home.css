@@ -19,6 +19,14 @@
   width: 100%;
 }
 
+.right-navs, .left-navs{
+  width: 40%;
+}
+
+.centre-space{
+  width: 20%;
+}
+
 #mainNavBar .nav-link:hover{
   color: gray;
 }
@@ -51,6 +59,7 @@ body{
 
 #main-title{
   font-weight: 300;
+  font-size: 2.5rem;
   text-align: center;
   margin-top: 7.5%;
   letter-spacing: 0.2rem;
@@ -83,6 +92,8 @@ body{
   position: absolute;
 }
 
-/*#special a span{
-  font-weight: bold;
-}*/
+@media(max-width:575px) {
+  #main-title{
+    font-size: 1.25rem;
+  }
+}
