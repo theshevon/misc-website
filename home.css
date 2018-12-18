@@ -10,17 +10,13 @@
   color: white;
 }
 
-#mainNavBar .nav-link, .navbar-brand{
-  /*width: 14rem;*/
-}
-
 #mainNavBar .navbar-brand img{
   height: 30px;
   width: 30px;
 }
 
-#navLinks{
-  padding-right: 0;
+#navLinks .navbar-nav{
+  width: 100%;
 }
 
 #mainNavBar .nav-link:hover{
@@ -43,10 +39,6 @@ body{
   margin-top: 5rem;
 }
 
-#content img{
-  vertical-align: bottom;
-}
-
 body{
   color: white;
   /*font-family: Nunito, Sans-Serif;*/
@@ -58,9 +50,37 @@ body{
 }
 
 #main-title{
-  font-weight: 250;
+  font-weight: 300;
   text-align: center;
+  margin-top: 7.5%;
   letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+#main-title span{
+  font-size: 0.85em;
+}
+
+#main-title #special{
+  font-size: 0.6em;
+}
+
+.card{
+  background-color: black;
+}
+
+#slogan{
+  margin-top: 6%;
+}
+
+.card-title h6{
+  color: #0472e8;
+}
+
+.navbar-brand {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
 }
 
 /*#special a span{
