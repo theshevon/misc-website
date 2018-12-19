@@ -37,3 +37,8 @@ $(".fa-angle-right").on("click", function(event){
 	$("#year").text(currentYear);
 	event.stopPropagation();
 });
+
+$(".include:contains(" + d.getDate() + ")").css({
+	border: "1px solid white",
+	borderRadius: "50%"
+	});
