@@ -22,13 +22,20 @@ td{
 	padding-bottom: 10px;
 }
 
+td p{
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+	padding: 0;
+}
+
 #content{
 /*	border: 1px solid white;*/
 	margin: 15% auto;
 	border-radius: 2%;
 }
 
-h1{
+h1 {
 	margin: 5% auto;
 	letter-spacing: 0.3rem;
 	text-transform: uppercase;

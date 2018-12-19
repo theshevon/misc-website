@@ -1,4 +1,5 @@
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+var monthsWith31Days = [0, 2, 4, 6, 7, 9, 11];
 var d = new Date();
 var currentMonth = d.getMonth();
 var currentYear = d.getFullYear();
@@ -6,13 +7,7 @@ var currentYear = d.getFullYear();
 $("#month").text(months[currentMonth]);
 $("#year").text(currentYear);
 
-$("td").on("click", function(){
-	console.log($(this).text());
-});
-
-$("h1").on("click", function(){
-	console.log("show icons");
-});
+buildCalendarMonth(currentMonth, currentYear);
 
 $(".fa-angle-left").on("click", function(event){
 	if (currentMonth === 0){
@@ -21,8 +16,7 @@ $(".fa-angle-left").on("click", function(event){
 	}else{
 		currentMonth--;
 	}
-	$("#month").text(months[currentMonth]);
-	$("#year").text(currentYear);
+	buildCalendarMonth(currentMonth, currentYear);
 	event.stopPropagation();
 });
 
@@ -33,12 +27,78 @@ $(".fa-angle-right").on("click", function(event){
 	}else{
 		currentMonth++;
 	}
-	$("#month").text(months[currentMonth]);
-	$("#year").text(currentYear);
+	
+	buildCalendarMonth(currentMonth, currentYear);
 	event.stopPropagation();
 });
 
-$(".include:contains(" + d.getDate() + ")").css({
-	border: "1px solid white",
-	borderRadius: "50%"
+function buildCalendarMonth(month, year){
+	
+	$("#month").text(months[currentMonth]);
+	$("#year").text(currentYear);
+
+	// get the no. of days in the month
+	var nDaysInMonth = getDaysInMonth(month, year);
+
+	// get the index of the first day of the month
+	var firstDayIdx = getFirstDayInMonth(month, year);
+
+	console.log(firstDayIdx);
+
+	$(".date-val").each(function(i){
+
+		// if (i < firstDayIdx){
+		// 	$(this).text("•");
+		// 	$(this).removeClass("include");
+		// 	return;
+		// }else if (i - firstDayIdx >= nDaysInMonth){
+		// 	$(this).text(i - (firstDayIdx + nDaysInMonth) + 1);
+		// 	$(this).removeClass("include");
+		// 	return;
+		// }
+
+		if ((i < firstDayIdx) || (i - firstDayIdx >= nDaysInMonth)){
+			$(this).text("•");
+			$(this).removeClass("include");
+			return;
+		}
+
+		$(this).text(i - firstDayIdx + 1);
+		$(this).addClass("include");
 	});
+
+	// if (month === currentMonth && year == currentYear){
+	// 	$(".include:contains(" + d.getDate() + ")").css({
+	// 		border: "1px solid white",
+	// 		borderRadius: "50%"
+	// 	});
+	// }
+}
+
+function getFirstDayInMonth(month, year){
+	return (new Date(year, month, 1)).getDay();
+}
+
+function getDaysInMonth(month, year){
+
+	// if February, check if in leap year
+	if (month === 1){
+		return isLeapYear(year) ? 29 : 28;
+	}
+	
+	return monthsWith31Days.includes(month) ? 31 : 30;
+}
+
+function getPreviousMonth(month){
+
+	if (month === 0){
+		return 11;
+	}
+
+	return month--;
+}
+
+
+function isLeapYear(year){
+	return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+}
