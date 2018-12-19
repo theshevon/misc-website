@@ -18,8 +18,8 @@ body{
 
 td{
 	color: gray;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 1.5%;
+	padding-bottom: 1.5%;
 }
 
 td p{
@@ -30,9 +30,7 @@ td p{
 }
 
 #content{
-/*	border: 1px solid white;*/
-	margin: 15% auto;
-	border-radius: 2%;
+	margin-top: 10rem;
 }
 
 h1 {
@@ -46,6 +44,13 @@ h1 {
 	font-size: 0.4em;
 	font-weight: 200;
 	color: #0472e8;
+}
+
+.current{
+	border: 2px solid white;
+	border-radius: 50%;
+	background: white;
+	color: black;
 }
 
 h1:hover .fas{

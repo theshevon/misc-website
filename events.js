@@ -1,6 +1,7 @@
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var monthsWith31Days = [0, 2, 4, 6, 7, 9, 11];
 var d = new Date();
+var currentDay = d.getDate();
 var currentMonth = d.getMonth();
 var currentYear = d.getFullYear();
 
@@ -43,8 +44,6 @@ function buildCalendarMonth(month, year){
 	// get the index of the first day of the month
 	var firstDayIdx = getFirstDayInMonth(month, year);
 
-	console.log(firstDayIdx);
-
 	$(".date-val").each(function(i){
 
 		// if (i < firstDayIdx){
@@ -67,12 +66,9 @@ function buildCalendarMonth(month, year){
 		$(this).addClass("include");
 	});
 
-	// if (month === currentMonth && year == currentYear){
-	// 	$(".include:contains(" + d.getDate() + ")").css({
-	// 		border: "1px solid white",
-	// 		borderRadius: "50%"
-	// 	});
-	// }
+	if (month === d.getMonth() && year === d.getFullYear()){
+		$(".include:contains(" + currentDay + ")").html('<span class="current">' + currentDay + '</span>');
+	}
 }
 
 function getFirstDayInMonth(month, year){
