@@ -41,16 +41,23 @@ h1 span{
 	color: #0472e8;
 }
 
+h1:hover .fas{
+	opacity: 1;
+}
+
 #header td{
 	color: white;
 	font-weight: bold;
+	font-size: 1.2rem;
 }
 
 .fas{
 	padding: 0 3%;
 	color: gray;
+	opacity: 0;
 }
 
 .fas:hover{
 	color: white;
 }
+
