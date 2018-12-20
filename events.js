@@ -1,3 +1,4 @@
+var days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var monthsWith31Days = [0, 2, 4, 6, 7, 9, 11];
 var d = new Date();
@@ -5,33 +6,71 @@ var currentDay = d.getDate();
 var currentMonth = d.getMonth();
 var currentYear = d.getFullYear();
 
-$("#month").text(months[currentMonth]);
-$("#year").text(currentYear);
+init();
 
-buildCalendarMonth(currentMonth, currentYear);
-
-$(".fa-angle-left").on("click", function(event){
-	if (currentMonth === 0){
-		currentMonth = 11;
-		currentYear--;
+$(".fas").on("click", function(event){
+	if ($(this).hasClass("fa-angle-left")){
+		if (currentMonth === 0){
+			currentMonth = 11;
+			currentYear--;
+		}else{
+			currentMonth--;
+		}
 	}else{
-		currentMonth--;
-	}
-	buildCalendarMonth(currentMonth, currentYear);
-	event.stopPropagation();
-});
-
-$(".fa-angle-right").on("click", function(event){
-	if (currentMonth === 11){
-		currentMonth = 0;
-		currentYear++;
-	}else{
-		currentMonth++;
+		if (currentMonth === 11){
+			currentMonth = 0;
+			currentYear++;
+		}else{
+			currentMonth++;
+		}
 	}
 	
-	buildCalendarMonth(currentMonth, currentYear);
+	changeMonth(currentMonth, currentYear);
 	event.stopPropagation();
 });
+
+// $(".fas").on("click", function(event){
+// 	if (currentMonth === 0){
+// 		currentMonth = 11;
+// 		currentYear--;
+// 	}else{
+// 		currentMonth--;
+// 	}
+// 	changeMonth(currentMonth, currentYear);
+// 	event.stopPropagation();
+// });
+
+// $(".fa-angle-right").on("click", function(event){
+// 	if (currentMonth === 11){
+// 		currentMonth = 0;
+// 		currentYear++;
+// 	}else{
+// 		currentMonth++;
+// 	}
+	
+// 	changeMonth(currentMonth, currentYear);
+// 	event.stopPropagation();
+// });
+
+function init(){
+	
+	$("#content").hide();
+
+	$("#header td").each(function(i){
+		$(this).text(days[i]);
+	});
+	
+	buildCalendarMonth(currentMonth, currentYear);
+
+	$("#content").fadeIn(500);
+}
+
+function changeMonth(month, year){
+	$("#content").fadeOut(500, function(){
+		buildCalendarMonth(month, year);
+	});
+	$("#content").fadeIn(500);
+}
 
 function buildCalendarMonth(month, year){
 	

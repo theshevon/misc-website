@@ -55,6 +55,7 @@ h1 {
 
 h1:hover .fas{
 	opacity: 1;
+	transition: 500ms;
 }
 
 #header td{
@@ -67,6 +68,7 @@ h1:hover .fas{
 	padding: 0 3%;
 	color: gray;
 	opacity: 0;
+	transition: 500ms;
 }
 
 .fas:hover{
