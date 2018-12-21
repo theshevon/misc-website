@@ -29,28 +29,17 @@ $(".fas").on("click", function(event){
 	event.stopPropagation();
 });
 
-// $(".fas").on("click", function(event){
-// 	if (currentMonth === 0){
-// 		currentMonth = 11;
-// 		currentYear--;
-// 	}else{
-// 		currentMonth--;
-// 	}
-// 	changeMonth(currentMonth, currentYear);
-// 	event.stopPropagation();
-// });
+$("#close-button").on("click", function(){
+	$(".pop-up-container").fadeOut(function(){
+		$(this).css("display", "none");
+	});
+});
 
-// $(".fa-angle-right").on("click", function(event){
-// 	if (currentMonth === 11){
-// 		currentMonth = 0;
-// 		currentYear++;
-// 	}else{
-// 		currentMonth++;
-// 	}
-	
-// 	changeMonth(currentMonth, currentYear);
-// 	event.stopPropagation();
-// });
+$("#test").on("click", function(){
+	$(".pop-up-container").hide();
+	$(".pop-up-container").fadeIn();
+	$(".pop-up-container").css("display", "flex");
+});
 
 function init(){
 	
@@ -85,16 +74,6 @@ function buildCalendarMonth(month, year){
 
 	$(".date-val").each(function(i){
 
-		// if (i < firstDayIdx){
-		// 	$(this).text("•");
-		// 	$(this).removeClass("include");
-		// 	return;
-		// }else if (i - firstDayIdx >= nDaysInMonth){
-		// 	$(this).text(i - (firstDayIdx + nDaysInMonth) + 1);
-		// 	$(this).removeClass("include");
-		// 	return;
-		// }
-
 		if ((i < firstDayIdx) || (i - firstDayIdx >= nDaysInMonth)){
 			$(this).text("•");
 			$(this).removeClass("include");
@@ -125,12 +104,7 @@ function getDaysInMonth(month, year){
 }
 
 function getPreviousMonth(month){
-
-	if (month === 0){
-		return 11;
-	}
-
-	return month--;
+	return month === 0 ? 11 : month--;
 }
 
 
