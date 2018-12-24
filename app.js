@@ -1,32 +1,56 @@
-var express = require("express");
-var app = express();
+var express = require("express"),
+    app = express(),
+    mongoose = require("mongoose");
 
+app.use(express.static("public"));
 app.set("view engine", "ejs");
+
+################################################################################
+###############################/* DB STUFF */###################################
+################################################################################
+
+// connect to umisc database
+mongoose.conntect("mongodb://localhost/umisc");
+
+// define schema for an event (defines pattern for the data being entered)
+// provides structure
+var eventSchema = mongoose.Schema({
+  name: String;
+  date: String;
+  description: String;
+});
+
+var Event = mongoose.model("Event", eventSchema);
+
+################################################################################
+###############################/* Routing */####################################
+################################################################################
 
 // render landing page
 app.get("/", function(req, res){
-  res.send("this is the landing page");
+  res.render("home");
 });
 
 // render 'About' page
 app.get("/about", function(req, res){
-  res.send("this is the about page");
+  res.send("about");
 });
 
 // render 'Contact' page
 app.get("/contact", function(req, res){
-  res.send("this is the contact page");
+  res.send("contact");
 });
 
 // render 'Events' page
 app.get("/events", function(req, res){
-  res.send("this is the events page");
+  //  retrieve all events from db
+  res.send("events");
 });
 
 // fallback
-app.get("/*", function(req, res)){
+app.get("/*", function(req, res){
   res.send("Error: This page does not exist");
-};
+});
 
 app.listen(3000, function(){
   console.log("Successfully connected to server");

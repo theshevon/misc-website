@@ -18,6 +18,7 @@
   "homepage": "https://github.com/theshevon/UMISC_Website#readme",
   "dependencies": {
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0"
   }
 }
