@@ -25,3 +25,7 @@ section{
 .row{
 	margin-bottom: 2rem;
 }
+
+a, a:hover{
+	color: white;
+}
