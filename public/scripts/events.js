@@ -24,7 +24,7 @@ $(".fas").on("click", function(event){
 			currentMonth++;
 		}
 	}
-	
+
 	changeMonth(currentMonth, currentYear);
 	event.stopPropagation();
 });
@@ -42,13 +42,13 @@ $("#test").on("click", function(){
 });
 
 function init(){
-	
+
 	$("#content").hide();
 
 	$("#header td").each(function(i){
 		$(this).text(days[i]);
 	});
-	
+
 	buildCalendarMonth(currentMonth, currentYear);
 
 	$("#content").fadeIn(500);
@@ -62,7 +62,7 @@ function changeMonth(month, year){
 }
 
 function buildCalendarMonth(month, year){
-	
+
 	$("#month").text(months[currentMonth]);
 	$("#year").text(currentYear);
 
@@ -99,7 +99,7 @@ function getDaysInMonth(month, year){
 	if (month === 1){
 		return isLeapYear(year) ? 29 : 28;
 	}
-	
+
 	return monthsWith31Days.includes(month) ? 31 : 30;
 }
 

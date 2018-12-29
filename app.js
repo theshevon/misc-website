@@ -39,22 +39,22 @@ app.get("/home", function(req, res){
 
 // render 'About' page
 app.get("/about", function(req, res){
-  res.send("about");
+  res.render("about");
 });
 
 // render 'Contact' page
 app.get("/contact", function(req, res){
-  res.send("contact");
+  res.render("contact");
 });
 
 // render 'Events' page
 app.get("/events", function(req, res){
   //  retrieve all events from db
-  res.send("events");
+  res.render("events");
 });
 
 app.get("/events/:id", function(req, res){
-  res.send("event");
+  res.render("event");
 });
 
 // fallback
