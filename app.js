@@ -1,33 +1,39 @@
-var express = require("express"),
-    app = express(),
-    mongoose = require("mongoose");
+// Backend functionality for UMISC website.
+// Written by Shevon Mendis, 2018
 
-app.use(express.static("public"));
-app.set("view engine", "ejs");
+var bodyParser = require("body-parser"),
+    mongoose = require("mongoose"),
+    express = require("express"),
+    app = express();
 
-// ################################################################################
-// ###############################/* DB STUFF */###################################
-// ################################################################################
+/*==================================app config================================*/
 
 // connect to umisc database
 mongoose.connect("mongodb://localhost:27017/umisc", {useNewUrlParser: true});
 
-// define schema for an event (defines pattern for the data being entered)
-// provides structure
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({extended: true}));
+
+/*===============================mongoose config==============================*/
+
 var eventSchema = mongoose.Schema({
   name: String,
-  date: String,
+  date: Date,
   description: String
 });
 
 var Event = mongoose.model("Event", eventSchema);
 
-// ################################################################################
-// ###############################/* Routing */####################################
-// ################################################################################
+/*====================================routing=================================*/
 
 // render landing page
 app.get("/", function(req, res){
+  res.redirect("home");
+});
+
+// render home page
+app.get("/home", function(req, res){
   res.render("home");
 });
 
@@ -45,6 +51,10 @@ app.get("/contact", function(req, res){
 app.get("/events", function(req, res){
   //  retrieve all events from db
   res.send("events");
+});
+
+app.get("/events/:id", function(req, res){
+  res.send("event");
 });
 
 // fallback

@@ -31,9 +31,9 @@
   color: gray;
 }
 
-#mainNavBar #selected .nav-link{
+/* #mainNavBar #-tag .nav-link{
   color: gray;
-}
+} */
 
 body{
   background: black;
@@ -96,8 +96,4 @@ body{
   #main-title{
     font-size: 1.25rem;
   }
-}
-
-#bg{
-  
 }
