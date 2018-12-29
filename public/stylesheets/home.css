@@ -1,0 +1,103 @@
+#mainNavBar{
+  background-color: #202020;
+  height: 2.5rem;
+  /*padding-left: 12.5%;*/
+}
+
+#mainNavBar .nav-link{
+  font-size: 1.0rem;
+  font-weight: 100;
+  color: white;
+}
+
+#mainNavBar .navbar-brand img{
+  height: 30px;
+  width: 30px;
+}
+
+#navLinks .navbar-nav{
+  width: 100%;
+}
+
+.right-navs, .left-navs{
+  width: 40%;
+}
+
+.centre-space{
+  width: 20%;
+}
+
+#mainNavBar .nav-link:hover{
+  color: gray;
+}
+
+#mainNavBar #selected .nav-link{
+  color: gray;
+}
+
+body{
+  background: black;
+}
+
+.navbar-toggler{
+  border: none;
+}
+
+#content{
+  margin-top: 5rem;
+}
+
+body{
+  color: white;
+  /*font-family: Nunito, Sans-Serif;*/
+}
+
+.navbar-collapse {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+#main-title{
+  font-weight: 300;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 7.5%;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+#main-title span{
+  font-size: 0.85em;
+}
+
+#main-title #special{
+  font-size: 0.6em;
+}
+
+.card{
+  background-color: black;
+}
+
+#slogan{
+  margin-top: 6%;
+}
+
+.card-title h6{
+  color: #0472e8;
+}
+
+.navbar-brand {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+}
+
+@media(max-width:575px) {
+  #main-title{
+    font-size: 1.25rem;
+  }
+}
+
+#bg{
+  
+}

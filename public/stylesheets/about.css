@@ -1,0 +1,31 @@
+h1{
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+p{
+	text-align: justify;
+}
+
+section{
+	margin-bottom: 4rem;
+}
+
+#committee p{
+	text-align: center;
+}
+
+#committee img{
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	margin-bottom: 1.2rem;
+}
+
+.row{
+	margin-bottom: 2rem;
+}
+
+a, a:hover{
+	color: white;
+}

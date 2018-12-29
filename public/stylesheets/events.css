@@ -1,0 +1,133 @@
+table{
+	margin-bottom: 5%;
+	width: 100%;
+	height: 80%;
+}
+
+.include{
+	color: white;
+}
+
+.include:hover, .current:hover{
+	color: #0472e8;
+}
+
+body{
+	text-align: center;
+}
+
+td{
+	color: gray;
+	padding-top: 1.5%;
+	padding-bottom: 1.5%;
+}
+
+td p{
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#content{
+	margin-top: 10rem;
+}
+
+h1 {
+	margin: 5% auto;
+	letter-spacing: 0.3rem;
+	text-transform: uppercase;
+	line-height: 40%;
+}
+
+#year{
+	font-size: 0.4em;
+	font-weight: 200;
+	color: #0472e8;
+}
+
+.current{
+	border: 2px solid white;
+	border-radius: 50%;
+	background: white;
+	color: black;
+}
+
+h1:hover .fas{
+	opacity: 1;
+	transition: 500ms;
+}
+
+#header td{
+	color: white;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+.fas{
+	padding: 0 3%;
+	color: gray;
+	opacity: 0;
+	transition: 500ms;
+}
+
+.fas:hover{
+	color: white;
+}
+
+.pop-up-container{
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 7.5%;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.95);
+}
+
+.pop-up-content{
+	width: 70%;
+	position: relative;
+	top: -40px;
+}
+
+#close-button{
+	color: gray;
+	background: none;
+	border: none;
+	font-size: 2rem;
+	padding: none;
+	position: relative;
+	left: 50%;
+}
+
+#close-button:hover{
+	color: white;
+}
+
+#close-button:focus{
+	outline: none;
+}
+
+.pop-up-content img{
+	padding-bottom: 20px;
+}
+
+.pop-up-content h2{
+	text-transform: uppercase;
+	padding-bottom: 20px;
+}
+
+.pop-up-content p{
+	text-align: justify;
+}
+
+#test{
+	border-radius: 4px;
+	background: none;
+	border: 1px solid white;
+	color: white;
+}
