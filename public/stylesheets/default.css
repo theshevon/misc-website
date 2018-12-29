@@ -1,0 +1,64 @@
+#mainNavBar{
+  background-color: #202020;
+  height: 2.5rem;
+  /*padding-left: 12.5%;*/
+}
+
+#mainNavBar .nav-link{
+  font-size: 1.0rem;
+  font-weight: 100;
+  color: white;
+}
+
+#mainNavBar .navbar-brand img{
+  height: 30px;
+  width: 30px;
+}
+
+#navLinks .navbar-nav{
+  width: 100%;
+}
+
+.right-navs, .left-navs{
+  width: 40%;
+}
+
+.centre-space{
+  width: 20%;
+}
+
+#mainNavBar .nav-link:hover{
+  color: gray;
+}
+
+/* #mainNavBar #-tag .nav-link{
+  color: gray;
+} */
+
+body{
+  background: black;
+}
+
+.navbar-toggler{
+  border: none;
+}
+
+#content{
+  margin-top: 8rem;
+}
+
+body{
+  color: white;
+  /*font-family: Nunito, Sans-Serif;*/
+}
+
+.navbar-collapse {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.navbar-brand {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+}
