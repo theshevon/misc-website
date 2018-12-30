@@ -6,14 +6,14 @@ var eventSchema = mongoose.Schema({
   name: String,
   image: String,
   description: String,
-  creator: {
-            type: mongoose.Schema.Types.objectId,
-            ref: "User"
-           },
-  date_created: {
-                 type: Date,
-                 default: Date.now
-                },
+  created_by: {
+                type: mongoose.Schema.Types.objectId,
+                ref: "User"
+              },
+  created_on: {
+                type: Date,
+                default: Date.now
+              },
   last_edited_by: {
                     type: mongoose.Schema.Types.objectId,
                     ref: "User"
