@@ -1,12 +1,16 @@
 // Backend functionality for UMISC website.
 // Written by Shevon Mendis, 2018
 
-var bodyParser = require("body-parser"),
-    mongoose = require("mongoose"),
-    express = require("express"),
-    app = express();
+var methodOverride = require("method-override"),
+    bodyParser     = require("body-parser"),
+    mongoose       = require("mongoose"),
+    express        = require("express"),
+    app            = express(),
+    seedDB         = require("./seeds");
 
 /*==================================app config================================*/
+
+seedDB();
 
 // connect to umisc database
 mongoose.connect("mongodb://localhost:27017/umisc", {useNewUrlParser: true});
@@ -15,15 +19,10 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
-/*===============================mongoose config==============================*/
+/*============================mongoose schema config==========================*/
 
-var eventSchema = mongoose.Schema({
-  name: String,
-  date: Date,
-  description: String
-});
-
-var Event = mongoose.model("Event", eventSchema);
+var Event = require("./models/event"),
+    User  = require("./models/user");
 
 /*====================================routing=================================*/
 
@@ -53,7 +52,13 @@ app.get("/events", function(req, res){
   res.render("events");
 });
 
+// show specific event details
 app.get("/events/:id", function(req, res){
+  res.render("event");
+});
+
+// show secret page
+app.get("/events/admin", function(req, res){
   res.render("event");
 });
 
