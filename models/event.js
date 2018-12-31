@@ -1,27 +1,24 @@
 var mongoose = require("mongoose");
 
-// EVENT - name, date, description, creator and date/time of creation
+var User_t = {
+               type: mongoose.Schema.Types.ObjectId,
+               ref: 'User'
+             };
+
+var Date_t = {
+               type: Date,
+               default: Date.now
+             };
+
 var eventSchema = mongoose.Schema({
   date: Date,
   name: String,
   image: String,
   description: String,
-  created_by: {
-                type: mongoose.Schema.Types.objectId,
-                ref: "User"
-              },
-  created_on: {
-                type: Date,
-                default: Date.now
-              },
-  last_edited_by: {
-                    type: mongoose.Schema.Types.objectId,
-                    ref: "User"
-                  },
-  last_edited_on: {
-                   type: Date,
-                   default: Date.now
-                  },
+  created_by: User_t,
+  created_on: Date_t,
+  last_edited_by: User_t,
+  last_edited_on: Date_t
 });
 
 // return model as object
