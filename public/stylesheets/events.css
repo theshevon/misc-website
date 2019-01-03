@@ -1,9 +1,10 @@
 body{
 	text-align: center;
+	text-transform: uppercase;
 }
 
 #content{
-	margin-top: 10rem;
+	margin-top: 6rem;
 }
 
 h1 {
@@ -89,7 +90,7 @@ span{
 	text-align: justify;
 }
 
-.test-btn{
+.more-btn{
 	border-radius: 4px;
 	background: none;
 	border: 1px solid white;
@@ -100,7 +101,7 @@ span{
 	float: left;
 }
 
-.event h3, p{
+.event h4, p{
 	font-weight: 100;
 }
 
@@ -114,5 +115,19 @@ span{
 }
 
 .img-thumbnail{
-	border: none;
+	background: none;
+	border-radius: 0.4rem;
+}
+
+a{
+	color: white;
+}
+
+button:hover{
+	background: white;
+	color: black;
+}
+
+button:focus {
+	outline: none;
 }

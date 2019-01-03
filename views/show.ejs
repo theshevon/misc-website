@@ -1,0 +1,12 @@
+<% include ./partials/header %>
+
+<h1> This is the show page </h1>
+<div class="container">
+  <h2><%=event.name%></h2>
+  <img class="img-fluid" src="<%= event.image %>">
+  <p><strong>Date:</strong><%=event.date.toLocaleDateString()%></p>
+  <p><strong>Description:</strong><br><%=event.description%></p>
+  <p><strong>Location:</strong> <%=event.location%></p>
+</div>
+
+<% include ./partials/footer %>

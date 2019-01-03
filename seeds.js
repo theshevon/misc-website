@@ -11,7 +11,8 @@ var data = [
       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non \
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      location: "Elizabeth Murdoch G06"
     },
     {
       name: "Pen Test Workshop",
@@ -25,7 +26,8 @@ var data = [
       publishing packages and web page editors now use Lorem Ipsum as their \
       default model text, and a search for 'lorem ipsum' will uncover many web \
       sites still in their infancy. Various versions have evolved over the years,\
-      sometimes by accident, sometimes on purpose (injected humour and the like)."
+      sometimes by accident, sometimes on purpose (injected humour and the like).",
+      location: "Peter Hall G07"
     },
     {
       name: "SQL Injections",
@@ -38,7 +40,8 @@ var data = [
        Latin words, consectetur, from a Lorem Ipsum passage, and going through \
        the cites of the word in classical literature, discovered the undoubtable\
        source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \
-       de Finibus Bonorum et Malorum."
+       de Finibus Bonorum et Malorum.",
+       location: "Sydney Myer"
     },
     {
       name: "Spring Event",
@@ -49,7 +52,8 @@ var data = [
       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non \
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      location: "Elizabeth Murdoch G06"
     },
     {
       name: "Pen Test Workshop",
@@ -63,7 +67,8 @@ var data = [
       publishing packages and web page editors now use Lorem Ipsum as their \
       default model text, and a search for 'lorem ipsum' will uncover many web \
       sites still in their infancy. Various versions have evolved over the years,\
-      sometimes by accident, sometimes on purpose (injected humour and the like)."
+      sometimes by accident, sometimes on purpose (injected humour and the like).",
+      location: "Peter Hall G07"
     },
     {
       name: "SQL Injections",
@@ -76,7 +81,8 @@ var data = [
        Latin words, consectetur, from a Lorem Ipsum passage, and going through \
        the cites of the word in classical literature, discovered the undoubtable\
        source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \
-       de Finibus Bonorum et Malorum."
+       de Finibus Bonorum et Malorum.",
+       location: "Sydney Myer"
     }
 ]
 

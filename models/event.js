@@ -17,6 +17,7 @@ var EventSchema = new mongoose.Schema({
   image: String,
   description: String,
   location: String,
+  link: String,
   created_by: User_t,
   created_on: Date_t,
   last_edited_by: User_t,

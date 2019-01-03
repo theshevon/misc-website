@@ -131,12 +131,12 @@ app.get("/contact", function(req, res){
 //     });
 // });
 
-app.get("/events", function(req, res){
-  res.redirect("/events/" + (new Date).getMonth());
-});
+// app.get("/events", function(req, res){
+//   res.redirect("/events/" + (new Date).getMonth());
+// });
 
 // EVENTS PAGE
-app.get("/events/:month", function(req, res){
+app.get("/events", function(req, res){
     // retrieve all events from db
     Event.find({}, function(err, events){
         if (err){
@@ -144,6 +144,16 @@ app.get("/events/:month", function(req, res){
             return;
         }
         res.render("events", {events: events});
+    });
+});
+
+app.get("/events/:id", function(req, res){
+    Event.findById(req.params.id, function(err, event){
+          if (err){
+              res.redirect("/home");
+              return;
+          }
+          res.render("show", {event:event});
     });
 });
 

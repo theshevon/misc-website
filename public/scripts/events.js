@@ -27,18 +27,6 @@ $(".fas").on("click", function(event){
 	event.stopPropagation();
 });
 
-$(".close-button").on("click", function(){
-	$(".pop-up-container").fadeOut(function(){
-		$(this).css("display", "none");
-	});
-});
-
-$(".test-btn").on("click", function(){
-	$(".pop-up-container").hide();
-	$(".pop-up-container").fadeIn();
-	$(".pop-up-container").css("display", "flex");
-});
-
 function init(){
 
 	$("#content").hide();

@@ -19,23 +19,9 @@
   <div class="row d-flex flex-wrap">
     <% events.forEach(function(event){ %>
       <div class="event col-md-4 col-sm-6 pb-5">
-          <h3><%=event.name%></h3>
+          <h4><%=event.name%></h4>
           <img src="<%= event.image %>" class="img-thumbnail">
-          <button class="test-btn mt-3">More Info</button>
-      </div>
-
-      <div class="pop-up-container">
-        <div class="pop-up-content">
-          <button class="close-button">&times;</button>
-          <h2><%=event.name%></h2>
-          <img class="img-fluid" src="<%= event.image %>">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+          <a href="/events/<%=event._id%>" target="_blank"><button class="more-btn mt-3">More Info</button></a>
       </div>
     <% }) %>
   </div>
