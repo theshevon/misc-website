@@ -39,6 +39,7 @@ var data = [
 
 function seedDB(){
 
+  console.log("seeding now");
   // remove all events
   Event.remove({}, function(err){
     if (err){

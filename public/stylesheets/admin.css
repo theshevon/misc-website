@@ -1,0 +1,14 @@
+h2{
+  letter-spacing: 0.5rem;
+  font-weight: 200;
+}
+
+.btn{
+	border: 1px solid white;
+	background: black;
+	color: white;
+}
+
+#content{
+  margin: 17.5% auto;
+}

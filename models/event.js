@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var passportLocalMongoose = require("passport-local-mongoose");
 
 var User_t = {
                type: mongoose.Schema.Types.ObjectId,
@@ -10,11 +11,12 @@ var Date_t = {
                default: Date.now
              };
 
-var eventSchema = mongoose.Schema({
+var EventSchema = new mongoose.Schema({
   date: Date,
   name: String,
   image: String,
   description: String,
+  location: String,
   created_by: User_t,
   created_on: Date_t,
   last_edited_by: User_t,
@@ -22,4 +24,4 @@ var eventSchema = mongoose.Schema({
 });
 
 // return model as object
-module.exports = mongoose.model("Event", eventSchema);
+module.exports = mongoose.model("Event", EventSchema);

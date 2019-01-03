@@ -9,9 +9,6 @@
 .btn{
 	border: 1px solid white;
 	background: black;
-}
-
-.btn{
 	color: white;
 }
 
@@ -31,6 +28,7 @@ hr{
 label span{
 	color: red;
 }
+
 
 @media(max-width:550px) {
   h3{

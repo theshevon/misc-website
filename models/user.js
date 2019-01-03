@@ -1,16 +1,20 @@
 var mongoose = require("mongoose");
+var passportLocalMongoose = require("passport-local-mongoose");
 
 var Date_t = {
                type: Date,
                default: Date.now
              };
-             
-var userSchema = mongoose.Schema({
-  username: String,
-  pw_hash: String,
-  last_login: Date_t,
-  last_logout: Date_t
+
+var UserSchema = new mongoose.Schema({
+    username: String,
+    password: String,
+    last_login: Date_t,
+    last_logout: Date_t
 });
 
+// defines the serialize/ deserialize methods for the user automatically
+UserSchema.plugin(passportLocalMongoose);
+
 // return model as object
-module.export = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", UserSchema);
