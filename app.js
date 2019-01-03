@@ -17,7 +17,13 @@ var Event = require("./models/event"),
 /*==================================app config================================*/
 
 // connect to umisc database
-mongoose.connect("mongodb://localhost:27018/umisc", {useNewUrlParser: true});
+mongoose.connect("mongodb://127.0.0.1:27017/umisc", {useNewUrlParser: true}, function(err, db) {
+    if (err) {
+        console.log('Unable to connect to the server. Please start the server. Error:', err);
+    } else {
+        console.log('Connected to Server successfully!');
+    }
+});
 
 app.use(require("express-session")({
     secret: "I am Beyonce, always",
@@ -44,7 +50,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 /*==================================(testing)=================================*/
 
-seedDB();
+// seedDB();
 
 /*====================================routing=================================*/
 
@@ -125,64 +131,58 @@ app.get("/contact", function(req, res){
 //     });
 // });
 
-var data = [
-    {
-      name: "Spring Event",
-      date: new Date(2019, 01, 09),
-      image: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/landscape-spring-event-poster-template-3995484c4d32950ed2544533874e80ac_screen.jpg?ts=1461316394",
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, \
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non \
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      name: "Spring Event 02",
-      date: new Date(2019, 01, 11),
-      image: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/landscape-spring-event-poster-template-3995484c4d32950ed2544533874e80ac_screen.jpg?ts=1461316394",
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, \
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non \
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      name: "Spring Event 03",
-      date: new Date(2019, 02, 04),
-      image: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/landscape-spring-event-poster-template-3995484c4d32950ed2544533874e80ac_screen.jpg?ts=1461316394",
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, \
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non \
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-]
-
-// EVENTS PAGE
 app.get("/events", function(req, res){
-    // retrieve all events from db
-    // Event.find({}, function(err, events){
-    //     if (err){
-    //         console.log("Error!");
-    //     } else{
-    //         res.render("events", {events: events})
-    //     }
-    // });
-    res.render("events", {events: data});
+  res.redirect("/events/" + (new Date).getMonth());
 });
 
-// // show specific event details
-// app.get("/events/:id", function(req, res){
-//   res.render("event");
-// });
+// EVENTS PAGE
+app.get("/events/:month", function(req, res){
+    // retrieve all events from db
+    Event.find({}, function(err, events){
+        if (err){
+            console.log("Error!");
+            return;
+        }
+        res.render("events", {events: events});
+    });
+});
 
 // ADMIN LOGIN PAGE
 app.get("/admin", function(req, res){
   res.render("admin");
 });
+
+app.post("/admin", passport.authenticate("local", {
+    successRedirect: "/home",
+    failureRedirect: "/admin",
+}), function(req, res){
+    //
+});
+
+app.get("/logout", function(req, res){
+
+    req.logout();
+    res.redirect("/");
+});
+
+// REGISTER NEW ADMIN PAGE
+// app.get("/register", function(req, res){
+//   res.render("register");
+// });
+//
+// app.post("/register", function(req, res){
+//     User.register(new User({username: req.body.username}), req.body.password, function(err, user){
+//         if (err){
+//             console.log(err);
+//             return res.render('register');
+//         }
+//
+//         // logs user in and runs 'serialize' method
+//         passport.authenticate("local")(req, res, function(){
+//            res.redirect("/home");
+//         });
+//     })
+// });
 
 // FALLBACK
 app.get("/*", function(req, res){

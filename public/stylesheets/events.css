@@ -25,17 +25,14 @@ h1:hover .fas{
 	transition: 500ms;
 }
 
-#header td{
-	color: white;
-	font-weight: bold;
-	font-size: 1.2rem;
+.fas{
+	color: gray;
+	opacity: 1;
+	transition: 500ms;
 }
 
-.fas{
-	padding: 0 3%;
-	color: gray;
-	opacity: 0;
-	transition: 500ms;
+span{
+	text-align: center;
 }
 
 .fas:hover{
@@ -61,7 +58,7 @@ h1:hover .fas{
 	top: -40px;
 }
 
-#close-button{
+.close-button{
 	color: gray;
 	background: none;
 	border: none;
@@ -71,11 +68,11 @@ h1:hover .fas{
 	left: 50%;
 }
 
-#close-button:hover{
+.close-button:hover{
 	color: white;
 }
 
-#close-button:focus{
+.close-button:focus{
 	outline: none;
 }
 
