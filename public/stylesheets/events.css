@@ -44,56 +44,6 @@ span{
 	color: white;
 }
 
-.pop-up-container{
-	display: none;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	top: 7.5%;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
-	background: rgba(0, 0, 0, 0.95);
-}
-
-.pop-up-content{
-	width: 70%;
-	position: relative;
-	top: -40px;
-}
-
-.close-button{
-	color: gray;
-	background: none;
-	border: none;
-	font-size: 2rem;
-	padding: none;
-	position: relative;
-	left: 50%;
-}
-
-.close-button:hover{
-	color: white;
-}
-
-.close-button:focus{
-	outline: none;
-}
-
-.pop-up-content img{
-	padding-bottom: 20px;
-}
-
-.pop-up-content h2{
-	text-transform: uppercase;
-	padding-bottom: 20px;
-}
-
-.pop-up-content p{
-	text-align: justify;
-}
-
 .more-btn, .add-btn{
 	border-radius: 4px;
 	background: none;
@@ -125,6 +75,15 @@ span{
 
 a{
 	color: white;
+}
+
+.del-btn{
+	background: black;
+	border: none;
+}
+
+.del-btn:hover{
+	background: black;
 }
 
 button:hover{
