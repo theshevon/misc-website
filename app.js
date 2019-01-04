@@ -63,9 +63,9 @@ app.use(flash());
 /*====================================routing=================================*/
 
 app.use(eventRoutes);
-app.use(indexRoutes);
 app.use(contactRoutes);
 app.use(adminRoutes);
+app.use(indexRoutes);
 
 app.listen(3000, function(){
   console.log("Successfully connected to server");
