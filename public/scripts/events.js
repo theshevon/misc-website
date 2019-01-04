@@ -6,7 +6,7 @@ var currentYear = d.getFullYear();
 
 init();
 
-$(".fas").on("click", function(event){
+$(".fas.nav").on("click", function(event){
 	if ($(this).hasClass("fa-angle-left")){
 		if (currentMonth === 0){
 			currentMonth = 11;

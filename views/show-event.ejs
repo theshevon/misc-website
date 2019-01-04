@@ -1,0 +1,13 @@
+<% include ./partials/header %>
+<link rel="stylesheet" href="/stylesheets/show-event.css">
+
+<div id="content" class="container">
+  <h2><%=event.name%></h2>
+  <img class="img-fluid d-flex mx-auto mb-4" src="<%= event.image %>">
+  <p><strong>Date:</strong> <%=event.date.toLocaleDateString()%></p>
+  <p><strong>Description:</strong><br><%=event.description%></p>
+  <p><strong>Location:</strong> <%=event.location%></p>
+  <p><strong>Event Page:</strong> <%=event.link%></p>
+</div>
+
+<% include ./partials/footer %>

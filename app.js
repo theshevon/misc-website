@@ -147,13 +147,28 @@ app.get("/events", function(req, res){
     });
 });
 
+app.get("/events/new", function(req, res){
+    res.render("new-event");
+});
+
+app.post("/events", function(req, res){
+    // req.body.event.description = req.santize(req.body.event.description);
+    Event.create(req.body.event, function(err, event){
+      if (err){
+        console.log(err);
+        return;
+      }
+      res.redirect("/events");
+    });
+});
+
 app.get("/events/:id", function(req, res){
     Event.findById(req.params.id, function(err, event){
           if (err){
               res.redirect("/home");
               return;
           }
-          res.render("show", {event:event});
+          res.render("show-event", {event:event});
     });
 });
 

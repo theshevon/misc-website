@@ -1,0 +1,27 @@
+label span{
+	color: red;
+}
+
+.main{
+  width:60%;
+}
+
+h2{
+  text-align: center;
+}
+
+.btn{
+	border-radius: 4px;
+	background: none;
+	border: 1px solid white;
+	color: white;
+}
+
+button:hover{
+	background: white;
+	color: black;
+}
+
+button:focus {
+	outline: none;
+}

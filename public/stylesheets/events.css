@@ -1,6 +1,5 @@
 body{
 	text-align: center;
-	text-transform: uppercase;
 }
 
 #content{
@@ -26,9 +25,14 @@ h1:hover .fas{
 	transition: 500ms;
 }
 
-.fas{
-	color: gray;
+.event:hover .admin-btn{
 	opacity: 1;
+	transition: 500ms;
+}
+
+.fas, .far{
+	color: gray;
+	opacity: 0;
 	transition: 500ms;
 }
 
@@ -36,7 +40,7 @@ span{
 	text-align: center;
 }
 
-.fas:hover{
+.fas:hover, .far:hover{
 	color: white;
 }
 
@@ -90,7 +94,7 @@ span{
 	text-align: justify;
 }
 
-.more-btn{
+.more-btn, .add-btn{
 	border-radius: 4px;
 	background: none;
 	border: 1px solid white;

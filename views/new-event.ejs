@@ -1,0 +1,60 @@
+<% include ./partials/header %>
+<link rel="stylesheet" href="/stylesheets/new-event.css">
+
+<div id="content" class="container main">
+
+  <h2 class="d-flex mb-5 justify-content-center">Enter New Event Details</h2>
+
+  <form action="/events" method="POST">
+
+      <div class="form-group row">
+        <label for="name" class="col-sm-6 mx-0 pr-5">Name<span>*</span>:</label>
+        <div class="col-sm-6">
+          <input id="name" type="text" class="form-control" name="event[name]" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="name" class="col-sm-6 mx-0 pr-5">Date<span>*</span>:</label>
+        <div class="col-sm-6">
+          <input id="name" type="date" class="form-control" name="event[date]" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="name" class="col-sm-6 mx-0 pr-5">Image URL<span>*</span>:</label>
+        <div class="col-sm-6">
+          <input id="name" type="file" accept="image/*" class="form-control" name="event[image]" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="message" class="col-12 col-sm-6">Description<span>*</span>:</label>
+        <div class="col-sm-6">
+          <textarea id="message" class="form-control" rows="10" name="event[description]" required></textarea>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="name" class="col-sm-6 mx-0 pr-5">Location<span>*</span>:</label>
+        <div class="col-sm-6">
+          <input id="name" type="text" class="form-control" name="event[location]" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="name" class="col-sm-6 mx-0 pr-5">Event Page Link<span>*</span>:</label>
+        <div class="col-sm-6">
+          <input id="name" type="text" class="form-control" name="event[link]" required>
+        </div>
+      </div>
+
+      <div class="float-right mt-3">
+        <button type="submit" class="btn">Create Event</button>
+      </div>
+
+    </form>
+
+</div>
+
+<% include ./partials/footer %>

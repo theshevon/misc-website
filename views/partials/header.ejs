@@ -8,6 +8,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/stylesheets/default.css">
 
@@ -49,7 +52,6 @@
               </li>
               <li class="nav-item">
                 <% if(currentUser){ %>
-                  <%console.log(currentUser); %>
                   <a href="/logout" class="nav-link">Logout</a>
                 <% } else { %>
                   <a href="https://docs.google.com/forms/d/1SElYiLksvvAA9WljptgbSDCUyWXMwo1jub9Nu1vMfqU/viewform?edit_requested=true" target="_blank" class="nav-link"><span>Sign Up</span></a>

@@ -8,18 +8,30 @@
 
 <div id="content" class="container">
 
+  <% if (currentUser){ %>
+    <a href="/events/new"><button class="add-btn">+ Event</button></a>
+  <% } %>
+
   <h1>
-    <i class="fas fa-angle-left"></i>
+    <i class="nav fas fa-angle-left"></i>
     <span id="month"></span>
-    <i class="fas fa-angle-right"></i>
+    <i class="nav fas fa-angle-right"></i>
     <br>
     <span id="year"></span>
   </h1>
 
-  <div class="row d-flex flex-wrap">
+  <div class="row flex-wrap">
     <% events.forEach(function(event){ %>
       <div class="event col-md-4 col-sm-6 pb-5">
-          <h4><%=event.name%></h4>
+        <h4>
+          <% if (currentUser){ %>
+              <i class="pl-1 pt-1 admin-btn float-left far fa-edit"></i>
+          <% } %>
+          <span><%=event.name%></span>
+          <% if (currentUser){ %>
+              <i class="pt-1 pr-1 admin-btn float-right fas fa-times"></i>
+          <% } %>
+        </h4>
           <img src="<%= event.image %>" class="img-thumbnail">
           <a href="/events/<%=event._id%>" target="_blank"><button class="more-btn mt-3">More Info</button></a>
       </div>
