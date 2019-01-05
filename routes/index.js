@@ -1,11 +1,12 @@
 var express = require("express");
 var router = express.Router();
 
-// HOME PAGE
+// REDIRECT TO HOME
 router.get("/", function(req, res){
-  res.redirect("home");
+  res.redirect("/home");
 });
 
+// HOME PAGE
 router.get("/home", function(req, res){
   res.render("home");
 });

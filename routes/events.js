@@ -2,16 +2,11 @@ var express = require("express");
 var router = express.Router();
 var Event = require("../models/event");
 
-// GET ROUTE
+var date = new Date();
+
+// REDIRECT TO MONTHLY EVENTS ROUTE
 router.get("/events", function(req, res){
-    // retrieve all events from db
-    Event.find({}, function(err, events){
-        if (err){
-            console.log("Error!");
-            return;
-        }
-        res.render("events", {events: events});
-    });
+    res.redirect("/events/" + date.getFullYear() + "/" + (date.getMonth()+1));
 });
 
 // CREATE ROUTE
@@ -19,8 +14,29 @@ router.get("/events/new", isLoggedIn, function(req, res){
     res.render("add-event");
 });
 
+// GET ROUTE
+router.get("/events/:year/:month", function(req, res){
+
+    var month = Number(req.params.month),
+        year  = Number(req.params.year);
+
+    // retrieve all events from db
+    Event.find({}, function(err, events){
+        if (err){
+            console.log("Error!");
+            return;
+        }
+        events = getEventsForSpecificTime(events, month, year);
+        res.render("events", {month: month, 
+                              year: year, 
+                              events: events, 
+                              prev: getUpdateTimeString(month, year, "prev"), 
+                              next: getUpdateTimeString(month, year, "next")});
+    });
+});
+
 // POST ROUTE
-router.post("/events", isLoggedIn, function(req, res){
+router.post("/events/:year/:month", isLoggedIn, function(req, res){
     Event.create(req.body.event, function(err, event){
       if (err){
         console.log(err);
@@ -35,7 +51,7 @@ router.get("/events/:id", function(req, res){
     Event.findById(req.params.id, function(err, event){
           if (err || !event){
             req.flash("error", "The event does not exist!")
-            res.redirect("/home");
+            res.redirect("/events");
             return;
           }
           res.render("show-event", {event:event});
@@ -86,3 +102,40 @@ function isLoggedIn(req, res, next){
 }
 
 module.exports = router;
+
+// HELPER FUNCTIONS
+
+function getEventsForSpecificTime(events, month, year){
+    
+    specificEvents = [];
+    events.forEach(function(event){
+        if (event.date.getMonth() === month && event.date.getFullYear() === year){
+            specificEvents.push(event);
+        }
+    });
+
+    return specificEvents;
+}
+
+function getUpdateTimeString(month, year, dir){
+    if (dir === "prev"){
+        if (month === 1){
+            console.log("prev");
+            month = 12;
+            year--;
+        }else{
+            month--;
+        }
+    }else{
+        if (month === 12){
+            month = 1;
+            year++;
+        }else{
+            month++;
+        }
+    }
+
+    return "/" + year + "/" + month + "/";
+}
+
+

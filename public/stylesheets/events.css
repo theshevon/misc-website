@@ -14,6 +14,10 @@ h1 {
 	padding-bottom: 5;
 }
 
+#month{
+	width: 40%;
+}
+
 #year{
 	font-size: 0.4em;
 	font-weight: 200;
@@ -77,6 +81,10 @@ a{
 	color: white;
 }
 
+a:hover{
+	text-decoration: none;
+}
+
 .del-btn{
 	background: black;
 	border: none;
@@ -93,4 +101,9 @@ button:hover{
 
 button:focus {
 	outline: none;
+}
+
+#sorry-msg{
+	margin: 15% auto;
+	font-weight: 100;
 }

@@ -3,7 +3,7 @@ var mongoose = require("mongoose"),
 
 var data = [
     {
-      name: "Spring Event",
+      name: "Spring Event 01",
       date: new Date(2019, 01, 09),
       image: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/landscape-spring-event-poster-template-3995484c4d32950ed2544533874e80ac_screen.jpg?ts=1461316394",
       description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, \
@@ -17,7 +17,7 @@ var data = [
       page_link: "https://facebook.com"
     },
     {
-      name: "Pen Test Workshop",
+      name: "Pen Test Workshop 01",
       date: new Date(2019, 01, 11),
       image: "https://previews.123rf.com/images/sxwx/sxwx1810/sxwx181000080/110213731-new-years-party-invitation-poster-or-flyer-with-vinyl-lp-for-dj-and-retro-80s-neon-styled-landscape-.jpg",
       description: "It is a long established fact that a reader will be\
@@ -32,7 +32,7 @@ var data = [
       location: "Peter Hall G07"
     },
     {
-      name: "SQL Injections",
+      name: "SQL Injections 01",
       date: new Date(2019, 02, 04),
       image: "https://static.pechakucha.org/pechakucha/uploads/event_picture/picture/5214fe8f4f5c29dcd1000001/large_wide_pk-portsmouth-16-poster-landscape.jpg",
       description: "Contrary to popular belief, Lorem Ipsum is not simply random\
@@ -46,7 +46,7 @@ var data = [
        location: "Sydney Myer"
     },
     {
-      name: "Spring Event",
+      name: "Spring Event 02",
       date: new Date(2019, 01, 09),
       image: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/landscape-spring-event-poster-template-3995484c4d32950ed2544533874e80ac_screen.jpg?ts=1461316394",
       description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, \
@@ -58,7 +58,7 @@ var data = [
       location: "Elizabeth Murdoch G06"
     },
     {
-      name: "Pen Test Workshop",
+      name: "Pen Test Workshop 02",
       date: new Date(2019, 01, 11),
       image: "https://previews.123rf.com/images/sxwx/sxwx1810/sxwx181000080/110213731-new-years-party-invitation-poster-or-flyer-with-vinyl-lp-for-dj-and-retro-80s-neon-styled-landscape-.jpg",
       description: "It is a long established fact that a reader will be\
@@ -73,7 +73,7 @@ var data = [
       location: "Peter Hall G07"
     },
     {
-      name: "SQL Injections",
+      name: "SQL Injections 02",
       date: new Date(2019, 02, 04),
       image: "https://static.pechakucha.org/pechakucha/uploads/event_picture/picture/5214fe8f4f5c29dcd1000001/large_wide_pk-portsmouth-16-poster-landscape.jpg",
       description: "Contrary to popular belief, Lorem Ipsum is not simply random\
