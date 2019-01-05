@@ -28,7 +28,7 @@
 
   <body>
 
-    <nav id="mainNavBar" class="navbar navbar-dark navbar-expand-md fixed-top">
+    <nav id="mainNavBar" class="navbar navbar-dark navbar-expand-md">
       <div class="container">
         <a href="/home" class="navbar-brand"><img src="/images/icon.png"></a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks"
@@ -62,3 +62,13 @@
         </div>
       </div>
     </nav>
+
+    <div class="container">
+        <% if (error && error.length > 0){ %>
+          <div class="alert alert-danger" role="alert"><%=error%></div>
+        <% } %>
+        <% if (success && success.length > 0){ %>
+          <div class="alert alert-success" role="success"><%=success%></div>
+        <% } %>
+    </div>
+  

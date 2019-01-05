@@ -33,9 +33,10 @@ router.post("/events", isLoggedIn, function(req, res){
 // SHOW ROUTE
 router.get("/events/:id", function(req, res){
     Event.findById(req.params.id, function(err, event){
-          if (err){
-              res.redirect("/home");
-              return;
+          if (err || !event){
+            req.flash("error", "The event does not exist!")
+            res.redirect("/home");
+            return;
           }
           res.render("show-event", {event:event});
     });
@@ -44,7 +45,8 @@ router.get("/events/:id", function(req, res){
 // EDIT ROUTE
 router.get("/events/:id/edit", isLoggedIn, function(req, res){
     Event.findById(req.params.id, function(err, event){
-        if (err){
+        if (err || !event){
+            req.flash("error", "The event does not exist!")
             res.redirect("/events");
         } else{
             res.render("edit-event", {event:event});
@@ -79,6 +81,7 @@ function isLoggedIn(req, res, next){
   if (req.isAuthenticated()){
     return next();
   }
+  req.flash("error", "Please Login First!");
   res.redirect("/admin");
 }
 

@@ -1,7 +1,6 @@
 /*=========================package/schema imports=============================*/
 
-var passportLocalMongoose = require("passport-local-mongoose"),
-    methodOverride        = require("method-override"),
+var methodOverride        = require("method-override"),
     localStrategy         = require("passport-local"),
     flash                 = require("connect-flash"),
     bodyParser            = require("body-parser"),
@@ -10,6 +9,7 @@ var passportLocalMongoose = require("passport-local-mongoose"),
     mongoose              = require("mongoose"),
     express               = require("express"),
     seedDB                = require("./seeds"),
+    helmet                = require("helmet"),
     app                   = express();
 
 var Event = require("./models/event"),
@@ -31,6 +31,9 @@ mongoose.connect("mongodb://127.0.0.1:27017/umisc", {useNewUrlParser: true}, fun
     }
 });
 
+app.use(flash());   // needs to be BEFORE passport config
+app.use(helmet());
+
 app.use(require("express-session")({
     secret: "I am Beyonce, always",
     resave: false,
@@ -47,6 +50,8 @@ passport.deserializeUser(User.deserializeUser());
 // move user data to all view templates
 app.use(function(req, res, next){
   res.locals.currentUser = req.user;
+  res.locals.error = req.flash("error");
+  res.locals.success = req.flash("success");
   next();
 });
 
@@ -54,7 +59,6 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
-app.use(flash());
 
 /*==================================(testing)=================================*/
 

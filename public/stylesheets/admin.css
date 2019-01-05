@@ -9,6 +9,11 @@ h2{
 	color: white;
 }
 
+.btn:hover{
+	background: white;
+	color: black;
+}
+
 #content{
   margin: 17.5% auto;
 }

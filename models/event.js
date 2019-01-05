@@ -1,5 +1,4 @@
 var mongoose = require("mongoose");
-var passportLocalMongoose = require("passport-local-mongoose");
 
 var User_t = {
                type: mongoose.Schema.Types.ObjectId,
@@ -17,7 +16,8 @@ var EventSchema = new mongoose.Schema({
   image: String,
   description: String,
   location: String,
-  link: String,
+  location_link: String,
+  page_link: String,
   created_by: User_t,
   created_on: Date_t,
   last_edited_by: User_t,

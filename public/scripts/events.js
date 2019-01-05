@@ -1,6 +1,5 @@
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var d = new Date();
-var currentDay = d.getDate();
 var currentMonth = d.getMonth();
 var currentYear = d.getFullYear();
 

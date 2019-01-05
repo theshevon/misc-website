@@ -31,10 +31,6 @@
   color: gray;
 }
 
-/* #mainNavBar #-tag .nav-link{
-  color: gray;
-} */
-
 body{
   background: black;
 }
@@ -43,13 +39,12 @@ body{
   border: none;
 }
 
-#content{
+/* #content{
   margin-top: 8rem;
-}
+} */
 
 body{
   color: white;
-  /*font-family: Nunito, Sans-Serif;*/
 }
 
 .navbar-collapse {
@@ -61,4 +56,34 @@ body{
   transform: translateX(-50%);
   left: 50%;
   position: absolute;
+}
+
+.alert{
+  background-color: black;
+  margin-top: 3%;
+  text-align: center;
+}
+
+.alert-danger{
+  border-color: red;
+  color: red;
+}
+
+.alert-success{
+  color: rgb(2, 145, 145);
+  border-color:  rgb(2, 145, 145);
+}
+
+.button{
+	background: black;
+	border: none;
+}
+
+button:hover{
+	background: white;
+	color: black;
+}
+
+button:focus {
+	outline: none;
 }

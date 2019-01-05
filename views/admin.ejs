@@ -7,7 +7,11 @@
 
     <h2 class="d-flex justify-content-center">ADMIN PORTAL</h2>
 
-    <form action="/admin" method="POST" class="pt-5">
+    <% if (error && error.length > 0){ %>
+      <form action="/admin" method="POST">
+    <% } else { %>
+      <form action="/admin" method="POST" class="mt-5">
+    <% } %>
 
         <div class="form-group row justify-content-center" >
           <div class="col-12 col-sm-6 col-md-4">
@@ -22,14 +26,11 @@
         </div>
 
         <div class="d-flex justify-content-center pt-4">
-          <button type="submit inverse" class="btn">Log In</button>
+          <button type="submit" class="btn">Log In</button>
         </div>
 
     </form>
 
 </div>
-
-<!-- Custom JS -->
-<!-- <script type="text/javascript" src="/scripts/contact.js"></script> -->
 
 <% include ./partials/footer %>

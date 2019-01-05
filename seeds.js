@@ -12,7 +12,9 @@ var data = [
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non \
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      location: "Elizabeth Murdoch G06"
+      location: "Elisabeth Murdoch G06 Lecture Theatre A",
+      location_link: "https://studentvip.com.au/unimelb/parkville/maps/116923",
+      page_link: "https://facebook.com"
     },
     {
       name: "Pen Test Workshop",
