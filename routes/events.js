@@ -14,6 +14,18 @@ router.get("/events/new", isLoggedIn, function(req, res){
     res.render("add-event");
 });
 
+// PREVIEW ROUTE
+router.get("/events/preview", isLoggedIn, function(req, res){
+    Event.findById(req.params.id, function(err, event){
+        if (err || !event){
+          req.flash("error", "The event does not exist!")
+          res.redirect("/events");
+          return;
+        }
+        res.render("preview", {event:event});
+    });
+});
+
 // GET ROUTE
 router.get("/events/:year/:month", function(req, res){
 
@@ -36,7 +48,7 @@ router.get("/events/:year/:month", function(req, res){
 });
 
 // POST ROUTE
-router.post("/events/:year/:month", isLoggedIn, function(req, res){
+router.post("/events", isLoggedIn, function(req, res){
     Event.create(req.body.event, function(err, event){
       if (err){
         console.log(err);
