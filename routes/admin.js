@@ -9,12 +9,11 @@ router.get("/admin", function(req, res){
 });
 
 router.post("/admin", passport.authenticate("local", {
-    successRedirect: "/home",
     failureRedirect: "/admin",
-    successFlash: "Successfully Logged In",
-    failureFlash: "Invalid username or password."
+    failureFlash: "Invalid username or password"
 }), function(req, res){
-    //
+    req.flash("success", "Successfully Logged In As: " + req.user.username);
+    res.redirect("/home");
 });
 
 
@@ -38,7 +37,7 @@ router.post("/register", function(req, res){
 
         // logs user in and runs 'serialize' method
         passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Succesfully Logged In As:");
+            req.flash("success", "Succesfully Logged In");
             res.redirect("/home");
         });
     })

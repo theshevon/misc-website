@@ -19,7 +19,7 @@
     <a href="/events<%= prev %>">
         <i class="nav fas fa-angle-left"></i>
     </a>
-    <span id="month"><%= months[month-1] %></span>
+    <span id="month"><%= months[month] %></span>
     <a href="/events<%= next %>">
       <i class="nav fas fa-angle-right"></i>
     </a>
@@ -29,7 +29,7 @@
 
   <div class="row flex-wrap">
     <% if (events.length === 0 ){ %>
-      <h2 id="sorry-msg">Sorry, there are no events scheduled for this month!</h2>
+      <h2 id="sorry-msg">Sorry, there are no events scheduled for this month.</h2>
     <% }else{ %>
       <% events.forEach(function(event){ %>
         <div class="event col-md-4 col-sm-6 pb-5">

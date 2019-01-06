@@ -20,7 +20,6 @@ var eventRoutes   = require("./routes/events"),
     indexRoutes   = require("./routes/index"),
     contactRoutes = require("./routes/contact");
 
-var date = new Date();
 /*==================================app config================================*/
 
 // connect to umisc database

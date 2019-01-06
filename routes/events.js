@@ -6,7 +6,7 @@ var date = new Date();
 
 // REDIRECT TO MONTHLY EVENTS ROUTE
 router.get("/events", function(req, res){
-    res.redirect("/events/" + date.getFullYear() + "/" + (date.getMonth()+1));
+    res.redirect("/events/" + date.getFullYear() + "/" + date.getMonth());
 });
 
 // CREATE ROUTE
@@ -14,15 +14,15 @@ router.get("/events/new", isLoggedIn, function(req, res){
     res.render("add-event");
 });
 
-// PREVIEW ROUTE
-router.get("/events/preview", isLoggedIn, function(req, res){
+// EDIT ROUTE
+router.get("/events/:id/edit", isLoggedIn, function(req, res){
     Event.findById(req.params.id, function(err, event){
         if (err || !event){
-          req.flash("error", "The event does not exist!")
-          res.redirect("/events");
-          return;
+            req.flash("error", "The event does not exist!")
+            res.redirect("/events");
+        } else{
+            res.render("edit-event", {event:event});
         }
-        res.render("preview", {event:event});
     });
 });
 
@@ -39,11 +39,13 @@ router.get("/events/:year/:month", function(req, res){
             return;
         }
         events = getEventsForSpecificTime(events, month, year);
-        res.render("events", {month: month, 
-                              year: year, 
-                              events: events, 
-                              prev: getUpdateTimeString(month, year, "prev"), 
-                              next: getUpdateTimeString(month, year, "next")});
+        res.render("events", {
+                                month: month, 
+                                year: year, 
+                                events: events, 
+                                prev: getUpdateTimeString(month, year, "prev"), 
+                                next: getUpdateTimeString(month, year, "next")
+                            });
     });
 });
 
@@ -54,7 +56,8 @@ router.post("/events", isLoggedIn, function(req, res){
         console.log(err);
         return;
       }
-      res.redirect("/events/" + req.body.event.id);
+      req.flash("success", "Event Successfully Added");
+      res.redirect("/events/" + event.date.getFullYear() + "/" + event.date.getMonth());
     });
 });
 
@@ -70,25 +73,17 @@ router.get("/events/:id", function(req, res){
     });
 });
 
-// EDIT ROUTE
-router.get("/events/:id/edit", isLoggedIn, function(req, res){
-    Event.findById(req.params.id, function(err, event){
-        if (err || !event){
-            req.flash("error", "The event does not exist!")
-            res.redirect("/events");
-        } else{
-            res.render("edit-event", {event:event});
-        }
-    });
-});
+
 
 // UPDATE ROUTE
 router.put("/events/:id", isLoggedIn, function(req, res){
     Event.findByIdAndUpdate(req.params.id, req.body.event, function(err, event){
         if (err){
+            req.flash("error", "Error: Sorry, your request could not be completed at this time");
             res.redirect("/events");
         } else{
-            res.redirect("/events/" + req.params.id);
+            req.flash("success", "Event Successfully Updated");
+            res.redirect("back");
         }
     });
 });
@@ -98,9 +93,11 @@ router.delete("/events/:id", isLoggedIn, function(req, res){
     // destroy blog
     Event.findByIdAndRemove(req.params.id, function(err){
         if (err){
-            res.redirect("/events");
+            req.flash("error", "Error: Sorry, your request could not be completed at this time");
+            res.redirect("back");
         } else{
-            res.redirect("/events");
+            req.flash("success", "Event Successfully Deleted")
+            res.redirect("back");
         }
     });
 });
@@ -121,6 +118,9 @@ function getEventsForSpecificTime(events, month, year){
     
     specificEvents = [];
     events.forEach(function(event){
+        // console.log(event.name);
+        // console.log(event.date.getMonth());
+        // console.log(month);
         if (event.date.getMonth() === month && event.date.getFullYear() === year){
             specificEvents.push(event);
         }
@@ -131,22 +131,20 @@ function getEventsForSpecificTime(events, month, year){
 
 function getUpdateTimeString(month, year, dir){
     if (dir === "prev"){
-        if (month === 1){
-            console.log("prev");
-            month = 12;
+        if (month === 0){
+            month = 11;
             year--;
         }else{
             month--;
         }
     }else{
-        if (month === 12){
-            month = 1;
+        if (month === 11){
+            month = 0;
             year++;
         }else{
             month++;
         }
     }
-
     return "/" + year + "/" + month + "/";
 }
 
