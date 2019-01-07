@@ -33,22 +33,9 @@
     <% }else{ %>
       <% events.forEach(function(event){ %>
         <div class="event col-md-4 col-sm-6 pb-5">
-          <h4>
-            <% if (currentUser){ %>
-                <a href="/events/<%=event._id%>/edit">
-                  <i class="pl-1 pt-1 admin-btn float-left far fa-edit"></i>
-                </a>
-            <% } %>
-            <span><%=event.name%></span>
-            <% if (currentUser){ %>
-                <form  action="/events/<%=event._id%>?_method=DELETE" method="POST">
-                  <button type="submit" class="float-right del-btn"><i class="pt-1 pr-1 admin-btn fas fa-times"></i></button>
-                </form>
-
-            <% } %>
-          </h4>
-            <img src="<%= event.image %>" class="img-thumbnail">
-            <a href="/events/<%=event._id%>" target="_blank"><button class="more-btn mt-3">More Info</button></a>
+          <h4><%=event.name%></h4>
+          <img src="<%= event.image %>" class="img-thumbnail">
+          <a href="/events/<%=event._id%>"><button class="more-btn mt-3">More Info</button></a>
         </div>
       <% }); %>
     <% } %>

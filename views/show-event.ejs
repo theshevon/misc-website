@@ -4,11 +4,30 @@
 <div id="content" class="container">
   <h2><%=event.name%></h2>
   <img class="img-fluid d-flex mx-auto mb-4" src="<%= event.image %>">
-  <% var date = event.date.toDateString() %>
+  <% var date = event.date.toDateString(); %>
   <p><strong>Date:</strong> <%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%></p>
   <p><strong>Description:</strong><br><%=event.description%></p>
   <p><strong>Location:</strong><a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
   <p><strong>Event Page:</strong> <a href="<%=event.page_link%>" target="_blank"><%=event.name%></a></p>
+
+  <% if (currentUser){ %>
+    <p class="admin-details"><strong>Created by:</strong> <%= event.created_by.username %><strong>,</strong> <span><%= event.created_on %></span></p>
+    <p class="admin-details"><strong>Last Edited by:</strong> <%= event.last_edited_by.username %><strong>,</strong> <span><%= event.last_edited_on %></span></p>
+
+    <div class="float-right">
+        <a href="javascript:history.back()">
+            <button type="button" class="btn back-btn">Cancel</button>
+        </a>
+        <a href="/events/<%=event._id%>/edit">
+          <button class="btn edit-btn">Edit</button>
+        </a>
+        <a href="/events/<%=event._id%>/delete">
+          <button class="btn del-btn">Delete</button>
+        </a>
+    </div>
+
+  <% } %>
+
 </div>
 
 <% include ./partials/footer %>

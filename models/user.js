@@ -9,6 +9,7 @@ var Date_t = {
 var UserSchema = new mongoose.Schema({
     username: String,
     password: String,
+    name: String,
     last_login: Date_t,
     last_logout: Date_t
 });

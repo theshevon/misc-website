@@ -1,14 +1,17 @@
 var mongoose = require("mongoose");
 
 var User_t = {
-               type: mongoose.Schema.Types.ObjectId,
-               ref: 'User'
+               id:{
+                  type: mongoose.Schema.Types.ObjectId,
+                  ref: 'User'
+               },
+               username: String
              };
 
 var Date_t = {
-               type: Date,
-               default: Date.now
-             };
+                type: Date,
+                default: Date.now
+              };
 
 var EventSchema = new mongoose.Schema({
   date: Date,

@@ -11,15 +11,23 @@ h2{
 }
 
 .btn{
-	border-radius: 4px;
-	background: none;
-	border: 1px solid white;
-	color: white;
+	color: rgb(2, 145, 145);
+  border-color:  rgb(2, 145, 145);
 }
 
 button:hover{
-	background: white;
+	background-color: rgb(2, 145, 145);
 	color: black;
+}
+
+.cancel-btn{
+  border-color: red;
+  color: red;
+}
+
+.cancel-btn:hover{
+  background-color: red;
+  color: black;
 }
 
 button:focus {

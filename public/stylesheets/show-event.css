@@ -1,3 +1,42 @@
 h2{
   text-align: center;
 }
+
+.admin-details strong, .admin-details span {
+  color : gray;
+}
+
+.admin-details{
+  color: #0472e8;
+}
+
+.edit-btn{
+  border-color: gold;
+  color: gold;
+}
+
+.edit-btn:hover{
+  background-color: gold;
+  color: black;
+}
+
+.del-btn{
+  border-color: red;
+  color: red;
+}
+
+.del-btn:hover{
+  background-color: red;
+  color: black;
+}
+
+.back-btn{
+  border-color: rgb(2, 145, 145);
+  color: rgb(2, 145, 145);
+}
+
+.back-btn:hover{
+  background-color: rgb(2, 145, 145);
+  color: black;
+}
+

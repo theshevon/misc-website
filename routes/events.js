@@ -2,10 +2,9 @@ var express = require("express");
 var router = express.Router();
 var Event = require("../models/event");
 
-var date = new Date();
-
 // REDIRECT TO MONTHLY EVENTS ROUTE
 router.get("/events", function(req, res){
+    var date = new Date();
     res.redirect("/events/" + date.getFullYear() + "/" + date.getMonth());
 });
 
@@ -51,6 +50,15 @@ router.get("/events/:year/:month", function(req, res){
 
 // POST ROUTE
 router.post("/events", isLoggedIn, function(req, res){
+    
+    var creator = {
+                    id: req.user._id,
+                    username: req.user.username
+                  };
+
+    req.body.event.created_by = creator;
+    req.body.event.last_edited_by = creator;
+
     Event.create(req.body.event, function(err, event){
       if (err){
         console.log(err);
@@ -77,6 +85,15 @@ router.get("/events/:id", function(req, res){
 
 // UPDATE ROUTE
 router.put("/events/:id", isLoggedIn, function(req, res){
+    
+    var editor = {
+                    id: req.user._id,
+                    username: req.user.username
+                 };
+
+    req.body.event.last_edited_by = editor;
+    req.body.event.last_edited_on = Date();
+
     Event.findByIdAndUpdate(req.params.id, req.body.event, function(err, event){
         if (err){
             req.flash("error", "Error: Sorry, your request could not be completed at this time");
@@ -90,7 +107,8 @@ router.put("/events/:id", isLoggedIn, function(req, res){
 
 // DELETE ROUTE
 router.delete("/events/:id", isLoggedIn, function(req, res){
-    // destroy blog
+
+    // delete event
     Event.findByIdAndRemove(req.params.id, function(err){
         if (err){
             req.flash("error", "Error: Sorry, your request could not be completed at this time");
@@ -118,9 +136,6 @@ function getEventsForSpecificTime(events, month, year){
     
     specificEvents = [];
     events.forEach(function(event){
-        // console.log(event.name);
-        // console.log(event.date.getMonth());
-        // console.log(month);
         if (event.date.getMonth() === month && event.date.getFullYear() === year){
             specificEvents.push(event);
         }
