@@ -30,34 +30,28 @@
 
     <nav id="mainNavBar" class="navbar navbar-dark navbar-expand-md">
       <div class="container">
-        <a href="/home" class="navbar-brand"><img src="/images/icon.png"></a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks"
-        aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand" href="/home"><img src="/images/icon.png" width="30" height="30"></a>
+        <button id="toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navLinks" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div id="navLinks" class="collapse navbar-collapse">
-          <ul class="navbar-nav">
-            <div class="left-navs d-flex justify-content-around">
-              <li id="about-tag" class="nav-item">
-                <a href="/about" class="nav-link">About</a>
-              </li>
-              <li id="events-tag" class="nav-item">
-                <a href="/events" class="nav-link">Events</a>
-              </li>
-            </div>
-            <div class="centre-space"></div>
-            <div class="right-navs d-flex justify-content-around">
-              <li id="contact-tag" class="nav-item">
-                <a href="/contact" class="nav-link">Contact</a>
-              </li>
-              <li class="nav-item">
-                <% if(currentUser){ %>
-                  <a href="/logout" class="nav-link">Logout</a>
-                <% } else { %>
-                  <a href="https://docs.google.com/forms/d/1SElYiLksvvAA9WljptgbSDCUyWXMwo1jub9Nu1vMfqU/viewform?edit_requested=true" target="_blank" class="nav-link"><span>Sign Up</span></a>
-                <% } %>
-              </li>
-            </div>
+          <ul class="navbar-nav d-flex justify-content-between">
+            <li id="about-tag" class="nav-item">
+              <a href="/about" class="nav-link">About</a>
+            </li>
+            <li id="events-tag" class="nav-item">
+              <a href="/events" class="nav-link">Events</a>
+            </li>
+            <li id="contact-tag" class="nav-item">
+              <a href="/contact" class="nav-link">Contact</a>
+            </li>
+            <li class="nav-item">
+              <% if(currentUser){ %>
+                <a href="/logout" class="nav-link">Logout</a>
+              <% } else { %>
+                <a href="https://docs.google.com/forms/d/1SElYiLksvvAA9WljptgbSDCUyWXMwo1jub9Nu1vMfqU/viewform?edit_requested=true" target="_blank" class="nav-link"><span>Sign Up</span></a>
+              <% } %>
+            </li>
           </ul>
         </div>
       </div>

@@ -1,7 +1,5 @@
-#mainNavBar{
+ #mainNavBar{
   background-color: #202020;
-  height: 2.5rem;
-  /*padding-left: 12.5%;*/
 }
 
 #mainNavBar .nav-link{
@@ -19,31 +17,29 @@
   width: 100%;
 }
 
-.right-navs, .left-navs{
-  width: 40%;
-}
-
-.centre-space{
-  width: 20%;
+#events-tag{
+  margin-right: 20%;
 }
 
 #mainNavBar .nav-link:hover{
   color: gray;
 }
 
-body{
-  background: black;
-}
-
-.navbar-toggler{
+#toggler{
   border: none;
 }
 
-/* #content{
-  margin-top: 8rem;
-} */
+#toggler:hover .navbar-toggler-icon{
+  color: white;
+}
+
+#toggler:focus{
+  border: 1px solid gray;
+  outline: none;
+}
 
 body{
+  background: black;
   color: white;
 }
 
@@ -56,7 +52,7 @@ body{
   transform: translateX(-50%);
   left: 50%;
   position: absolute;
-}
+} 
 
 .alert{
   background-color: black;
@@ -72,18 +68,9 @@ body{
 .alert-success{
   color: rgb(2, 145, 145);
   border-color:  rgb(2, 145, 145);
+} 
+
+/* #content{
+  margin-top: 8rem;
 }
 
-.button{
-	background: black;
-	border: none;
-}
-
-button:hover{
-	background: white;
-	color: black;
-}
-
-button:focus {
-	outline: none;
-}
