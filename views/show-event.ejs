@@ -13,11 +13,13 @@
   <% if (currentUser){ %>
     <p class="admin-details"><strong>Created by:</strong> <%= event.created_by.username %><strong>,</strong> <span><%= event.created_on %></span></p>
     <p class="admin-details"><strong>Last Edited by:</strong> <%= event.last_edited_by.username %><strong>,</strong> <span><%= event.last_edited_on %></span></p>
+  <% } %>
+
+  <button type="button" onclick="history.back()" class="btn back-btn float-left mt-3">Back</button>
+
+  <% if (currentUser){ %>
 
     <div class="float-right">
-        <a href="javascript:history.back()">
-            <button type="button" class="btn back-btn">Cancel</button>
-        </a>
         <a href="/events/<%=event._id%>/edit">
           <button class="btn edit-btn">Edit</button>
         </a>

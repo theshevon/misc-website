@@ -31,12 +31,12 @@ h2{
 }
 
 .back-btn{
-  border-color: rgb(2, 145, 145);
-  color: rgb(2, 145, 145);
+  border-color: white;
+  color: white;
 }
 
 .back-btn:hover{
-  background-color: rgb(2, 145, 145);
+  background-color: white;
   color: black;
 }
 
