@@ -18,7 +18,7 @@ router.get("/about", function(req, res){
 
 // FALLBACK
 router.get("/*", function(req, res){
-  res.send("Error: This page does not exist");
+  res.render("error");
 });
 
 module.exports = router;

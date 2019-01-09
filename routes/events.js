@@ -115,7 +115,7 @@ router.delete("/events/:id", isLoggedIn, function(req, res){
             res.redirect("back");
         } else{
             req.flash("success", "Event Successfully Deleted")
-            res.redirect("back");
+            res.redirect("/events");
         }
     });
 });
@@ -132,16 +132,21 @@ module.exports = router;
 
 // HELPER FUNCTIONS
 
-function getEventsForSpecificTime(events, month, year){
+function getEventsForSpecificTime(allEvents, month, year){
     
-    specificEvents = [];
-    events.forEach(function(event){
+    events = [];
+
+    // find the events for the particular month
+    allEvents.forEach(function(event){
         if (event.date.getMonth() === month && event.date.getFullYear() === year){
-            specificEvents.push(event);
+            events.push(event);
         }
     });
 
-    return specificEvents;
+    // sort them in ascending order of date
+    events.sort((event1, event2) => event1.date - event2.date);
+
+    return events;
 }
 
 function getUpdateTimeString(month, year, dir){

@@ -60,7 +60,7 @@ span{
 }
 
 .event h4, p{
-	font-weight: 100;
+	font-weight: 150;
 }
 
 .event-img{
@@ -80,6 +80,7 @@ span{
 	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	text-align: center;
+	width: 100%;
 }
 
 .event:hover .event-img {
