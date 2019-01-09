@@ -17,6 +17,10 @@
   width: 100%;
 }
 
+#navLinks .navbar-nav a{
+  line-height: 0.5rem;
+}
+
 #events-tag{
   margin-right: 20%;
 }
@@ -70,7 +74,7 @@ body{
   border-color:  rgb(2, 145, 145);
 } 
 
-/* #content{
-  margin-top: 8rem;
+#content{
+  margin-top: 3%;
 }
 

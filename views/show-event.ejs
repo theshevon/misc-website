@@ -6,13 +6,16 @@
   <img class="img-fluid d-flex mx-auto mb-4" src="<%= event.image %>">
   <% var date = event.date.toDateString(); %>
   <p><strong>Date:</strong> <%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%></p>
+  <p><strong>Time:</strong> <%= event.time %></p>
   <p><strong>Description:</strong><br><%=event.description%></p>
   <p><strong>Location:</strong><a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
   <p><strong>Event Page:</strong> <a href="<%=event.page_link%>" target="_blank"><%=event.name%></a></p>
 
   <% if (currentUser){ %>
     <p class="admin-details"><strong>Created by:</strong> <%= event.created_by.username %><strong>,</strong> <span><%= event.created_on %></span></p>
+    <% if (event.last_edited_by > event.created_by) { %>
     <p class="admin-details"><strong>Last Edited by:</strong> <%= event.last_edited_by.username %><strong>,</strong> <span><%= event.last_edited_on %></span></p>
+    <% } %>
   <% } %>
 
   <button type="button" onclick="history.back()" class="btn back-btn float-left mt-3">Back</button>

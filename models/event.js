@@ -14,8 +14,9 @@ var Date_t = {
               };
 
 var EventSchema = new mongoose.Schema({
-  date: Date,
   name: String,
+  date: Date,
+  time: String,
   image: String,
   description: String,
   location: String,

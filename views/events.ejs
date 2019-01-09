@@ -34,8 +34,14 @@
       <% events.forEach(function(event){ %>
         <div class="event col-md-4 col-sm-6 pb-5">
           <h4><%=event.name%></h4>
-          <img src="<%= event.image %>" class="img-thumbnail">
-          <a href="/events/<%=event._id%>"><button class="more-btn mt-3">More Info</button></a>
+          <img src="<%= event.image %>" class="event-img img-thumbnail">
+          <div class="img-overlay">
+              <% var date = event.date.toDateString(); %>
+              <p> Date: <%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%></p>
+              <p> Time: <%= event.time %></p>
+              <p> Location: <a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
+              <a href="/events/<%=event._id%>"><button class="more-btn btn">More Info</button></a>
+          </div>
         </div>
       <% }); %>
     <% } %>

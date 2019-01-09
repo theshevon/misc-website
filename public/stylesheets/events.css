@@ -1,4 +1,4 @@
-body{
+#content{
 	text-align: center;
 }
 
@@ -63,13 +63,31 @@ span{
 	font-weight: 100;
 }
 
-.event img{
+.event-img{
 	border: 0 none;
 	box-shadow: none;
+	opacity: 1;
+	transition: .5s ease;
+	backface-visibility: hidden;
 }
 
-.event p{
-	color: #0472e8;
+.img-overlay{
+	transition: .5s ease;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.event:hover .event-img {
+	opacity: 0.1;
+}
+  
+.event:hover .img-overlay {
+	opacity: 1;
 }
 
 .img-thumbnail{
@@ -94,12 +112,12 @@ a:hover{
 	background: black;
 }
 
-button:hover{
+.more-btn:hover{
 	background: white;
 	color: black;
 }
 
-button:focus {
+.more-btn:focus {
 	outline: none;
 }
 
