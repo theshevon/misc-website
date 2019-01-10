@@ -100,7 +100,7 @@ router.put("/events/:id", isLoggedIn, function(req, res){
             res.redirect("/events");
         } else{
             req.flash("success", "Event Successfully Updated");
-            res.redirect("back");
+            res.redirect("/events/" + req.params.id);
         }
     });
 });

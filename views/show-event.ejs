@@ -16,7 +16,7 @@
     
       <% if (currentUser){ %>
         <p class="admin-details"><strong>Created by:</strong> <%= event.created_by.username %><strong>,</strong> <span><%= event.created_on %></span></p>
-        <% if (event.last_edited_by > event.created_by) { %>
+        <% if (event.last_edited_on > event.created_on) { %>
         <p class="admin-details"><strong>Last Edited by:</strong> <%= event.last_edited_by.username %><strong>,</strong> <span><%= event.last_edited_on %></span></p>
         <% } %>
       <% } %>
