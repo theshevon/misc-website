@@ -15,6 +15,12 @@ section{
 	text-align: center;
 }
 
+#committee h4{
+	text-align: center;
+	margin-bottom: 30px;
+	color: #0472e8;
+}
+
 #committee img{
 	height: 100px;
 	width: 100px;
@@ -29,3 +35,5 @@ section{
 a, a:hover{
 	color: white;
 }
+
+

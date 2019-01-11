@@ -32,3 +32,8 @@
     font-size: 1.5rem;
   }
 }
+
+#main-img{
+  position: relative;
+  bottom: 0;
+}

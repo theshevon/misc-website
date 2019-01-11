@@ -126,3 +126,13 @@ a:hover{
 	margin: 15% auto;
 	font-weight: 100;
 }
+
+@media(max-width:575px) {
+	#main-title{
+	  font-size: 1.5rem;
+	}
+
+	.fas, .far{
+		opacity: 1;
+	}
+  }
