@@ -1,2 +1,3 @@
-$('#content').hide();
-$('#content').fadeIn(1500);
+window.onload = function(){
+    $('#content, footer').fadeIn(1500);
+};

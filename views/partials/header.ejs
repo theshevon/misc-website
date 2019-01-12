@@ -28,6 +28,7 @@
 
   <body>
 
+    <!-- main navbar -->
     <nav id="mainNavBar" class="navbar navbar-dark navbar-expand-md">
       <div class="container">
         <a class="navbar-brand" href="/home"><img src="/images/icon.png" width="30" height="30"></a>
@@ -45,6 +46,8 @@
             <li id="contact-tag" class="nav-item">
               <a href="/contact" class="nav-link">Contact</a>
             </li>
+
+            <!-- if a user/admin is logged in, replace Sign Up link with Logout link -->
             <li class="nav-item">
               <% if(currentUser){ %>
                 <a href="/logout" class="nav-link">Logout</a>
@@ -57,6 +60,7 @@
       </div>
     </nav>
 
+    <!-- flash message containers -->
     <div class="container">
         <% if (error && error.length > 0){ %>
           <div class="alert alert-danger" role="alert"><%=error%></div>

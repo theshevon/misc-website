@@ -23,12 +23,15 @@ var eventRoutes   = require("./routes/events"),
 /*==================================app config================================*/
 
 // connect to umisc database
-mongoose.connect("mongodb://umisc_admin:nimda_2019@ds253804.mlab.com:53804/umisc", {useNewUrlParser: true}, function(err, db) {
-    if (err) {
-        console.log('Unable to connect to the server. Please start the server. Error:', err);
-    } else {
-        console.log('Connected to Server successfully!');
-    }
+// mongodb://umisc_admin:nimda_2019@ds253804.mlab.com:53804/umisc
+mongoose.connect("mongodb://127.0.0.1:27017/umisc", 
+                 {useNewUrlParser: true}, 
+                 function(err, db) {
+                    if (err) {
+                        console.log('Unable to connect to the database.\n', err);
+                    } else {
+                        console.log('Successfully connected to database.');
+                    }
 });
 
 app.use(flash());   // needs to be BEFORE passport config
@@ -47,7 +50,7 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// move user data to all view templates
+// move user data and flash errors to all views
 app.use(function(req, res, next){
   res.locals.currentUser = req.user;
   res.locals.error = req.flash("error");
@@ -60,10 +63,6 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
-/*==================================(testing)=================================*/
-
-// seedDB();
-
 /*====================================routing=================================*/
 
 app.use(eventRoutes);
@@ -71,12 +70,12 @@ app.use(contactRoutes);
 app.use(adminRoutes);
 app.use(indexRoutes);
 
-//local
-// app.listen(3000, function(){
-//     console.log("Successfully connected to server");
-//   });
+// local deployment
+app.listen(3000, function(){
+    console.log("Successfully connected to server.");
+});
 
 // production
-app.listen(process.env.PORT, process.env.IP, function(){
-  console.log("Successfully connected to server");
-});
+// app.listen(process.env.PORT, process.env.IP, function(){
+//   console.log("Successfully connected to server.");
+// });

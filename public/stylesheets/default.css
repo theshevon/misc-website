@@ -1,4 +1,8 @@
- #mainNavBar{
+#content, footer{
+  display: none;
+}
+
+#mainNavBar{
   background-color: #202020;
 }
 
@@ -42,9 +46,13 @@
   outline: none;
 }
 
+html{
+  height: 100%;
+}
 body{
   background: black;
   color: white;
+  min-height: 100%;
 }
 
 .navbar-collapse {

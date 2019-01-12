@@ -1,31 +1,31 @@
 var express = require("express");
 var router = express.Router();
 var Event = require("../models/event");
+var date = new Date();
 
-// REDIRECT TO MONTHLY EVENTS ROUTE
+// REDIRECTION TO MONTHLY EVENTS
 router.get("/events", function(req, res){
-    var date = new Date();
     res.redirect("/events/" + date.getFullYear() + "/" + date.getMonth());
 });
 
-// CREATE ROUTE
+// EVENT CREATION PAGE
 router.get("/events/new", isLoggedIn, function(req, res){
     res.render("add-event");
 });
 
-// EDIT ROUTE
+// EVENT ALTERING PAGE
 router.get("/events/:id/edit", isLoggedIn, function(req, res){
     Event.findById(req.params.id, function(err, event){
         if (err || !event){
             req.flash("error", "The event does not exist!")
-            res.redirect("/events");
+            res.redirect("/events/" + date.getFullYear() + "/" + date.getMonth());
         } else{
             res.render("edit-event", {event:event});
         }
     });
 });
 
-// GET ROUTE
+// MONTHLY EVENTS PAGE
 router.get("/events/:year/:month", function(req, res){
 
     var month = Number(req.params.month),
@@ -34,8 +34,9 @@ router.get("/events/:year/:month", function(req, res){
     // retrieve all events from db
     Event.find({}, function(err, events){
         if (err){
-            console.log("Error!");
-            return;
+            req.flash("error", "Oops, something went wrong!");
+            // redirect to home page
+            res.redirect("/home");
         }
         events = getEventsForSpecificTime(events, month, year);
         res.render("events", {
@@ -48,7 +49,7 @@ router.get("/events/:year/:month", function(req, res){
     });
 });
 
-// POST ROUTE
+// CREATE AN EVENT
 router.post("/events", isLoggedIn, function(req, res){
     
     var creator = {
@@ -61,29 +62,29 @@ router.post("/events", isLoggedIn, function(req, res){
 
     Event.create(req.body.event, function(err, event){
       if (err){
-        console.log(err);
-        return;
+        req.flash("error", "Sorry, your request couldn't be completed at this time.")
+        res.redirect("/events/" + event.date.getFullYear() + "/" + event.date.getMonth());
       }
+
       req.flash("success", "Event Successfully Added");
       res.redirect("/events/" + event.date.getFullYear() + "/" + event.date.getMonth());
     });
 });
 
-// SHOW ROUTE
+// SHOW A SPECIFIC EVENT
 router.get("/events/:id", function(req, res){
+
+    // find event by its ID
     Event.findById(req.params.id, function(err, event){
           if (err || !event){
             req.flash("error", "The event does not exist!")
-            res.redirect("/events");
-            return;
+            res.redirect("/events/" + date.getFullYear() + "/" + date.getMonth());
           }
           res.render("show-event", {event:event});
     });
 });
 
-
-
-// UPDATE ROUTE
+// UPDATE AN EVENT
 router.put("/events/:id", isLoggedIn, function(req, res){
     
     var editor = {
@@ -94,6 +95,7 @@ router.put("/events/:id", isLoggedIn, function(req, res){
     req.body.event.last_edited_by = editor;
     req.body.event.last_edited_on = Date();
 
+    // find event by its ID and update it
     Event.findByIdAndUpdate(req.params.id, req.body.event, function(err, event){
         if (err){
             req.flash("error", "Error: Sorry, your request could not be completed at this time");
@@ -105,11 +107,11 @@ router.put("/events/:id", isLoggedIn, function(req, res){
     });
 });
 
-// DELETE ROUTE
+// DELETE A SPECIFIC EVENT
 router.delete("/events/:id", isLoggedIn, function(req, res){
 
-    // delete event
-    Event.findByIdAndRemove(req.params.id, function(err){
+    // find event by its ID and delete it
+    Event.findByIdAndDelete(req.params.id, function(err){
         if (err){
             req.flash("error", "Error: Sorry, your request could not be completed at this time");
             res.redirect("back");
@@ -120,23 +122,17 @@ router.delete("/events/:id", isLoggedIn, function(req, res){
     });
 });
 
-function isLoggedIn(req, res, next){
-  if (req.isAuthenticated()){
-    return next();
-  }
-  req.flash("error", "Please Login First!");
-  res.redirect("/admin");
-}
+/*==================================helper functions================================*/
 
-module.exports = router;
-
-// HELPER FUNCTIONS
-
+/**
+ * Finds the events corresponding to a specified month and year, orders them 
+ * chronologically and returns an array of Event objects
+ */
 function getEventsForSpecificTime(allEvents, month, year){
     
-    events = [];
+    var events = [];
 
-    // find the events for the particular month
+    // find the events 
     allEvents.forEach(function(event){
         if (event.date.getMonth() === month && event.date.getFullYear() === year){
             events.push(event);
@@ -149,6 +145,9 @@ function getEventsForSpecificTime(allEvents, month, year){
     return events;
 }
 
+/**
+ * Provides the substring to complete the hrefs for the next and prev month buttons
+ */
 function getUpdateTimeString(month, year, dir){
     if (dir === "prev"){
         if (month === 0){
@@ -167,5 +166,18 @@ function getUpdateTimeString(month, year, dir){
     }
     return "/" + year + "/" + month + "/";
 }
+
+/**
+ * Middleware to check if a user has logged in.
+ */
+function isLoggedIn(req, res, next){
+    if (req.isAuthenticated()){
+      return next();
+    }
+    req.flash("error", "Please Login First!");
+    res.redirect("/admin");
+}
+  
+module.exports = router;
 
 
