@@ -1,35 +1,31 @@
-label span{
-	color: red;
+#create-btn{
+	color: rgb(2, 145, 145);
+  border-color:  rgb(2, 145, 145);
+}
+
+#create-btn:hover{
+	background-color: rgb(2, 145, 145);
+	color: black;
+}
+
+#cancel-btn{
+  border-color: red;
+  color: red;
+}
+
+#cancel-btn:hover{
+  background-color: red;
+  color: black;
 }
 
 .main{
   width:60%;
 }
 
+label span{
+	color: red;
+}
+
 h2{
   text-align: center;
-}
-
-.btn{
-	color: rgb(2, 145, 145);
-  border-color:  rgb(2, 145, 145);
-}
-
-button:hover{
-	background-color: rgb(2, 145, 145);
-	color: black;
-}
-
-.cancel-btn{
-  border-color: red;
-  color: red;
-}
-
-.cancel-btn:hover{
-  background-color: red;
-  color: black;
-}
-
-button:focus {
-	outline: none;
 }

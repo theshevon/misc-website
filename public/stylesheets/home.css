@@ -15,12 +15,17 @@
   font-size: 0.6em;
 }
 
-.card{
-  background-color: black;
-}
-
 #ads{
   margin-top: 6%;
+}
+
+#main-img{
+  position: relative;
+  bottom: 0;
+}
+
+.card{
+  background-color: black;
 }
 
 .card-title h6{
@@ -33,7 +38,3 @@
   }
 }
 
-#main-img{
-  position: relative;
-  bottom: 0;
-}

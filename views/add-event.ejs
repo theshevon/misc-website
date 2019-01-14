@@ -1,5 +1,5 @@
 <% include ./partials/header %>
-<link rel="stylesheet" href="/stylesheets/new-event.css">
+<link rel="stylesheet" href="/stylesheets/add-event.css">
 
 <div id="content" class="container main">
 
@@ -64,8 +64,8 @@
       </div>
 
       <div class="mt-3">
-        <button type="button" class="btn cancel-btn float-left" onclick="history.back()">Cancel</button>
-        <button type="submit" class="btn float-right">Create Event</button>
+        <button type="button" id="cancel-btn" class="btn" onclick="history.back()">Cancel</button>
+        <button type="submit" id="create-btn" class="btn">Create Event</button>
       </div>
 
     </form>

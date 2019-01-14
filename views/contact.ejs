@@ -16,22 +16,22 @@
         <!-- SANITISE INPUTS -->
         <div class="form-group row">
           <label for="name" class="col-12 col-sm-6 col-md-2 mx-0 pr-5">Name<span>*</span>:</label>
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-12 col-sm-6 col-md-4 mb-3">
             <input id="name" type="text" class="form-control" name="message[name]" required>
           </div>
           <label for="emailAddress" class="col-12 col-sm-6 col-md-2">Email Address<span>*</span>:</label>
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-12 col-sm-6 col-md-4 mb-3">
             <input id="emailAddress" type="email" class="form-control" name="message[email]" required>
           </div>
         </div>
 
         <div class="form-group row">
           <label for="subject" class="col-12 col-sm-6 col-md-2 p-auto">Subject<span>*</span>:</label>
-          <div class="col-12 col-sm-6 col-md-4">
-            <input id="subject" type="text" class="form-control" name="message[subject]" required>
+          <div class="col-12 col-sm-6 col-md-4 mb-3">
+            <input id="subject" type="text" class="form-control" name="message[subject]" maxlength="40" required>
           </div>
           <label for="org" class="col-12 col-sm-6 col-md-2">Organisation:</label>
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-12 col-sm-6 col-md-4 mb-3">
             <input id="org" type="text" class="form-control" name="message[org]">
           </div>
         </div>
@@ -44,7 +44,7 @@
         </div>
 
         <div class="d-flex justify-content-end">
-          <button type="submit" class="btn">Submit</button>
+          <button id="submit-btn" type="submit" class="btn">Submit</button>
         </div>
 
       </form>

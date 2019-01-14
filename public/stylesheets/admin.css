@@ -1,3 +1,7 @@
+#content{
+  margin: 17.5% auto;
+}
+
 h2{
   letter-spacing: 0.5rem;
   font-weight: 200;
@@ -12,8 +16,4 @@ h2{
 .btn:hover{
 	background: white;
 	color: black;
-}
-
-#content{
-  margin: 17.5% auto;
 }

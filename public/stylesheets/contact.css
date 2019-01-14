@@ -1,19 +1,18 @@
-/*#name{
-	width: 20%;
-}
 
-#emailAddress{
-	width: 40%;
-}*/
 
-.btn{
+#submit-btn{
 	border: 1px solid white;
 	background: black;
 	color: white;
 }
 
-form{
-	margin-top: 50px;
+#submit-btn:hover{
+	background: white;
+	color: black;
+}
+
+.alt-contact{
+	margin-top: 100px;
 }
 
 hr{
@@ -21,14 +20,13 @@ hr{
 	margin-top: 20px;
 }
 
-.alt-contact{
-	margin-top: 100px;
+form{
+	margin-top: 50px;
 }
 
 label span{
 	color: red;
 }
-
 
 @media(max-width:550px) {
   h3{

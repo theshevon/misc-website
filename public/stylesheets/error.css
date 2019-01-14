@@ -1,5 +1,5 @@
-body{
-    text-align: center;
+#mainNavBar{
+    display: none;
 }
 
 #content{
@@ -12,6 +12,12 @@ body{
     margin-bottom: 10px;
 }
 
-#mainNavBar{
-    display: none;
+body{
+    text-align: center;
 }
+
+h1{
+    font-weight: 100;
+}
+
+
