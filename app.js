@@ -22,7 +22,8 @@ var eventRoutes   = require("./routes/events"),
 
 // connect to umisc database
 // mongodb://umisc_admin:nimda_2019@ds253804.mlab.com:53804/umisc
-mongoose.connect("mongodb://127.0.0.1:27017/umisc", 
+// mongodb://127.0.0.1:27017/umisc
+mongoose.connect("mongodb://umisc_admin:nimda_2019@ds253804.mlab.com:53804/umisc", 
                  {useNewUrlParser: true}, 
                  function(err, db) {
                     if (err) {
@@ -69,11 +70,11 @@ app.use(adminRoutes);
 app.use(indexRoutes);
 
 // local deployment
-app.listen(3000, function(){
-    console.log("Successfully connected to server.");
-});
+// app.listen(3000, function(){
+//     console.log("Successfully connected to server.");
+// });
 
 // production
-// app.listen(process.env.PORT, process.env.IP, function(){
-//   console.log("Successfully connected to server.");
-// });
+app.listen(process.env.PORT, process.env.IP, function(){
+  console.log("Successfully connected to server.");
+});
