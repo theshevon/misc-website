@@ -1,6 +1,10 @@
-var express = require("express");
+var expressSanitizer = require('express-sanitizer'),
+    nodemailer       = require("nodemailer"),
+    express          = require("express");
+
 var router = express.Router();
-var nodemailer = require("nodemailer");
+
+router.use(expressSanitizer());
 
 // CONTACT PAGE
 router.get("/contact", function(req, res){
@@ -9,12 +13,13 @@ router.get("/contact", function(req, res){
 
 router.post("/contact", function(req, res){
 
+    //  sanitise all inputs
+
     var output = req.body.message.body + "\n" + "\n" + req.body.message.name;
 
     if (req.body.message.org) output += " - " + req.body.message.org + "\n";
 
     output += req.body.message.email;
-
   
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({

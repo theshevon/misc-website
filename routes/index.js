@@ -1,5 +1,5 @@
 var express = require("express");
-var router = express.Router();
+var router  = express.Router();
 
 // REDIRECT TO HOME
 router.get("/", function(req, res){

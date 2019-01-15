@@ -1,7 +1,8 @@
-var express = require("express");
-var router = express.Router();
-var Event = require("../models/event");
-var date = new Date();
+var Event   = require("../models/event"),
+    express = require("express");
+
+var router = express.Router(),
+    date   = new Date();
 
 // REDIRECTION TO MONTHLY EVENTS
 router.get("/events", function(req, res){

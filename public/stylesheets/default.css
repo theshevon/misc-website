@@ -1,3 +1,7 @@
+#content{
+  margin-top: 7.5vh;
+}
+
 #content, footer{
   display: none;
 }
@@ -49,6 +53,7 @@
 html{
   height: 100%;
 }
+
 body{
   background: black;
   color: white;
@@ -81,8 +86,4 @@ body{
   color: rgb(2, 145, 145);
   border-color:  rgb(2, 145, 145);
 } 
-
-#content{
-  margin-top: 3%;
-}
 

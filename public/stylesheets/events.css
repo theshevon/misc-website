@@ -1,32 +1,18 @@
 #content{
 	text-align: center;
-}
-
-#content{
 	margin-top: 6rem;
 }
 
-h1 {
-	margin: 5% auto;
-	letter-spacing: 0.3rem;
-	text-transform: uppercase;
-	line-height: 40%;
-	padding-bottom: 5;
-}
-
-#month{
-	width: 40%;
-}
-
 #year{
-	font-size: 0.4em;
+	font-size: 1.25rem;
 	font-weight: 200;
 	color: #0472e8;
+	text-align: center;
 }
 
-h1:hover .fas{
-	opacity: 1;
-	transition: 500ms;
+#sorry-msg{
+	margin: 15% auto;
+	font-weight: 100;
 }
 
 .event:hover .admin-btn{
@@ -38,10 +24,6 @@ h1:hover .fas{
 	color: gray;
 	opacity: 0;
 	transition: 500ms;
-}
-
-span{
-	text-align: center;
 }
 
 .fas:hover, .far:hover{
@@ -77,10 +59,11 @@ span{
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -42.5%);
 	-ms-transform: translate(-50%, -50%);
 	text-align: center;
-	width: 100%;
+	width: 90%;
+	height: 80%;
 }
 
 .event:hover .event-img {
@@ -94,14 +77,6 @@ span{
 .img-thumbnail{
 	background: none;
 	border-radius: 0.4rem;
-}
-
-a{
-	color: white;
-}
-
-a:hover{
-	text-decoration: none;
 }
 
 .del-btn{
@@ -122,9 +97,31 @@ a:hover{
 	outline: none;
 }
 
-#sorry-msg{
-	margin: 15% auto;
-	font-weight: 100;
+h1 {
+	margin: 5% auto;
+	letter-spacing: 0.3rem;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 40%;
+	padding-bottom: 5;
+	margin-bottom: 0;
+}
+
+h1:hover .fas{
+	opacity: 1;
+	transition: 500ms;
+}
+
+span{
+	text-align: center;
+}
+
+a{
+	color: white;
+}
+
+a:hover{
+	text-decoration: none;
 }
 
 @media(max-width:575px) {

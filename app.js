@@ -4,7 +4,6 @@ var methodOverride        = require("method-override"),
     localStrategy         = require("passport-local"),
     flash                 = require("connect-flash"),
     bodyParser            = require("body-parser"),
-    nodemailer            = require("nodemailer"),
     passport              = require("passport"),
     mongoose              = require("mongoose"),
     express               = require("express"),
@@ -12,8 +11,7 @@ var methodOverride        = require("method-override"),
     helmet                = require("helmet"),
     app                   = express();
 
-var Event = require("./models/event"),
-    User  = require("./models/user");
+var User  = require("./models/user");
 
 var eventRoutes   = require("./routes/events"),
     adminRoutes   = require("./routes/admin"),
