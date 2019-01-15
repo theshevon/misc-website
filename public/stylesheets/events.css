@@ -59,11 +59,10 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -42.5%);
+	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	text-align: center;
-	width: 90%;
-	height: 80%;
+	width: 100%;
 }
 
 .event:hover .event-img {
