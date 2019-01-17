@@ -3,6 +3,10 @@
 	margin-top: 6rem;
 }
 
+#events-link{
+	color: gray;
+}
+
 #year{
 	font-size: 1.25rem;
 	font-weight: 200;
@@ -59,10 +63,11 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -40%);
+	-ms-transform: translate(-50%, -40%);
 	text-align: center;
-	width: 100%;
+	width: 280px;
+	height: 200px;
 }
 
 .event:hover .event-img {
@@ -87,7 +92,7 @@
 	background: black;
 }
 
-.more-btn:hover{
+.add-btn:hover, .more-btn:hover{
 	background: white;
 	color: black;
 }

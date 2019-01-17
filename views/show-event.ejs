@@ -8,11 +8,14 @@
       <h2><%=event.name%></h2>
       <img class="img-fluid d-flex mx-auto mb-4" src="<%= event.image %>">
       <% var date = event.date.toDateString(); %>
-      <p><strong>Date:</strong> <%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%></p>
-      <p><strong>Time:</strong> <%= event.time %></p>
-      <p><strong>Description:</strong><br><%=event.description%></p>
-      <p><strong>Location:</strong><a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
-      <p><strong>Event Page:</strong> <a href="<%=event.page_link%>" target="_blank"><%=event.name%></a></p>
+      <h5>• Date & Time •</h5>
+      <p><%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%> at <%= event.time %></p>
+      <h5>• Description •</h5>
+      <p id="desc"><%=event.description%></p>
+      <h5>• Location •</h5>
+      <p><a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
+      <h5>• Event Page •</h5>
+      <p><a href="<%=event.page_link%>" target="_blank"><%=event.page_link%></a></p>
     
       <% if (currentUser){ %>
         <p class="admin-details"><strong>Created by:</strong> <%= event.created_by.username %><strong>,</strong> <span><%= event.created_on %></span></p>

@@ -12,7 +12,9 @@
 <div id="content" class="container">
 
   <% if (currentUser){ %>
-    <a href="/events/new"><button class="add-btn">+ Event</button></a>
+    <a href="/events/new">
+      <button class="add-btn">+ Event</button>
+    </a>
   <% } %>
 
   <h1>
@@ -26,7 +28,7 @@
   </h1>
   <span id="year"><%= year %></span>
 
-  <div class="row flex-wrap mt-4">
+  <div class="row flex-wrap mt-5">
     <% if (events.length === 0 ){ %>
       <h2 id="sorry-msg">Sorry, there are no events scheduled for this month.</h2>
     <% }else{ %>

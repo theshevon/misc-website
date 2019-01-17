@@ -25,20 +25,20 @@
         </div>
 
         <div class="form-group row">
-          <label for="subject" class="col-12 col-sm-6 col-md-2 p-auto">Subject<span>*</span>:</label>
-          <div class="col-12 col-sm-6 col-md-4 mb-3">
-            <input id="subject" type="text" class="form-control" name="message[subject]" maxlength="40" required>
-          </div>
-          <label for="org" class="col-12 col-sm-6 col-md-2">Organisation:</label>
-          <div class="col-12 col-sm-6 col-md-4 mb-3">
+          <label for="org" class="col-12 col-sm-6 col-md-2 order-0 order-md-1">Organisation:</label>
+          <div class="col-12 col-sm-6 col-md-4 mb-3 order-0 order-md-1">
             <input id="org" type="text" class="form-control" name="message[org]">
+          </div>
+          <label for="subject" class="col-12 col-sm-6 col-md-2 p-auto order-1 order-md-0">Subject<span>*</span>:</label>
+          <div class="col-12 col-sm-6 col-md-4 mb-3 order-1 order-md-0">
+            <input id="subject" type="text" class="form-control" name="message[subject]" maxlength="40" required>
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="message" class="col-12 col-sm-6 col-md-2">Message<span>*</span>:</label>
+          <label for="body" class="col-12 col-sm-6 col-md-2">Message<span>*</span>:</label>
           <div class="col-12 col-sm-6 col-md-10">
-            <textarea id="message" class="form-control" rows="5" name="message[body]" required></textarea>
+            <textarea id="body" class="form-control" rows="5" name="message[body]" required></textarea>
           </div>
         </div>
 

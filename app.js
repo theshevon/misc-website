@@ -7,7 +7,7 @@ var methodOverride        = require("method-override"),
     passport              = require("passport"),
     mongoose              = require("mongoose"),
     express               = require("express"),
-    seedDB                = require("./seeds"),
+    seedDB                = require("./seeds"),  //remove before prod
     helmet                = require("helmet"),
     app                   = express();
 

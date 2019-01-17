@@ -9,6 +9,13 @@ $("#del-btn-1").on("click", function(event){
 
     // show deletion confirmation overlay
     $(".confirm-overlay").css("opacity", "1");
+
+    // scroll to top
+    window.scrollTo({
+        top: 100,
+        left: 100,
+        behavior: 'smooth'
+    });
 });
 
 // if cancel button pressed on deletion confirmation overlay
