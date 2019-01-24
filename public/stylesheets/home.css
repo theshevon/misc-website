@@ -2,7 +2,7 @@
   font-weight: 300;
   font-size: 2.5rem;
   text-align: center;
-  margin-top: 7.5%;
+  margin-top: 6%;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
 }
@@ -29,7 +29,12 @@
 }
 
 .card-title h6{
+  margin-top: 10px;
   color: #0472e8;
+}
+
+.fab{
+  font-size: 1.5rem;
 }
 
 @media(max-width:575px) {

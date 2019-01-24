@@ -38,12 +38,12 @@
   outline: none;
 }
 
-.back-btn{
+.blog-btn, .back-btn{
   border-color: white;
   color: white;
 }
 
-.back-btn:hover{
+.blog-btn:hover, .back-btn:hover{
   background-color: white;
   color: black;
 }

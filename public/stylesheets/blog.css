@@ -1,0 +1,16 @@
+.more-btn, .add-btn{
+	border-radius: 4px;
+	background: none;
+	border: 1px solid white;
+	color: white;
+}
+
+.add-btn:hover, .more-btn:hover{
+	background: white;
+	color: black;
+}
+
+#sorry-msg{
+	margin: 15% auto;
+	font-weight: 100;
+}

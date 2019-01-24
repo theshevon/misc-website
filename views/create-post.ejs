@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+<link rel="stylesheet" href="/stylesheets/create-post.css">
+
+<div id="content" class="container main">
+
+  <h2 class="d-flex mb-5 justify-content-center">Create New Blog Post</h2>
+
+  <form action="/blog" method="POST">
+
+    <input id="name" type="text" class="form-control mb-3" name="post[title]" placeholder="Title" required>
+
+    <input id="images" class="form-control mb-3" name="post[image]" type="file" accept="image/*" required>
+
+    <textarea id="desc" class="form-control mb-3" rows="8" name="post[body]" placeholder="Write something here..." required></textarea>
+
+    <div class="mt-3">
+        <button type="button" id="cancel-btn" class="btn" onclick="history.back()">Cancel</button>
+        <button type="submit" id="create-btn" class="btn float-right">Publish</button>
+    </div>
+
+    </form>
+
+</div>
+
+<% include ./partials/footer %>

@@ -12,6 +12,10 @@
 	font-weight: 100;
 }
 
+#about-umisc p{
+	text-align: justify;
+}
+
 #committee img{
 	height: 100px;
 	width: 100px;
@@ -26,10 +30,6 @@
 h1{
 	text-align: center;
 	margin-bottom: 2rem;
-}
-
-p{
-	text-align: justify;
 }
 
 section{

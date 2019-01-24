@@ -1,5 +1,6 @@
 #content{
   margin-top: 7.5vh;
+  margin-bottom: 7.5vh;
 }
 
 #flash, #content, footer{
@@ -86,4 +87,24 @@ body{
   color: rgb(2, 145, 145);
   border-color:  rgb(2, 145, 145);
 } 
+
+.sign-up-btn{
+	border-radius: 4px;
+	background: none;
+	border: 1px solid white;
+  color: white;
+}
+
+.sign-up-btn:hover{
+  color: black;
+  background: white;
+}
+
+footer{
+  color:gray; 
+  opacity: 0.5; 
+  text-align: center;
+  position: relative;
+  bottom: 0px;
+}
 

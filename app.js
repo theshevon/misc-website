@@ -14,6 +14,7 @@ var methodOverride        = require("method-override"),
 var User  = require("./models/user");
 
 var eventRoutes   = require("./routes/events"),
+    blogRoutes    = require("./routes/blog-posts"),
     adminRoutes   = require("./routes/admin"),
     indexRoutes   = require("./routes/index"),
     contactRoutes = require("./routes/contact");
@@ -65,16 +66,17 @@ app.use(methodOverride("_method"));
 /*====================================routing=================================*/
 
 app.use(eventRoutes);
+app.use(blogRoutes);
 app.use(contactRoutes);
 app.use(adminRoutes);
 app.use(indexRoutes);
 
 // local deployment
-// app.listen(3000, function(){
-//     console.log("Successfully connected to server.");
-// });
+app.listen(3000, function(){
+    console.log("Successfully connected to server.");
+});
 
 // production
-app.listen(process.env.PORT, process.env.IP, function(){
-  console.log("Successfully connected to server.");
-});
+// app.listen(process.env.PORT, process.env.IP, function(){
+//   console.log("Successfully connected to server.");
+// });

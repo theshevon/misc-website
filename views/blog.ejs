@@ -1,0 +1,34 @@
+<% include ./partials/header %>
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/stylesheets/blog.css">
+
+<div id="content" class="container">
+    <!-- <h3>Welcome to the blog page</h3> -->
+
+    <!-- use populate when accessing a specific post -->
+
+    <div class="row flex-wrap mt-5">
+    <% if (posts.length === 0 ){ %>
+        <h2 id="sorry-msg">Sorry, no Blog Posts have been published yet.</h2>
+    <% }else{ %>
+        <% posts.forEach(function(event){ %>
+        <div class="event col-md-4 col-sm-6 mb-5">
+            <h4><%=event.name%></h4>
+            <img src="<%= event.image %>" class="event-img img-thumbnail">
+            <div class="img-overlay">
+                <% var date = event.date.toDateString(); %>
+                <p> Date: <%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%></p>
+                <p> Time: <%= event.time %></p>
+                <p> Location: <a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
+                <a href="/events/<%=event._id%>"><button class="more-btn btn">More Info</button></a>
+            </div>
+        </div>
+        <% }); %>
+    <% } %>
+    </div>
+
+
+</div>
+
+<% include ./partials/footer %>

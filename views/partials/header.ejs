@@ -17,6 +17,9 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
 
+    <!-- Lobster font -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
     <!-- JS Libraries -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -43,16 +46,16 @@
             <li id="events-container" class="nav-item">
               <a id="events-link" href="/events" class="nav-link">Events</a>
             </li>
-            <li id="contact-container" class="nav-item">
-              <a id="contact-link" href="/contact" class="nav-link">Contact</a>
-            </li>
+            <li id="blog-container" class="nav-item">
+                <a id="blog-link" href="/blog" class="nav-link">Blog</a>
+              </li>
 
-            <!-- if a user/admin is logged in, replace Sign Up link with Logout link -->
+            <!-- if a user/admin is logged in, replace Contact link with Logout link -->
             <li class="nav-item">
               <% if(currentUser){ %>
                 <a href="/logout" class="nav-link">Log Out</a>
               <% } else { %>
-                <a href="https://docs.google.com/forms/d/1SElYiLksvvAA9WljptgbSDCUyWXMwo1jub9Nu1vMfqU/viewform?edit_requested=true" target="_blank" class="nav-link"><span>Sign Up</span></a>
+                <a id="contact-link" href="/contact" class="nav-link">Contact</a>
               <% } %>
             </li>
           </ul>
