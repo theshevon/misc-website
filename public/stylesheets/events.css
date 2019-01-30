@@ -31,14 +31,14 @@
 }
 
 .fas:hover, .far:hover{
-	color: white;
+	color: black;
 }
 
 .more-btn, .add-btn{
 	border-radius: 4px;
 	background: none;
-	border: 1px solid white;
-	color: white;
+	border: 1px solid black;
+	color: black;
 }
 
 .event{
@@ -84,17 +84,17 @@
 }
 
 .del-btn{
-	background: black;
+	background: white;
 	border: none;
 }
 
 .del-btn:hover{
-	background: black;
+	background: white;
 }
 
 .add-btn:hover, .more-btn:hover{
-	background: white;
-	color: black;
+	background: black;
+	color: white;
 }
 
 .more-btn:focus {
@@ -121,7 +121,7 @@ span{
 }
 
 a{
-	color: white;
+	color: black;
 }
 
 a:hover{

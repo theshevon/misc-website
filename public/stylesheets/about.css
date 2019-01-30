@@ -16,11 +16,16 @@
 	text-align: justify;
 }
 
+#club-aims p{
+	text-align: center;
+}
+
 #committee img{
 	height: 100px;
 	width: 100px;
 	border-radius: 50%;
 	margin-bottom: 1.2rem;
+	margin: 5px solid black;
 }
 
 .row{
@@ -37,7 +42,7 @@ section{
 }
 
 a, a:hover{
-	color: white;
+	color: black;
 }
 
 

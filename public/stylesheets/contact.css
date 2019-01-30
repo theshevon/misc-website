@@ -3,14 +3,14 @@
 }
 
 #submit-btn{
-	border: 1px solid white;
-	background: black;
-	color: white;
+	border: 1px solid black;
+	background: white;
+	color: black;
 }
 
 #submit-btn:hover{
-	background: white;
-	color: black;
+	background: black;
+	color: white;
 }
 
 .alt-contact{
@@ -18,7 +18,7 @@
 }
 
 hr{
-	background: white;
+	background: gray;
 	margin-top: 20px;
 }
 

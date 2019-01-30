@@ -56,8 +56,8 @@ html{
 }
 
 body{
-  background: black;
-  color: white;
+  color: black;
+  background-color: white;
   min-height: 100%;
 }
 
@@ -73,7 +73,7 @@ body{
 } 
 
 .alert{
-  background-color: black;
+  background-color: white;
   margin-top: 3%;
   text-align: center;
 }
@@ -91,13 +91,13 @@ body{
 .sign-up-btn{
 	border-radius: 4px;
 	background: none;
-	border: 1px solid white;
-  color: white;
+	border: 1px solid black;
+  color: black;
 }
 
 .sign-up-btn:hover{
-  color: black;
-  background: white;
+  color: white;
+  background: black;
 }
 
 footer{
