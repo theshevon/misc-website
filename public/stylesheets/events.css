@@ -14,6 +14,11 @@
 	text-align: center;
 }
 
+#info{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
 #sorry-msg{
 	margin: 15% auto;
 	font-weight: 100;
@@ -63,11 +68,14 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -40%);
-	-ms-transform: translate(-50%, -40%);
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
 	text-align: center;
-	width: 280px;
-	height: 200px;
+	width: 360px;
+	height: 260px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .event:hover .event-img {
@@ -81,6 +89,8 @@
 .img-thumbnail{
 	background: none;
 	border-radius: 0.4rem;
+	width: 360px;
+	height: 260px;
 }
 
 .del-btn{

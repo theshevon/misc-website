@@ -7,6 +7,10 @@
   text-transform: uppercase;
 }
 
+#content{
+  margin-bottom: 0;
+}
+
 #main-title span{
   font-size: 0.85em;
 }
@@ -22,6 +26,7 @@
 #main-img{
   position: relative;
   bottom: 0;
+  overflow: hidden;
 }
 
 .card{
