@@ -16,9 +16,13 @@
             <% if (post.content.indexOf("<figure>") !== -1 ){ %>
             <img src="<%= getImgSrc(post.content) %>" alt="">
             <% }else { %>
-            <!-- Use a stub image -->
+            <img src="./images/stub.jpg" alt="">
             <% } %>
-            <h6><%=post.contentSnippet%><a href="<%= post.link %>">See More</a></h6>
+            <div class="container">
+                <!-- <span id="author"><%=post.author%></span>
+                <span id="date"><%=post.publishedDate.substring(0,16)%></span> -->
+                <h6><%=post.contentSnippet%><a href="<%= post.link %>">See More</a></h6>
+            </div>
         </div>
         <% }); %>
     <% } %>

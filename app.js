@@ -77,6 +77,6 @@ app.listen(3000, function(){
 });
 
 // production
-// app.listen(process.env.PORT, process.env.IP, function(){
-//   console.log("Successfully connected to server.");
-// });
+app.listen(process.env.PORT, process.env.IP, function(){
+  console.log("Successfully connected to server.");
+});
