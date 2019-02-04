@@ -21,7 +21,7 @@
 
 .edit-btn:hover{
   background-color: gold;
-  color: black;
+  color: white;
 }
 
 .del-btn{
@@ -31,7 +31,7 @@
 
 .del-btn:hover{
   background-color: red;
-  color: black;
+  color: white;
 }
 
 .del-btn:focus{
@@ -55,7 +55,7 @@
 
 .back-btn-2:hover{
 	background-color: rgb(2, 145, 145);
-	color: black;
+	color: white;
 }
 
 .confirm-overlay{

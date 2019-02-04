@@ -9,7 +9,7 @@
 
 #create-btn:hover{
 	background-color: rgb(2, 145, 145);
-	color: black;
+	color: white;
 }
 
 #cancel-btn{
@@ -19,7 +19,7 @@
 
 #cancel-btn:hover{
   background-color: red;
-  color: black;
+  color: white;
 }
 
 .main{
