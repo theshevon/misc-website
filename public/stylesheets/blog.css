@@ -38,3 +38,34 @@
 	max-height: 45vh;
 	padding: 2.5vh 0;
 }
+
+.b-post{
+	position: relative;
+	padding: 0 !important;
+	float: left;
+}
+
+.b-post:hover{ 
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	z-index: 1;
+}
+
+.b-post:hover .info{ 
+	background-color: rgba(0, 0, 0, 0.5); 
+	transition: 500ms;
+}
+
+.b-post img{
+	width: 100%;
+	height: 40vh;
+	object-fit: cover !important;
+}
+
+.info{
+	width: 100%;
+	z-index: 2;
+	color: white;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}

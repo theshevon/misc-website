@@ -1,15 +1,25 @@
 #main-title{
   font-weight: 300;
-  font-size: 2.5rem;
+  font-size: 3rem;
   text-align: center;
   margin-top: 6%;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
 }
 
-#content{
-  margin-bottom: 0;
+#banner{
+  height: 95vh;
+  position: relative;
 }
+
+/* #mainNavBar{
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+/* 
+#mainNavBar .nav-link{
+  color: black;
+} */
 
 #main-title span{
   font-size: 0.85em;
@@ -19,18 +29,20 @@
   font-size: 0.6em;
 }
 
-#ads{
-  margin-top: 7vh;
+#main-img{
+  width: 100.1%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-#main-img{
-  position: relative;
-  bottom: 0;
-  overflow: hidden;
+#club-summary, #contact{
+  background-color: #f4f4f4;
 }
 
 .card{
   border: none;
+  background-color: black;
 }
 
 .card-title h6{
@@ -40,6 +52,62 @@
 
 .fab{
   font-size: 1.5rem;
+}
+
+.scrolled{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.event{
+  float: left;
+}
+
+.event h4, p{
+	font-weight: 150;
+}
+
+.event-img{
+	border: 0 none;
+	box-shadow: none;
+	opacity: 1;
+	transition: .5s ease;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img-overlay{
+	transition: .5s ease;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+	width: 360px;
+	height: 260px;
+	display: flex;
+	align-items: center;
+  justify-content: center;
+}
+
+.event:hover .event-img {
+	opacity: 0.1;
+}
+  
+.event:hover .img-overlay {
+	opacity: 1;
+}
+
+.img-thumbnail{
+	background: none;
+	border-radius: 0.4rem;
+	width: 360px;
+	height: 260px;
+}
+
+body{
+  text-align: center;
 }
 
 @media(max-width:575px) {

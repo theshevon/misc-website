@@ -2,7 +2,7 @@
   color: gray;
 }
 
-#create-btn{
+/* #create-btn{
 	color: rgb(2, 145, 145);
   border-color:  rgb(2, 145, 145);
 }
@@ -10,9 +10,9 @@
 #create-btn:hover{
 	background-color: rgb(2, 145, 145);
 	color: white;
-}
+} */
 
-#cancel-btn{
+/* #cancel-btn{
   border-color: red;
   color: red;
 }
@@ -20,10 +20,19 @@
 #cancel-btn:hover{
   background-color: red;
   color: white;
-}
+} */
 
 .main{
   width:60%;
+}
+
+.row{
+  justify-content: center;
+}
+
+input, textarea{
+  border-radius: 16px !important;
+  text-align: center;
 }
 
 label span{

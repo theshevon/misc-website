@@ -1,0 +1,150 @@
+#socialLinks{
+  z-index: 1;
+  position: fixed;
+  top: 45vh;
+  right: 0;
+  transition: 250ms;
+}
+
+#content{
+  margin-top: 5vh;
+}
+
+#flash, #content, footer{
+  display: none;
+}
+
+#mainNavBar{
+  background-color: #202020;
+  height: 5vh;
+}
+
+#mainNavBar .nav-link{
+  font-size: 1.0rem;
+  font-weight: 100;
+  color: white;
+}
+
+#mainNavBar .navbar-brand img{
+  height: 30px;
+  width: 30px;
+}
+
+#navLinks .navbar-nav{
+  width: 100%;
+}
+
+#navLinks .navbar-nav a{
+  line-height: 0.5rem;
+}
+
+#events-container{
+  margin-right: 20%;
+}
+
+#mainNavBar .nav-link:hover{
+  color: gray;
+}
+
+#toggler{
+  border: none;
+}
+
+#toggler:hover .navbar-toggler-icon{
+  color: white;
+}
+
+#toggler:focus{
+  border: 1px solid gray;
+  outline: none;
+}
+
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: black;
+  background-color: white;
+}
+
+.navbar-collapse {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.navbar-brand {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+} 
+
+.alert{
+  background-color: white;
+  margin-top: 3%;
+  text-align: center;
+  border-radius: 16px;
+}
+
+.alert-danger{
+  border-color: red;
+  color: red;
+}
+
+.alert-success{
+  color: rgb(2, 145, 145);
+  border-color:  rgb(2, 145, 145);
+} 
+
+.sign-up-btn{
+	border-radius: 4px;
+	background: none;
+	border: 1px solid black;
+  color: black;
+}
+
+.sign-up-btn:hover{
+  color: white;
+  background: black;
+}
+
+.btn{
+  border-radius: 16px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#footer{
+  background-color: #202020;
+  color: white;
+  height: 7.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 100;
+  font-size: 0.75rem;
+  text-align: center;
+  width: 100%;
+}
+
+.fa-facebook, .fa-medium, .fa-linkedin{
+  display: block !important;
+  color:  #1e2322;
+  font-size: 2.5rem !important;
+}
+
+@media(max-width:575px) {
+  #socialLinks{
+    visibility: hidden;
+  }
+}
+
+::-webkit-scrollbar { 
+  display: none; 
+}

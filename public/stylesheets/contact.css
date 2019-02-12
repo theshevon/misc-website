@@ -1,37 +1,14 @@
-#contact-tag{
-  color: gray;
+#content{
+  text-align: center;
+  height: 87.5vh;
 }
 
-#submit-btn{
-	border: 1px solid black;
-	background: white;
-	color: black;
-}
-
-#submit-btn:hover{
-	background: black;
-	color: white;
-}
-
-.alt-contact{
-	margin-top: 100px;
-}
-
-hr{
-	background: gray;
-	margin-top: 20px;
-}
-
-form{
-	margin-top: 50px;
+input, textarea{
+  border-radius: 16px !important;
+  text-align: center;
 }
 
 label span{
 	color: red;
 }
 
-@media(max-width:550px) {
-  h3{
-    font-size: 1.5rem;
-  }
-}

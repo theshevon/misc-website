@@ -2,6 +2,14 @@
 	color: gray;
 }
 
+#club-aims{
+	background-color: #f4f4f4;
+}
+
+#committee{
+	height: 95vh;
+}
+
 #committee p{
 	text-align: center;
 }
@@ -24,8 +32,27 @@
 	height: 100px;
 	width: 100px;
 	border-radius: 50%;
-	margin-bottom: 1.2rem;
 	margin: 5px solid black;
+}
+
+figure{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* [class^='imghvr-'],
+[class*=' imghvr-'] {
+  background-color: #D14233;
+} */
+
+figcaption{
+	text-align: center;
+}
+
+figcaption a{
+	margin-top: 25%;
 }
 
 .row{
@@ -37,12 +64,12 @@ h1{
 	margin-bottom: 2rem;
 }
 
-section{
-	margin-bottom: 4rem;
-}
-
 a, a:hover{
-	color: black;
+	color: white;
+	font-size: 30px;
 }
 
+.title{
+	font-weight: bolder;
+}
 

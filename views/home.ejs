@@ -7,55 +7,132 @@
 <!-- Custom CSS -->
 <link rel="stylesheet" href="/stylesheets/home.css">
 
+<!-- global array declaration -->
+<% var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; %>
+
 <div id="content">
 
-  <h1 id="main-title">U<span>niversity</span> <span id="special">of</span> M<span>elbourne</span><br>I<span>nformation</span> S<span>ecurity</span> C<span>lub</span></h1>
+  <% include ./partials/social-links %>
 
-  <div id="ads" class="container d-flex justify-content-center">
-    
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card text-center mb-3">
-          <div class="card-title">
-            <i class="fab fa-leanpub"></i>
-            <h6>Learn</h6>
-          </div>
-          <p class="card-text">Get started with the basics of pen-testing and defending software applications</p>
-        </div>
-      </div>
+  <section id="banner" class="pt-5 pb-5">
+      <h1 id="main-title">University <span id="special">of</span> Melbourne<br>Information Security Club</h1>
+      <img id="main-img" src="/images/backgrounds/bg.png">
+  </section>
 
-      <div class="col-md-4">
-        <div class="card text-center mb-3">
-          <div class="card-title">
-            <i class="fab fa-connectdevelop"></i>
-            <h6>Connect</h6>
-          </div>
-          <p class="card-text">Meet like-minded students and get involved in the cybersecurity community</p>
-        </div>
+  <section id="club-summary" class="pt-5 pb-5">
+      <div class="container">
+          <h1>A Community of Ethical Hackers</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec 
+          vestibulum turpis tellus, non fringilla ex ornare egestas. Nullam 
+          elit erat, dignissim a ullamcorper nec, lobortis nec ante. Mauris 
+          sollicitudin accumsan elit in pretium. Nullam interdum interdum 
+          risus, ut porttitor dui. <br>Join us for free pizza and hacking!</p>
+          <a href="https://docs.google.com/forms/d/1SElYiLksvvAA9WljptgbSDCUyWXMwo1jub9Nu1vMfqU/viewform?" target="_blank">
+              <button type="button" class="btn btn-outline-primary">sign up</button>
+          </a>
       </div>
+  </section>
 
-      <div class="col-md-4">
-        <div class="card text-center mb-3">
-          <div class="card-title">
-            <i class="fas fa-trophy"></i>
-            <h6>Compete</h6>
-          </div>
-          <p class="card-text">Test your skills by competing in Capture The Flag (CTF) competitions</p>
+  <section id="events" class="pt-5 pb-5">
+
+    <div class="container">
+        <h1>Events - <%= months[month] %>, <%= year %></h1>
+        <div class="row flex-wrap mt-5">
+          <% if (events.length === 0 ){ %>
+            <h2 id="sorry-msg">Sorry, there are no events scheduled for this month.</h2>
+          <% }else{ %>
+            <% events.forEach(function(event){ %>
+              <div class="event col-md-4 col-sm-6 mb-5">
+                <img src="<%= event.image %>" class="event-img img-thumbnail">
+                <div class="img-overlay">
+                    <div id="info">
+                        <% var date = event.date.toDateString(); %>
+                        <p> Date: <%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%></p>
+                        <p> Time: <%= event.time %></p>
+                        <p> Location: <a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
+                        <a href="/events/<%=event._id%>"><button class="more-btn btn">More Info</button></a>
+                    </div>
+                </div>
+              </div>
+            <% }); %>
+          <% } %>
         </div>
-      </div>
+        <a href="/events">
+          <button type="button" class="btn btn-outline-primary">see more ></button>
+        </a>
     </div>
-  </div>
+  </section>
+  
+  <section id="contact" class="pt-5 pb-5">
+    <h1 class="pb-2">Get In Touch</h1>
+    <a href="/contact">
+        <button type="button" class="btn btn-outline-primary">contact us</button>
+    </a>
+  </section>
 
-  <div class="d-flex justify-content-center pt-4">
-      <a href="https://docs.google.com/forms/d/1SElYiLksvvAA9WljptgbSDCUyWXMwo1jub9Nu1vMfqU/viewform?edit_requested=true" target="_blank" class="nav-link"> 
-        <button class="btn sign-up-btn d-flex justify-content-center">
-            Sign Up
-        </button>  
-      </a> 
-  </div>
-
-  <img id="main-img" src="/images/backgrounds/bg.png" class="img-fluid">
+  <script>
+      $(function(){
+          $(document).scroll(function(){
+              var $nav = $("#mainNavBar");
+              var $banner = $("#banner");
+              
+              $nav.toggleClass("scrolled", $(this).scrollTop() > ($banner.height() - $nav.height()));      
+          });
+      });
+  </script>
 
 </div>
 
 <% include ./partials/footer %>
+
+
+
+
+
+
+
+
+
+<!-- 
+<div id="ads" class="container d-flex justify-content-center">
+        
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card text-center mb-3">
+        <div class="card-title">
+          <i class="fab fa-leanpub"></i>
+          <h6>Learn</h6>
+        </div>
+        <p class="card-text">Get started with the basics of pen-testing and defending software applications</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center mb-3">
+        <div class="card-title">
+          <i class="fab fa-connectdevelop"></i>
+          <h6>Connect</h6>
+        </div>
+        <p class="card-text">Meet like-minded students and get involved in the cybersecurity community</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center mb-3">
+        <div class="card-title">
+          <i class="fas fa-trophy"></i>
+          <h6>Compete</h6>
+        </div>
+        <p class="card-text">Test your skills by competing in Capture The Flag (CTF) competitions</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center pt-4">
+    <a href="https://docs.google.com/forms/d/1SElYiLksvvAA9WljptgbSDCUyWXMwo1jub9Nu1vMfqU/viewform?edit_requested=true" target="_blank" class="nav-link"> 
+      <button class="btn sign-up-btn d-flex justify-content-center">
+          Sign Up
+      </button>  
+    </a> 
+</div> -->
