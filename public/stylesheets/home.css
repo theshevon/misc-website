@@ -7,6 +7,16 @@
   text-transform: uppercase;
 }
 
+#main-title-alt{
+  font-weight: 300;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 6%;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  visibility: hidden;
+}
+
 #banner{
   height: 95vh;
   position: relative;
@@ -112,7 +122,8 @@ body{
 
 @media(max-width:575px) {
   #main-title{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    padding-top: 30vh;
   }
 }
 

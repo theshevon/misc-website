@@ -35,6 +35,10 @@ router.get("/about", function(req, res){
   res.render("about");
 });
 
+router.get("/test", function(req, res){
+  res.render("test");
+});
+
 // FALLBACK
 router.get("/*", function(req, res){
   res.render("error");

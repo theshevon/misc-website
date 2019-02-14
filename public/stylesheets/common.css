@@ -23,6 +23,7 @@
   font-size: 1.0rem;
   font-weight: 100;
   color: white;
+  text-align: center;
 }
 
 #mainNavBar .navbar-brand img{
@@ -32,14 +33,11 @@
 
 #navLinks .navbar-nav{
   width: 100%;
+  background-color: #202020;
 }
 
 #navLinks .navbar-nav a{
   line-height: 0.5rem;
-}
-
-#events-container{
-  margin-right: 20%;
 }
 
 #mainNavBar .nav-link:hover{
@@ -76,12 +74,6 @@ body{
   max-height: 280px;
   overflow-y: auto;
 }
-
-.navbar-brand {
-  transform: translateX(-50%);
-  left: 50%;
-  position: absolute;
-} 
 
 .alert{
   background-color: white;
@@ -142,6 +134,26 @@ body{
 @media(max-width:575px) {
   #socialLinks{
     visibility: hidden;
+  }
+
+  #mainNavBar .nav-link{
+    padding: 1em;
+  }
+
+  #mainNavBar{
+    height: 7.5vh;
+  }
+}
+
+@media(min-width:575px){
+  .navbar-brand {
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+  } 
+
+  #events-container{
+    margin-right: 20%;
   }
 }
 

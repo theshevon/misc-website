@@ -1,0 +1,79 @@
+body{
+    margin: 0;
+}
+
+#custom-navbar{
+    background-color: black;
+}
+
+#custom-navbar div:not('container'){
+    display: none;
+}
+
+#custom-navbar .toggle,
+#custom-navbar .brand{
+    display: inline-block;
+}
+
+#custom-navbar .link{
+    display: block;
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+    background: darkblue;
+    color: white;
+}
+
+#custom-navbar .link:hover,
+#custom-navbar .link:active{
+    background: white;
+    color: darkblue;
+}
+
+#custom-navbar .brand{
+    width: 10em;
+    text-align: center;
+    padding: 1em;
+    color: white;
+}
+
+#custom-navbar a{
+    text-decoration: none;
+}
+
+#custom-navbar .toggle{
+    padding: 1em;
+    color: white;
+}
+
+@media(min-width: 48em){
+    #custom-navbar{
+        display: flex;
+    }
+
+    #custom-navbar .left-nav-links,
+    #custom-navbar .right-nav-links {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+    }
+
+    #custom-navbar .link{
+        width: auto;
+    }
+
+    #custom-navbar .toggle{
+        display: none;
+    }
+}
+
+@media(max-width: 48em){
+
+    #custom-navbar .brand{
+        text-align: left;
+    }
+
+    #custom-navbar.active div{
+        display: block;
+    }
+}
