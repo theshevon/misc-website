@@ -14,29 +14,38 @@
 
   <% include ./partials/social-links %>
 
-  <section id="banner" class="pt-5 pb-5">
+  <section id="banner" class="py-5">
       <h1 id="main-title">University <span id="special">of</span> Melbourne<br>Information Security Club</h1>
       <img id="main-img" src="/images/backgrounds/bg.png">
   </section>
 
-  <section id="club-summary" class="pt-5 pb-5">
+  <section id="club-summary" class="py-5">
       <div class="container">
-          <h1>A Community of Ethical Hackers</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec 
-          vestibulum turpis tellus, non fringilla ex ornare egestas. Nullam 
-          elit erat, dignissim a ullamcorper nec, lobortis nec ante. Mauris 
-          sollicitudin accumsan elit in pretium. Nullam interdum interdum 
-          risus, ut porttitor dui. <br>Join us for free pizza and hacking!</p>
-          <a href="https://docs.google.com/forms/d/1SElYiLksvvAA9WljptgbSDCUyWXMwo1jub9Nu1vMfqU/viewform?" target="_blank">
-              <button type="button" class="btn btn-outline-primary">sign up</button>
-          </a>
+          <h1 class="pb-5">A Community of Ethical Hackers</h1>
+          <div class="row">
+              <div class="col-12 col-md-4 py-3">
+                  <i class="fas fa-graduation-cap icon"></i>
+                  <p class="ad-title pt-4"><strong>Learn</strong></p>
+                  <p>Get started with the basics of pen-testing and defending software applications</p>
+              </div>
+              <div class="col-12 col-md-4 py-3">
+                  <i class="fas fa-user-friends icon"></i>
+                  <p class="ad-title pt-4"><strong>Connect</strong></p>
+                  <p>Meet like-minded students and get involved in the cybersecurity community</p>
+              </div>
+              <div class="col-12 col-md-4 py-3">
+                  <i class="fas fa-trophy icon"></i>
+                  <p class="ad-title pt-4"><strong>Compete</strong></p>
+                  <p>Test your skills by competing in Capture the Flag competitions</p>
+              </div>
+          </div>        
       </div>
   </section>
 
-  <section id="events" class="pt-5 pb-5">
+  <section id="events" class="py-5">
 
     <div class="container">
-        <h1>Events - <%= months[month] %>, <%= year %></h1>
+        <h1>Events This Month</h1>
         <div class="row flex-wrap mt-5">
           <% if (events.length === 0 ){ %>
             <h2 id="sorry-msg">Sorry, there are no events scheduled for this month.</h2>
@@ -50,7 +59,7 @@
                         <p> Date: <%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%></p>
                         <p> Time: <%= event.time %></p>
                         <p> Location: <a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
-                        <a href="/events/<%=event._id%>"><button class="more-btn btn">More Info</button></a>
+                        <a href="/events/<%=event._id%>"><button class="btn btn-oultine-primary">More Info</button></a>
                     </div>
                 </div>
               </div>
@@ -62,24 +71,22 @@
         </a>
     </div>
   </section>
+
+  <section id="join-us" class="py-5">
+    <h1 class="py-5">Join Us</h1>
+    <p>Join us for weekly lessons on InfoSec fundamentals- <br>did we mention that there'd be free pizza?</p>
+    <a href="https://docs.google.com/forms/d/1SElYiLksvvAA9WljptgbSDCUyWXMwo1jub9Nu1vMfqU/viewform?" target="_blank">
+        <button type="button" class="btn btn-outline-primary">sign up</button>
+    </a>
+  </section>
   
-  <section id="contact" class="pt-5 pb-5">
+  <!-- <section id="contact" class="py-5">
     <h1 class="pb-2">Get In Touch</h1>
+    <p>Need to get in contact?</p>
     <a href="/contact">
         <button type="button" class="btn btn-outline-primary">contact us</button>
     </a>
-  </section>
-
-  <script>
-      $(function(){
-          $(document).scroll(function(){
-              var $nav = $("#mainNavBar");
-              var $banner = $("#banner");
-              
-              $nav.toggleClass("scrolled", $(this).scrollTop() > ($banner.height() - $nav.height()));      
-          });
-      });
-  </script>
+  </section> -->
 
 </div>
 

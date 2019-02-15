@@ -46,7 +46,7 @@
   left: 0;
 }
 
-#club-summary, #contact{
+#club-summary, #join-us{
   background-color: #f4f4f4;
 }
 
@@ -119,6 +119,31 @@
 body{
   text-align: center;
 }
+
+.ad{
+  /* border: 2px solid white; */
+  border-radius: 16px;
+}
+
+.icon{
+  border-radius: 50%;
+  font-size: 3rem;
+  width: 6rem;
+  height: 6rem;
+  padding-top: 1.4rem;
+  color: #353535;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+strong{
+  font-size: 1.5rem;
+}
+
+.ad-title{
+  margin: 0.25rem;
+}
+
 
 @media(max-width:575px) {
   #main-title{

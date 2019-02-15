@@ -23,38 +23,32 @@
       <p><a href="<%=event.page_link%>" target="_blank"><%=event.page_link%></a></p>
     
       <% if (currentUser){ %>
+      <div id="post-history" class="my-4">
         <p class="admin-details"><strong>Created by:</strong> <%= event.created_by.username %><strong>,</strong> <span><%= event.created_on %></span></p>
         <% if (event.last_edited_on > event.created_on) { %>
         <p class="admin-details"><strong>Last Edited by:</strong> <%= event.last_edited_by.username %><strong>,</strong> <span><%= event.last_edited_on %></span></p>
         <% } %>
+      </div>
       <% } %>
     
-      <button type="button" onclick="history.back()" class="btn back-btn float-left btn-set-1">Back</button>
+      <button type="button" onclick="history.back()" class="btn btn-outline-success float-left btn-set-1">Back</button>
 
       <% if (currentUser){ %>
     
         <div class="float-right">
-
-            <!-- Only allow blog post creation after the event has begun -->
-            <% if (Date.now() > event.date){ %>
-            <a href="/blog/new/<%= event._id %>">
-              <button class="btn blog-btn btn-set-1 mx-0">+ Blog Post</button>
-            </a>
-            <% } %>
-
             <a href="/events/<%=event._id%>/edit">
               <button class="btn edit-btn btn-set-1">Edit</button>
             </a>
-            <button class="btn del-btn btn-set-1" id="del-btn-1">Delete</button>
+            <button class="btn btn-outline-danger btn-set-1" id="del-btn-1">Delete</button>
         </div>    
 
   </div>
   
     <div class="confirm-overlay">
         <h3>Are you sure you want to delete: <span><%=event.name%></span>?</h3>
-        <button class="btn back-btn-2">Back</button>
+        <button class="btn btn-outline-success" >Back</button>
         <form class="d-inline" action="/events/<%=event._id%>?_method=DELETE" method="POST">
-          <button class="btn del-btn" id="del-btn-2">Delete</button>
+          <button class="btn btn-outline-danger" id="del-btn-2">Delete</button>
         </form>
       </div>
 

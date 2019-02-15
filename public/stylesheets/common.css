@@ -160,3 +160,14 @@ body{
 ::-webkit-scrollbar { 
   display: none; 
 }
+
+h1:not(#main-title)::after{
+  content: '';
+  width: 45px;
+  height: 3px;
+  background: #007bff;
+  position: absolute;
+  left: 50%;
+  margin-left: -22.25px;
+  margin-top: 3.5rem;
+}

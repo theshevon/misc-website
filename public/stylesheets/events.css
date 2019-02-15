@@ -42,12 +42,12 @@
 	color: black;
 }
 
-.more-btn, .add-btn{
+/* .more-btn, .add-btn{
 	border-radius: 4px;
 	background: none;
 	border: 1px solid black;
 	color: black;
-}
+} */
 
 .event{
 	float: left;
@@ -97,7 +97,7 @@
 	height: 260px;
 }
 
-.del-btn{
+/* .del-btn{
 	background: white;
 	border: none;
 }
@@ -113,7 +113,7 @@
 
 .more-btn:focus {
 	outline: none;
-}
+} */
 
 h1 {
 	margin: 5% auto;

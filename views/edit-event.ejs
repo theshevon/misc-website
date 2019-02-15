@@ -12,67 +12,71 @@
 
   <form action="/events/<%=event._id%>?_method=PUT" method="POST">
 
-      <div class="form-group row">
-        <label for="name" class="col-sm-6 mx-0 pr-5">Name<span>*</span>:</label>
-        <div class="col-sm-6">
-          <input id="name" type="text" class="form-control" name="event[name]" value="<%= event.name %>"required>
+    <div class="form-group row">
+        <!-- <label for="name" class="col-sm-6 mx-0 pr-5">Name<span>*</span>:</label> -->
+        <div class="col-12 col-sm-8">
+          <input id="name" type="text" class="form-control" name="event[name]" placeholder="name" value="<%= event.name %>" required>
         </div>
       </div>
 
       <div class="form-group row">
-        <label for="date" class="col-sm-6 mx-0 pr-5">Date<span>*</span>:</label>
-        <div class="col-sm-6">
-            <% var date = event.date.toLocaleDateString('en-US', {day:'2-digit', month:'2-digit', year:'numeric'}) %>
-            <% date = date.substring(6) + "-" + date.substring(0,2) + "-" + date.substring(3,5) %>
+        <!-- <label for="date" class="col-sm-6 mx-0 pr-5">Date<span>*</span>:</label> -->
+        <div class="col-12 col-sm-8">
+          <% var date = event.date.toLocaleDateString('en-US', {day:'2-digit', month:'2-digit', year:'numeric'}) %>
+          <% date = date.substring(6) + "-" + date.substring(0,2) + "-" + date.substring(3,5) %>
           <input id="date" type="date" class="form-control" name="event[date]" value="<%= date %>" required>
         </div>
       </div>
 
       <div class="form-group row">
-        <label for="time" class="col-sm-6 mx-0 pr-5">Time<span>*</span>:</label>
-        <div class="col-sm-6">
+        <!-- <label for="time" class="col-sm-6 mx-0 pr-5">Time<span>*</span>:</label> -->
+        <div class="col-12 col-sm-8">
           <input id="time" type="time" class="form-control" name="event[time]" value="<%= event.time %>" required>
         </div>
       </div>
 
       <div class="form-group row">
-        <label for="img_url" class="col-sm-6 mx-0 pr-5">Image URL<span>*</span>:</label>
-        <div class="col-sm-6">
-          <input id="img_url" type="text" class="form-control" name="event[image]" value="<%= event.image %>"required>
+        <!-- <label for="img_url" class="col-sm-6 mx-0 pr-5">Image URL<span>*</span>:</label> -->
+        <div class="col-12 col-sm-8">
+            <input id="img_url" type="text" class="form-control" name="event[image]" placeholder="Image URL" value="<%= event.image %>" required>
         </div>
       </div>
 
       <div class="form-group row">
-        <label for="desc" class="col-12 col-sm-6">Description<span>*</span>:</label>
-        <div class="col-sm-6">
-          <textarea id="desc" class="form-control" rows="8" name="event[description]"required><%= event.description %></textarea>
+        <!-- <label for="desc" class="col-12 col-sm-6">Description<span>*</span>:</label> -->
+        <div class="col-12 col-sm-8">
+          <textarea id="desc" class="form-control" rows="8" name="event[description]" placeholder="Description" required><%= event.description %></textarea>
         </div>
       </div>
 
       <div class="form-group row">
-        <label for="loc" class="col-sm-6 mx-0 pr-5">Location<span>*</span>:</label>
-        <div class="col-sm-6">
-          <input id="loc" type="text" class="form-control" name="event[location]" value="<%= event.location %>" required>
+        <!-- <label for="loc" class="col-sm-6 mx-0 pr-5">Location<span>*</span>:</label> -->
+        <div class="col-12 col-sm-8">
+          <input id="loc" type="text" class="form-control" name="event[location]" placeholder="Location" value="<%= event.location %>" required>
         </div>
       </div>
 
       <div class="form-group row">
-          <label for="loc_link" class="col-sm-6 mx-0 pr-5">LostOnCampus Link<span>*</span>:</label>
-          <div class="col-sm-6">
-            <input id="loc_link" type="text" class="form-control" name="event[location_link]" value="<%= event.location_link %>" required>
+          <!-- <label for="loc_link" class="col-sm-6 mx-0 pr-5">LostOnCampus Link<span>*</span>:</label> -->
+          <div class="col-12 col-sm-8">
+            <input id="loc_link" type="text" class="form-control" name="event[location_link]" placeholder="LostOnCampus Link" value="<%= event.location_link %>" required>
           </div>
         </div>
 
       <div class="form-group row">
-        <label for="page_link" class="col-sm-6 mx-0 pr-5">Event Page Link<span>*</span>:</label>
-        <div class="col-sm-6">
-          <input id="page_link" type="text" class="form-control" name="event[page_link]" value="<%= event.page_link %>"required>
+        <!-- <label for="page_link" class="col-sm-6 mx-0 pr-5">Event Page Link<span>*</span>:</label> -->
+        <div class="col-12 col-sm-8">
+          <input id="page_link" type="text" class="form-control" name="event[page_link]" placeholder="Facebook Page Link" value="<%= event.page_link %>" required>
         </div>
       </div>
 
-      <div class="float-right mt-3">
-        <button type="button" id="cancel-btn" class="btn" onclick="history.back()">Cancel</button>
-        <button type="submit" id="create-btn" class="btn">Confirm Changes</button>
+      <div class="row mt-5">
+        <div class="col-6 col-md-4">
+          <button type="button" id="cancel-btn" class="btn btn-outline-danger float-right" onclick="history.back()">Cancel</button>
+        </div>
+        <div class="col-6 col-md-4">
+          <button type="submit" id="create-btn" class="btn btn-outline-success float-left">Confirm Changes</button>
+        </div>
       </div>
 
     </form>

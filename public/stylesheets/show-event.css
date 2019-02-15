@@ -24,38 +24,8 @@
   color: white;
 }
 
-.del-btn{
-  border-color: red;
-  color: red;
-}
-
-.del-btn:hover{
-  background-color: red;
-  color: white;
-}
-
 .del-btn:focus{
   outline: none;
-}
-
-.blog-btn, .back-btn{
-  border-color: white;
-  color: white;
-}
-
-.blog-btn:hover, .back-btn:hover{
-  background-color: white;
-  color: black;
-}
-
-.back-btn-2{
-	color: rgb(2, 145, 145);
-  border-color:  rgb(2, 145, 145);
-}
-
-.back-btn-2:hover{
-	background-color: rgb(2, 145, 145);
-	color: white;
 }
 
 .confirm-overlay{
@@ -89,4 +59,15 @@ p{
 
 h6{
   font-weight: 200;
+}
+
+#post-history{
+  border-radius: 16px;
+  border: 2px solid #f4f4f4;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.admin-details{
+  margin: 0;
 }
