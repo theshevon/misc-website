@@ -161,7 +161,7 @@ body{
   display: none; 
 }
 
-h1:not(#main-title)::after{
+/* h1:not(#main-title, #year)::after{
   content: '';
   width: 45px;
   height: 3px;
@@ -170,4 +170,4 @@ h1:not(#main-title)::after{
   left: 50%;
   margin-left: -22.25px;
   margin-top: 3.5rem;
-}
+} */
