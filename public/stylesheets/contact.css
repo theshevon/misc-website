@@ -1,6 +1,5 @@
 #content{
   text-align: center;
-  height: 87.5vh;
 }
 
 input, textarea{
@@ -10,5 +9,11 @@ input, textarea{
 
 label span{
 	color: red;
+}
+
+@media(min-width:575px){
+  #content{
+    height: 87.5vh;
+  }
 }
 

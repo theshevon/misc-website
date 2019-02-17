@@ -6,10 +6,6 @@
 	background-color: #f4f4f4;
 }
 
-#committee{
-	height: 95vh;
-}
-
 #committee p{
 	text-align: center;
 }
@@ -72,4 +68,3 @@ a, a:hover{
 .title{
 	font-weight: bolder;
 }
-
