@@ -11,7 +11,7 @@ router.get("/", function(req, res){
 router.get("/home", function(req, res){
 
   var date = new Date();
-      month = date.getMonth() - 1,
+      month = date.getMonth(),
       year  = date.getFullYear();
 
   // retrieve all events from db
