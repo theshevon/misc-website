@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.get("/blog", function(req, res){
 
-    var feedURL = "https://medium.com/feed/@RyanHoliday";
+    var feedURL = "https://medium.com/feed/@thomas_mac";
     
     feedReader.parse(feedURL).then((feed) => {
         res.render("blog", {posts:feed.entries});

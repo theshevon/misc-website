@@ -10,15 +10,20 @@
 <!-- Section Classes -->
 <% var classes = ["col-12", "col-12 col-md-5", "col-12 col-md-7", "col-12 col-md-7", "col-12 col-md-5"]; %>
 
-<div id="content">
+<div id="content" class="container">
     
     <% if (posts.length === 0 ){ %>
         <h2 id="sorry-msg">Sorry, no Blog Posts have been published yet.</h2>
     <% }else{ %>
         <% var postCount = 0 %>
-        <section id="blog-posts">
+        <section id="blog-posts" class="pt-5 pb-5">
         <% posts.forEach(function(post){ %>
-            <div class="b-post <%= classes[postCount] %>">
+            <a href="<%= post.link %>" target="_blank">
+            <% if (postCount < 5) { %>
+                <div class="b-post <%= classes[postCount] %> mb-2">
+            <% }else{ %>
+                <div class="b-post <%= classes[postCount] %> mb-2 float-right">
+            <% } %>
                     <% if (post.content.indexOf("<figure>") !== -1 ){ %>
                     <img src="<%= getImgSrc(post.content) %>" class="img-fluid" alt="">
                     <% }else { %>
@@ -26,11 +31,14 @@
                     <% } %>
                     <div class="container info">
                         <h3><%=post.title%></h3>
-                        <p><%=post.contentSnippet%><a href="<%= post.link %>" target="_blank">See More</a></p>
+                        <!-- <a href="<%= post.link %>" target="_blank">
+                            <button class="btn btn-outline-primary">view post ></button>
+                        </a> -->
                     </div>
                 <% postCount++ %>
-                <% if (postCount === 5) postCount = 0 %>
-            </div>
+                <% if (postCount === classes.length) postCount = 0 %>
+                </div>
+            </a>
         <% }); %>
         </section>
     <% } %>
