@@ -1,19 +1,17 @@
-#content{
-  margin: 17.5% auto;
-}
-
 h2{
   letter-spacing: 0.5rem;
   font-weight: 200;
 }
 
-.btn{
-	border: 1px solid black;
-	color: black;
-	background: white;
+#log-in-form{
+	height: 87.5vh;
 }
 
-.btn:hover{
-	color: white;
-	background: black;
+.btn, input{
+	border-radius: 16px !important;
 }
+
+input{
+	text-align: center;
+}
+

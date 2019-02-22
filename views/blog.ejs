@@ -12,11 +12,11 @@
 
 <div id="content" class="container">
     
+    <section id="blog-posts" class="pt-5 pb-5">
     <% if (posts.length === 0 ){ %>
         <h2 id="sorry-msg">Sorry, no Blog Posts have been published yet.</h2>
     <% }else{ %>
         <% var postCount = 0 %>
-        <section id="blog-posts" class="pt-5 pb-5">
         <% posts.forEach(function(post){ %>
             <a href="<%= post.link %>" target="_blank">
             <% if (postCount < 5) { %>
@@ -31,17 +31,14 @@
                     <% } %>
                     <div class="container info">
                         <h3><%=post.title%></h3>
-                        <!-- <a href="<%= post.link %>" target="_blank">
-                            <button class="btn btn-outline-primary">view post ></button>
-                        </a> -->
                     </div>
                 <% postCount++ %>
                 <% if (postCount === classes.length) postCount = 0 %>
                 </div>
             </a>
         <% }); %>
-        </section>
     <% } %>
+    </section>
 
     <% 
         function getImgSrc(str){                 
@@ -54,9 +51,8 @@
             return imgSrc;                      
         }                
     %>
-   
-
-
 </div>
+
+<div class="pb-5"></div>
 
 <% include ./partials/footer %>

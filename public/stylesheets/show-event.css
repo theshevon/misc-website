@@ -6,6 +6,10 @@
   color: gray;
 }
 
+img{
+  width: 100%;
+}
+
 .admin-details strong, .admin-details span {
   color : gray;
 }
@@ -44,17 +48,19 @@
   transition: .5s ease;
 }
 
-body{
-  text-align: center;
-}
 
 h2{
   text-align: center;
   font-weight: 300;
 }
 
-p{
+span, p{
   font-weight: 100;
+  font-size: 17.5px;
+}
+
+p{
+  text-align: justify;
 }
 
 h6{
@@ -71,3 +77,4 @@ h6{
 .admin-details{
   margin: 0;
 }
+

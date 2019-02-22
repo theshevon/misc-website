@@ -6,53 +6,64 @@
 
 <link rel="stylesheet" href="/stylesheets/show-event.css">
 
-<div id="content" class="container">
+<div id="content" class="container pb-5">
 
   <div class="event-details">
 
-      <h2><%=event.name%></h2>
-      <img class="img-fluid d-flex mx-auto mb-4" src="<%= event.image %>">
-      <% var date = event.date.toDateString(); %>
-      <h5>• Date & Time •</h5>
-      <p><%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%> at <%= event.time %></p>
-      <h5>• Description •</h5>
+      <!-- <h2 class="pb-4"><%=event.name%></h2> -->
+      <img class="img-fluid d-flex mx-auto py-5" src="<%= event.image %>">
+
+      <% if (currentUser){ %>
+    
+        
+
+      <% } %>
+
+      <% var date = event.date.toDateString(); %>      
+      <h5>Date & Time: 
+        <span><%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%> at <%= event.time %></span>
+      </h5>
+      <h5>Location: 
+        <span><a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></span>
+      </h5>
+      <h5>Event Page: 
+        <span><a href="<%=event.page_link%>" target="_blank"><%=event.page_link%></a></span>
+      </h5>
+      <h5>Description: </h5>
       <p id="desc"><%=event.description%></p>
-      <h5>• Location •</h5>
-      <p><a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
-      <h5>• Event Page •</h5>
-      <p><a href="<%=event.page_link%>" target="_blank"><%=event.page_link%></a></p>
     
       <% if (currentUser){ %>
-      <div id="post-history" class="my-4">
-        <p class="admin-details"><strong>Created by:</strong> <%= event.created_by.username %><strong>,</strong> <span><%= event.created_on %></span></p>
-        <% if (event.last_edited_on > event.created_on) { %>
-        <p class="admin-details"><strong>Last Edited by:</strong> <%= event.last_edited_by.username %><strong>,</strong> <span><%= event.last_edited_on %></span></p>
+        <div id="post-history" class="my-4 d-flex flex-column align-items-center">
+          <p class="admin-details"><strong>Created by:</strong> <%= event.created_by.username %><strong>,</strong> <span><%= event.created_on %></span></p>
+          <% if (event.last_edited_on > event.created_on) { %>
+          <p class="admin-details"><strong>Last Edited by:</strong> <%= event.last_edited_by.username %><strong>,</strong> <span><%= event.last_edited_on %></span></p>
+          <% } %>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button type="button" onclick="history.back()" class="btn btn-outline-success btn-set-1 my-5">back</button>
+            <div class="d-flex align-items-center">
+              <a href="/events/<%=event._id%>/edit">
+                <button class="btn edit-btn btn-set-1">edit</button>
+              </a>
+              <button class="btn btn-outline-danger btn-set-1 ml-2" id="del-btn-1">delete</button>
+            </div>  
+        </div>
+        <% } else {%>
+          <div class="d-flex align-items-center justify-content-center">
+            <button type="button" onclick="history.back()" class="btn btn-outline-success btn-set-1 my-5">back</button>
+          </div>
         <% } %>
       </div>
-      <% } %>
-    
-      <button type="button" onclick="history.back()" class="btn btn-outline-success float-left btn-set-1">Back</button>
-
-      <% if (currentUser){ %>
-    
-        <div class="float-right">
-            <a href="/events/<%=event._id%>/edit">
-              <button class="btn edit-btn btn-set-1">Edit</button>
-            </a>
-            <button class="btn btn-outline-danger btn-set-1" id="del-btn-1">Delete</button>
-        </div>    
-
-  </div>
   
-    <div class="confirm-overlay">
-        <h3>Are you sure you want to delete: <span><%=event.name%></span>?</h3>
-        <button class="btn btn-outline-success" >Back</button>
-        <form class="d-inline" action="/events/<%=event._id%>?_method=DELETE" method="POST">
-          <button class="btn btn-outline-danger" id="del-btn-2">Delete</button>
-        </form>
-      </div>
-
-  <% } %>
+      <% if (currentUser){ %>
+        <div class="confirm-overlay">
+          <h3>Are you sure you want to delete: <span><%=event.name%></span>?</h3>
+          <button class="btn btn-outline-success">back</button>
+          <form class="d-inline" action="/events/<%=event._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-outline-danger" id="del-btn-2">delete</button>
+          </form>
+        </div>
+      <% } %>
   
 </div>
 

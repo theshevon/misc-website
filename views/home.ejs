@@ -41,34 +41,31 @@
           </div> 
           <hr>
           <p class="py-2">Join us for weekly lessons on InfoSec and CySec fundamentals- <br>did we mention that there'd be free pizza?</p>
-          <a href="https://docs.google.com/forms/d/1SElYiLksvvAA9WljptgbSDCUyWXMwo1jub9Nu1vMfqU/viewform?" target="_blank">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6yxrJFwokhd7GiJGSdd7YUn8kDvk4AGsnfjYv6yloEVuUaA/viewform" target="_blank">
               <button type="button" class="btn btn-outline-primary">sign up</button>
           </a>       
       </div>
   </section>
 
+  <% if (events.length > 0){ %>
   <section id="events" class="py-5">
     <div class="container">
         <h1>Events This Month</h1>
         <div class="row flex-wrap mt-5">
-          <% if (events.length === 0 ){ %>
-            <h2 id="sorry-msg">Sorry, there are no events scheduled for this month.</h2>
-          <% }else{ %>
             <% events.forEach(function(event){ %>
-              <div class="event col-md-4 col-sm-6 mb-5">
-                <img src="<%= event.image %>" class="event-img img-thumbnail">
-                <div class="img-overlay">
-                    <div id="info">
-                        <% var date = event.date.toDateString(); %>
-                        <p> Date: <%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%></p>
-                        <p> Time: <%= event.time %></p>
-                        <p> Location: <a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
-                        <a href="/events/<%=event._id%>"><button class="btn btn-outline-primary">More Info</button></a>
-                    </div>
-                </div>
+            <div class="event col-md-4 col-sm-6 mb-5">
+              <img src="<%= event.image %>" class="event-img img-thumbnail">
+              <div class="img-overlay">
+                  <div id="info">
+                      <% var date = event.date.toDateString(); %>
+                      <p> Date: <%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%></p>
+                      <p> Time: <%= event.time %></p>
+                      <p> Location: <a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
+                      <a href="/events/<%=event._id%>"><button class="btn btn-outline-primary">more info</button></a>
+                  </div>
               </div>
+            </div>
             <% }); %>
-          <% } %>
         </div>
         <a href="/events">
           <button type="button" class="btn btn-outline-primary">see more ></button>
@@ -76,5 +73,6 @@
     </div>
   </section>
 </div>
+<% } %>
 
 <% include ./partials/footer %>
