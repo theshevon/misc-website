@@ -1,12 +1,12 @@
-#about-tag{
-	color: gray;
+#about-umisc p{
+	text-align: justify;
 }
 
 #club-aims{
 	background-color: #f4f4f4;
 }
 
-#committee p{
+#club-aims p{
 	text-align: center;
 }
 
@@ -16,11 +16,7 @@
 	font-weight: 100;
 }
 
-#about-umisc p{
-	text-align: justify;
-}
-
-#club-aims p{
+#committee p{
 	text-align: center;
 }
 
@@ -31,6 +27,14 @@
 	margin: 5px solid black;
 }
 
+#committee .title{
+	font-weight: bolder;
+}
+
+.row{
+	margin-bottom: 2rem;
+}
+
 figure{
 	width: 100px;
 	height: 100px;
@@ -38,21 +42,12 @@ figure{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* [class^='imghvr-'],
-[class*=' imghvr-'] {
-  background-color: #D14233;
-} */
-
 figcaption{
 	text-align: center;
 }
 
 figcaption a{
 	margin-top: 25%;
-}
-
-.row{
-	margin-bottom: 2rem;
 }
 
 h1{
@@ -63,8 +58,4 @@ h1{
 a, a:hover{
 	color: white;
 	font-size: 30px;
-}
-
-.title{
-	font-weight: bolder;
 }

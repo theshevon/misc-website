@@ -19,7 +19,8 @@ router.get("/events/:id/edit", isLoggedIn, function(req, res){
     Event.findById(req.params.id, function(err, event){
         if (err || !event){
             req.flash("error", "The event does not exist!")
-            res.redirect("/events/" + date.getFullYear() + "/" + date.getMonth());
+            res.redirect("/events/" + date.getFullYear() + "/" + 
+                                                            date.getMonth());
         } else{
             res.render("edit-event", {event:event});
         }
@@ -63,12 +64,15 @@ router.post("/events", isLoggedIn, function(req, res){
 
     Event.create(req.body.event, function(err, event){
       if (err){
-        req.flash("error", "Sorry, your request couldn't be completed at this time.")
-        res.redirect("/events/" + event.date.getFullYear() + "/" + event.date.getMonth());
+        req.flash("error", "Sorry, your request couldn't be completed at this \
+                                                                        time.")
+        res.redirect("/events/" + event.date.getFullYear() + "/" + 
+                                                        event.date.getMonth());
       }
 
       req.flash("success", "Event Successfully Added");
-      res.redirect("/events/" + event.date.getFullYear() + "/" + event.date.getMonth());
+      res.redirect("/events/" + event.date.getFullYear() + "/" + 
+                                                        event.date.getMonth());
     });
 });
 
@@ -79,7 +83,8 @@ router.get("/events/:id", function(req, res){
     Event.findById(req.params.id, function(err, event){
           if (err || !event){
             req.flash("error", "The event does not exist!")
-            res.redirect("/events/" + date.getFullYear() + "/" + date.getMonth());
+            res.redirect("/events/" + date.getFullYear() + "/" + 
+                                                            date.getMonth());
           }
           res.render("show-event", {event:event});
     });
@@ -99,7 +104,8 @@ router.put("/events/:id", isLoggedIn, function(req, res){
     // find event by its ID and update it
     Event.findByIdAndUpdate(req.params.id, req.body.event, function(err, event){
         if (err){
-            req.flash("error", "Error: Sorry, your request could not be completed at this time");
+            req.flash("error", "Error: Sorry, your request could not be \
+                                                    completed at this time");
             res.redirect("/events");
         } else{
             req.flash("success", "Event Successfully Updated");
@@ -114,7 +120,8 @@ router.delete("/events/:id", isLoggedIn, function(req, res){
     // find event by its ID and delete it
     Event.findByIdAndDelete(req.params.id, function(err){
         if (err){
-            req.flash("error", "Error: Sorry, your request could not be completed at this time");
+            req.flash("error", "Error: Sorry, your request could not be \
+                                                    completed at this time");
             res.redirect("back");
         } else{
             req.flash("success", "Event Successfully Deleted")
@@ -123,7 +130,7 @@ router.delete("/events/:id", isLoggedIn, function(req, res){
     });
 });
 
-/*==================================helper functions================================*/
+/*================================helper functions============================*/
 
 /**
  * Finds the events corresponding to a specified month and year, orders them 
@@ -135,7 +142,8 @@ function getEventsForSpecificTime(allEvents, month, year){
 
     // find the events 
     allEvents.forEach(function(event){
-        if (event.date.getMonth() === month && event.date.getFullYear() === year){
+        if (event.date.getMonth() === month && event.date.getFullYear() === 
+                                                                        year){
             events.push(event);
         }
     });
@@ -147,7 +155,8 @@ function getEventsForSpecificTime(allEvents, month, year){
 }
 
 /**
- * Provides the substring to complete the hrefs for the next and prev month buttons
+ * Provides the substring to complete the hrefs for the next and prev month 
+ * buttons
  */
 function getUpdateTimeString(month, year, dir){
     if (dir === "prev"){

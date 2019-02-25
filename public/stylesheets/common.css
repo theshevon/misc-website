@@ -62,10 +62,6 @@
   outline: none;
 }
 
-#footer p{
-  margin-bottom: 0;
-}
-
 /* html{
   height: 100%;
   width: 100%;
@@ -136,13 +132,16 @@ body{
   color: white;
   padding-top: 15px;
   padding-bottom: 15px;
-  display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 100;
-  font-size: 0.75rem;
-  text-align: center;
   width: 100%;
+}
+
+#footer p{
+  font-weight: 100 !important;
+  font-size: 0.75rem !important;
+  text-align: center !important;
+  margin-bottom: 0;
 }
 
 .fa-facebook, .fa-medium, .fa-linkedin{

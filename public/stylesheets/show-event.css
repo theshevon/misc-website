@@ -6,8 +6,11 @@
   color: gray;
 }
 
-img{
-  width: 100%;
+#post-history{
+  border-radius: 16px;
+  border: 2px solid #f4f4f4;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .admin-details strong, .admin-details span {
@@ -48,10 +51,17 @@ img{
   transition: .5s ease;
 }
 
+.confirm-overlay span{
+  font-weight: normal;
+  font-size: 2rem;
+}
 
-h2{
-  text-align: center;
-  font-weight: 300;
+.admin-details{
+  margin: 0;
+}
+
+img{
+  width: 100%;
 }
 
 span, p{
@@ -67,14 +77,4 @@ h6{
   font-weight: 200;
 }
 
-#post-history{
-  border-radius: 16px;
-  border: 2px solid #f4f4f4;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.admin-details{
-  margin: 0;
-}
 

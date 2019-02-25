@@ -19,7 +19,7 @@ $("#del-btn-1").on("click", function(event){
 });
 
 // if cancel button pressed on deletion confirmation overlay
-$(".back-btn-2").on("click", function(event){
+$("#back-btn-2").on("click", function(event){
     $(".event-details").css("opacity", "1");
 
     //  reveal the buttons hid by the overlay

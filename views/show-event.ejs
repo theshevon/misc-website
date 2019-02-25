@@ -10,26 +10,23 @@
 
   <div class="event-details">
 
-      <!-- <h2 class="pb-4"><%=event.name%></h2> -->
       <img class="img-fluid d-flex mx-auto py-5" src="<%= event.image %>">
 
-      <% if (currentUser){ %>
-    
-        
+      <% var date = event.date.toDateString(); %>    
 
-      <% } %>
-
-      <% var date = event.date.toDateString(); %>      
-      <h5>Date & Time: 
-        <span><%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%> at <%= event.time %></span>
+      <h5>Date & Time : 
+        <span><%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%> from <%= event.start_time %> to <%= event.end_time %></span>
       </h5>
-      <h5>Location: 
+
+      <h5>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 
         <span><a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></span>
       </h5>
-      <h5>Event Page: 
+
+      <h5>Event Page&nbsp;&nbsp; : 
         <span><a href="<%=event.page_link%>" target="_blank"><%=event.page_link%></a></span>
       </h5>
-      <h5>Description: </h5>
+      
+      <h5>Description&nbsp; : </h5>
       <p id="desc"><%=event.description%></p>
     
       <% if (currentUser){ %>
@@ -58,7 +55,7 @@
       <% if (currentUser){ %>
         <div class="confirm-overlay">
           <h3>Are you sure you want to delete: <span><%=event.name%></span>?</h3>
-          <button class="btn btn-outline-success">back</button>
+          <button id="back-btn-2" class="btn btn-outline-success">back</button>
           <form class="d-inline" action="/events/<%=event._id%>?_method=DELETE" method="POST">
             <button class="btn btn-outline-danger" id="del-btn-2">delete</button>
           </form>

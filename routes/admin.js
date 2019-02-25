@@ -61,7 +61,8 @@ router.get("/register", function(req, res){
 router.post("/register", function(req, res){
 
     // verify username 
-    User.register(new User({name: req.body.name, username: req.body.username}), req.body.password, function(err, user){
+    User.register(new User({name: req.body.name, username: req.body.username}), 
+                                        req.body.password, function(err, user){
         if (err){
             console.log(err);
             req.flash("error", "Username already in use!");
@@ -70,7 +71,8 @@ router.post("/register", function(req, res){
 
         // logs user in and runs 'serialize' method
         passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Successfully Logged In As: " + req.user.username);
+            req.flash("success", "Successfully Logged In As: " + 
+                                                            req.user.username);
             res.redirect("/home");
         });
     })

@@ -1,7 +1,3 @@
-#events-tag{
-  color: gray;
-}
-
 .main{
   width:60%;
 }
@@ -18,10 +14,7 @@ input{
   text-align: center;
 }
 
-label span{
-	color: red;
-}
-
 h2{
   text-align: center;
 }
+

@@ -2,6 +2,8 @@ var Event   = require("../models/event"),
     express = require("express");
 var router  = express.Router();
 
+router.use(express.static(__dirname + "/public"));
+
 // REDIRECT TO HOME
 router.get("/", function(req, res){
   res.redirect("/home");
@@ -23,9 +25,9 @@ router.get("/home", function(req, res){
       }
       events = getEventsForSpecificTime(events, month, year);
       res.render("home", { 
-                            events : events,
-                            month  : month,
-                            year   : year
+                            events    : events,
+                            month     : month,
+                            year      : year
                           });
   });
 });
@@ -35,10 +37,6 @@ router.get("/about", function(req, res){
   res.render("about");
 });
 
-router.get("/test", function(req, res){
-  res.render("test");
-});
-
 // FALLBACK
 router.get("/*", function(req, res){
   res.render("error");
@@ -46,7 +44,7 @@ router.get("/*", function(req, res){
 
 module.exports = router;
 
-/*==================================helper functions================================*/
+/*==================================helper functions==========================*/
 
 /**
  * Finds the events corresponding to a specified month and year, orders them 

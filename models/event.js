@@ -16,7 +16,8 @@ var Date_t = {
 var EventSchema = new mongoose.Schema({
   name: String,
   date: Date,
-  time: String,
+  start_time: String,
+  end_time: String,
   image: String,
   description: String,
   location: String,

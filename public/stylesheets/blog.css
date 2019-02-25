@@ -1,6 +1,11 @@
 #sorry-msg{
-	margin: 15% auto;
+	text-align: center;
 	font-weight: 100;
+	margin-top: 30vh;
+}
+
+#blog-posts{
+	min-height: 82.5vh;
 }
 
 .b-post{

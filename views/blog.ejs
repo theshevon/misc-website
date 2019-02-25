@@ -27,16 +27,16 @@
                     <% if (post.content.indexOf("<figure>") !== -1 ){ %>
                     <img src="<%= getImgSrc(post.content) %>" class="img-fluid" alt="">
                     <% }else { %>
-                    <img src="./images/stub.jpg" class="img-fluid" alt="">
+                    <img src="./images/stub.png" class="img-fluid" alt="">
                     <% } %>
                     <div class="container info">
                         <h3><%=post.title%></h3>
                     </div>
-                <% postCount++ %>
-                <% if (postCount === classes.length) postCount = 0 %>
+                    <% postCount++ %>
+                    <% if (postCount === classes.length) postCount = 0 %>
                 </div>
             </a>
-        <% }); %>
+            <% }); %>
     <% } %>
     </section>
 

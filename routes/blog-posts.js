@@ -1,14 +1,15 @@
-var feedReader    = require("feed-reader"),
-    express   = require("express");
+var feedReader = require("feed-reader"),
+    express    = require("express");
 
-var router = express.Router();
+var router     = express.Router();
 
 router.get("/blog", function(req, res){
 
+    // rss url of blog
     var feedURL = "https://medium.com/feed/@thomas_mac";
     
     feedReader.parse(feedURL).then((feed) => {
-        res.render("blog", {posts:feed.entries});
+        res.render("blog", {posts: []});//feed.entries});
     }).catch((err) => {
         console.log(err);
     });

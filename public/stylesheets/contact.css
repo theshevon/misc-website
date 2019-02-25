@@ -7,10 +7,6 @@ input, textarea{
   text-align: center;
 }
 
-label span{
-	color: red;
-}
-
 @media(min-width:575px){
   #content{
     height: 87.5vh;
