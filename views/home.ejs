@@ -59,7 +59,7 @@
                   <div id="info">
                       <% var date = event.date.toDateString(); %>
                       <p> Date: <%= date.substring(0,3)%>, <%= date.substring(8,10)%> <%= date.substring(4,7)%> <%= date.substring(11)%></p>
-                      <p> Time: <%= event.time %></p>
+                      <p> Time: <%= event.start_time %> to <%= event.end_time %></p>
                       <p> Location: <a href="<%=event.location_link%>" target="_blank"> <%=event.location%></a></p>
                       <a href="/events/<%=event._id%>"><button class="btn btn-outline-primary">more info</button></a>
                   </div>
@@ -73,12 +73,12 @@
     </div>
   </section>
 
-  <section id="sponsors" class="py-5">
+  <!-- <section id="sponsors" class="py-5">
     <div class="container">
         <h1 class="mb-5">Sponsors</h1>
         <img src="/images/sponsors/sponsor_0.png" alt="accenture_logo" class="img-fluid">
     </div>
-   </section>
+   </section> -->
 
 </div>
 <% } %>
