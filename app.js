@@ -7,7 +7,6 @@ var methodOverride        = require("method-override"),
     passport              = require("passport"),
     mongoose              = require("mongoose"),
     express               = require("express"),
-    seedDB                = require("./seeds"),  //remove before prod
     helmet                = require("helmet"),
     app                   = express();
 
@@ -22,8 +21,6 @@ var eventRoutes   = require("./routes/events"),
 /*==================================app config================================*/
 
 // connect to umisc database
-// mongodb://umisc_admin:nimda_2019@ds253804.mlab.com:53804/umisc
-// mongodb://127.0.0.1:27017/umisc
 mongoose.connect("mongodb://127.0.0.1:27017/umisc", 
                  {useNewUrlParser: true}, 
                  function(err, db) {
@@ -71,12 +68,7 @@ app.use(contactRoutes);
 app.use(adminRoutes);
 app.use(indexRoutes);
 
-// local deployment
 app.listen(3000, function(){
     console.log("Successfully connected to server.");
 });
 
-// production
-app.listen(process.env.PORT, process.env.IP, function(){
-  console.log("Successfully connected to server.");
-});
