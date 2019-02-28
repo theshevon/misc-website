@@ -52,32 +52,6 @@ router.get("/logout", isLoggedIn, function(req, res){
     res.redirect("/home");
 });
 
-// NEW USER REGISTRATION PAGE
-router.get("/register", function(req, res){
-  res.render("register");
-});
-
-// REGISTER NEW USER
-router.post("/register", function(req, res){
-
-    // verify username 
-    User.register(new User({name: req.body.name, username: req.body.username}), 
-                                        req.body.password, function(err, user){
-        if (err){
-            console.log(err);
-            req.flash("error", "Username already in use!");
-            res.redirect('/register');
-        }
-
-        // logs user in and runs 'serialize' method
-        passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Successfully Logged In As: " + 
-                                                            req.user.username);
-            res.redirect("/home");
-        });
-    })
-});
-
 /**
  * Middleware to check if a user has logged in.
  */
