@@ -21,7 +21,6 @@
 
 #mainNavBar{
   background-color: #202020;
-  height: 5vh;
 }
 
 #mainNavBar .nav-link{
@@ -152,6 +151,11 @@ body{
 }
 
 @media(min-width:575px){
+
+  #mainNavBar{
+    height: 40px;
+  }
+
   .navbar-brand {
     transform: translateX(-50%);
     left: 50%;

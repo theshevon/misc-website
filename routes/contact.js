@@ -1,7 +1,8 @@
 var expressSanitizer = require('express-sanitizer'),
-    nodemailer       = require("nodemailer"),
+    sgMailer         = require("@sendgrid/mail"),
     express          = require("express");
 
+const sgMail = require('@sendgrid/mail');
 var router = express.Router();
 
 router.use(expressSanitizer());
@@ -12,48 +13,27 @@ router.get("/contact", function(req, res){
 });
 
 router.post("/contact", function(req, res){
-
+    console.log("I'm at the top");
     //  sanitise all inputs
+    req.body.message = req.sanitize(req.body.message);
 
+    // create output
     var output = req.body.message.body + "\n" + "\n" + req.body.message.name;
-
     if (req.body.message.org) output += " - " + req.body.message.org + "\n";
-
     output += req.body.message.email;
-  
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-          user: 'shevonmendis7@gmail.com', // generated ethereal user
-          pass: 'f@kePassword'  // generated ethereal password
-      },
-      tls:{
-        rejectUnauthorized:false
-      }
-    });
 
-    // setup email data with unicode symbols
-    let mailOptions = {
-        from: req.body.message.name + ' <' + req.body.message.email + '>', // sender address
-        to: 'shevonmendis98@gmail.com', // list of receivers
-        subject: req.body.message.subject, // Subject line
-        text: output // 
+    // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+   sgMail.setApiKey("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");
+    const msg = {
+      to: 'shevonmendis98@gmail.com',
+      from: 'shevonmendis98@gmail.com',
+      subject: 'Sending with SendGrid is Fun',
+      text: 'and easy to do anywhere, even with Node.js',
+      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
     };
 
-    // send mail with defined transport object
-    transporter.sendMail(mailOptions, (error, info) => {
+    sgMail.send(msg);
 
-        console.log("mailed");
-        if (error) {
-          req.flash("error", "Sorry, your request could not be completed at this time!");
-          res.redirect('/contact');
-        }
-        console.log('Message sent: %s', info.messageId);
-        
-        req.flash("success", "Your message has been sent!");
-        res.redirect('/contact');
-    });
 });
 
 module.exports = router;

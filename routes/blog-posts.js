@@ -6,12 +6,12 @@ var router     = express.Router();
 router.get("/blog", function(req, res){
 
     // rss url of blog
-    var feedURL = "https://medium.com/feed/@thomas_mac";
+    var feedURL = "https://medium.com/feed/@umisc";
     
     feedReader.parse(feedURL).then((feed) => {
-        res.render("blog", {posts: []});//feed.entries});
+        res.render("blog", {posts: feed.entries});
     }).catch((err) => {
-        console.log(err);
+        res.render("blog", {posts: []});
     });
 
 });
