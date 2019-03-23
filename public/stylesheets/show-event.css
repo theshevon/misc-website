@@ -77,4 +77,8 @@ h6{
   font-weight: 200;
 }
 
+.event-details #desc{
+  white-space: pre-wrap;
+}
+
 
