@@ -20,7 +20,7 @@ var eventRoutes   = require("./routes/events"),
 /*==================================app config================================*/
 
 // connect to umisc database
-mongoose.connect("mongodb://umisc_admin:nimda_123@ds121026.mlab.com:21026/umisc", 
+mongoose.connect("mongodb://127.0.0.1:27017/umisc", 
                  {useNewUrlParser: true}, 
                  function(err, db) {
                     if (err) {
