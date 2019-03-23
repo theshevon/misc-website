@@ -17,11 +17,19 @@
   <section id="banner" class="py-5">
       <h1 id="main-title">University <span id="special">of</span> Melbourne<br>Information Security Club</h1>
       <img id="main-img" src="/images/bg.png">
+      <div id="scroll-anim" class="d-flex justify-content-center">
+            <div class='mouse-container'>
+                <div class='mouse'>
+                    <span class='scroll-down'></span>
+                </div>
+            </div>
+      </div>
+      
   </section>
 
   <section id="club-summary" class="py-5">
       <div class="container">
-          <h1 class="pb-5">A Community of Ethical Hackers</h1>
+          <h1 class="pb-5">A Community of White Hat Hackers</h1>
           <div class="row">
               <div class="col-12 col-md-4 py-3">
                   <i class="fas fa-graduation-cap icon"></i>
@@ -54,7 +62,7 @@
         <div class="row flex-wrap justify-content-center mt-5">
             <% events.forEach(function(event){ %>
             <div class="event col-md-4 col-sm-6 mb-5">
-              <img src="<%= event.image %>" class="event-img img-thumbnail">
+              <img src="/uploads/<%= event.img_name %>" class="event-img img-thumbnail">
               <div class="img-overlay">
                   <div id="info">
                       <% var date = event.date.toDateString(); %>
@@ -68,7 +76,7 @@
             <% }); %>
         </div>
         <a href="/events">
-          <button type="button" class="btn btn-outline-primary">see more ></button>
+          <button type="button" class="btn btn-outline-primary">see more</button>
         </a>
     </div>
   </section>
@@ -81,6 +89,12 @@
    </section> -->
 
 </div>
+
+<script>
+    $(document).scroll(function(){
+        $("#scroll-anim").toggleClass("scrolled", $(this).scrollTop() > $("#banner").height()/2);
+    });
+</script>
 <% } %>
 
 <% include ./partials/footer %>

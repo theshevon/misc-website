@@ -15,13 +15,12 @@ var User  = require("./models/user");
 var eventRoutes   = require("./routes/events"),
     blogRoutes    = require("./routes/blog-posts"),
     adminRoutes   = require("./routes/admin"),
-    indexRoutes   = require("./routes/index"),
-    contactRoutes = require("./routes/contact");
+    indexRoutes   = require("./routes/index");
 
 /*==================================app config================================*/
 
 // connect to umisc database
-mongoose.connect("mongodb://127.0.0.1:27017/umisc", 
+mongoose.connect("mongodb://umisc_admin:nimda_123@ds121026.mlab.com:21026/umisc", 
                  {useNewUrlParser: true}, 
                  function(err, db) {
                     if (err) {
@@ -64,7 +63,6 @@ app.use(methodOverride("_method"));
 
 app.use(eventRoutes);
 app.use(blogRoutes);
-app.use(contactRoutes);
 app.use(adminRoutes);
 app.use(indexRoutes);
 

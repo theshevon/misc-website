@@ -81,6 +81,7 @@
 body{
   color: black;
   background-color: white;
+  overflow-x: hidden;
 }
 
 .navbar-collapse {
@@ -126,10 +127,11 @@ body{
   padding-right: 20px;
 }
 
-.fa-facebook, .fa-medium, .fa-linkedin{
+.fa-facebook, .fa-envelope-square, .fa-linkedin{
   display: block !important;
-  color:  #1e2322;
+  color:  #1e2322 !important;
   font-size: 2.5rem !important;
+  padding-right: 2px;
 }
 
 @media(max-width:575px) {
@@ -139,10 +141,6 @@ body{
 
   #mainNavBar .nav-link{
     padding: 1em;
-  }
-
-  #mainNavBar{
-    height: 9vh;
   }
 
   #content{

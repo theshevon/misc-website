@@ -10,6 +10,10 @@ input, textarea{
   border-radius: 16px !important;
 }
 
+textarea{
+  resize: none;
+}
+
 input{
   text-align: center;
 }
@@ -18,3 +22,13 @@ h2{
   text-align: center;
 }
 
+.file-upload {
+  border-radius: 16px;
+  text-align: center;
+  color: #6c757d;
+}
+
+.custom-file-label::after{
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}

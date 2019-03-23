@@ -13,12 +13,21 @@
 
       <h2 class="d-flex mb-5 justify-content-center">Edit Details For: <%= event.name %></h2>
 
-      <form action="/events/<%=event._id%>?_method=PUT" method="POST">
+      <form action="/events/<%=event._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
     
         <div class="form-group row">
-          <div class="col-12 col-sm-8">
-            <input id="name" type="text" class="form-control" name="event[name]" placeholder="name" value="<%= event.name %>" required>
-          </div>
+            <div class="col-12 col-sm-6">
+                <div class="custom-file">
+                    <input id="img" type="file" class="custom-file-input file-upload" name="event_img" accept="image/*">
+                    <label for="img" class="custom-file-label file-upload">current: <%= event.img_name %></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row" style="display: none">
+            <div class="col-12 col-sm-8">
+                <input type="text" class="form-control" name="event[img_name]" value="<%= event.img_name %>" required>
+            </div>
         </div>
   
         <div class="form-group row">
@@ -28,19 +37,13 @@
             <input id="date" type="date" class="form-control" name="event[date]" value="<%= date %>" required>
           </div>
         </div>
-  
+
         <div class="form-group row">
           <div class="col-12 col-sm-4">
             <input id="start_time" type="text" class="form-control" name="event[start_time]" placeholder="start time" value=<%= event.start_time %> required>
           </div>
           <div class="col-12 col-sm-4">
             <input id="end_time" type="text" class="form-control" name="event[end_time]" placeholder="end time" value=<%= event.end_time %> required>
-          </div>
-        </div>
-  
-        <div class="form-group row">
-          <div class="col-12 col-sm-8">
-              <input id="img_url" type="text" class="form-control" name="event[image]" placeholder="Image URL" value="<%= event.image %>" required>
           </div>
         </div>
   
@@ -70,7 +73,9 @@
   
         <div class="row mt-5">
           <div class="col-6 col-md-4">
-            <button type="button" id="cancel-btn" class="btn btn-outline-danger float-right" onclick="history.back()">cancel</button>
+            <a href="/events">
+              <button type="button" id="cancel-btn" class="btn btn-outline-danger float-right">cancel</button>
+            </a>
           </div>
           <div class="col-6 col-md-4">
             <button type="submit" id="create-btn" class="btn btn-outline-success float-left">confirm changes</button>

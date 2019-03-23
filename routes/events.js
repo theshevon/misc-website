@@ -1,8 +1,50 @@
 var Event   = require("../models/event"),
-    express = require("express");
+    express = require("express"),
+    multer  = require("multer"),
+    path    = require("path");
 
 var router = express.Router(),
     date   = new Date();
+
+/*================================multer config===============================*/
+
+// global var to store filename
+var filename = "";
+const file_path = './public/uploads';
+
+// set storage engine
+const storage = multer.diskStorage({
+    destination: file_path,
+    filename: function(req, file, cb){
+        filename = file.originalname;
+        cb(null, file.originalname);
+    }
+});
+
+// init upload
+const upload = multer({
+    storage: storage,
+    fileFilter: function(req, file, cb){
+        checkFileType(file, cb);
+    }
+}).single('event_img');
+
+// file checker
+function checkFileType(file, cb){
+    // allowed ext
+    const filetypes = /jpeg|jpg|png/;
+
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = filetypes.test(file.mimetype);
+
+    if (mimetype && extname){
+        return cb(null, true);
+    } else{
+        cb("Error: Images only");
+    }
+}
+
+/*====================================routing==================================*/
 
 // REDIRECTION TO MONTHLY EVENTS
 router.get("/events", function(req, res){
@@ -52,7 +94,7 @@ router.get("/events/:year/:month", function(req, res){
 });
 
 // CREATE AN EVENT
-router.post("/events", isLoggedIn, function(req, res){
+router.post("/events", isLoggedIn, upload, function(req, res){
     
     var creator = {
                     id: req.user._id,
@@ -61,6 +103,14 @@ router.post("/events", isLoggedIn, function(req, res){
 
     req.body.event.created_by = creator;
     req.body.event.last_edited_by = creator;
+
+    // link repo to cover image
+    if (filename !== ""){   // new upload occurred
+        req.body.event.img_name = filename;
+
+        // reset filename
+        filename = "";
+    }
 
     Event.create(req.body.event, function(err, event){
       if (err){
@@ -81,6 +131,8 @@ router.get("/events/:id", function(req, res){
 
     // find event by its ID
     Event.findById(req.params.id, function(err, event){
+
+        console.log(event);
           if (err || !event){
             req.flash("error", "The event does not exist!")
             res.redirect("/events/" + date.getFullYear() + "/" + 
@@ -91,7 +143,7 @@ router.get("/events/:id", function(req, res){
 });
 
 // UPDATE AN EVENT
-router.put("/events/:id", isLoggedIn, function(req, res){
+router.put("/events/:id", isLoggedIn, upload, function(req, res){
     
     var editor = {
                     id: req.user._id,
@@ -100,6 +152,15 @@ router.put("/events/:id", isLoggedIn, function(req, res){
 
     req.body.event.last_edited_by = editor;
     req.body.event.last_edited_on = Date();
+
+    console.log("FILENAME: " + filename);
+    // link repo to cover image
+    if (filename !== ""){   // new upload occurred
+        req.body.event.img_name = filename;
+
+        // reset filename
+        filename = "";
+    }
 
     // find event by its ID and update it
     Event.findByIdAndUpdate(req.params.id, req.body.event, function(err, event){

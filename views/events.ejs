@@ -32,7 +32,7 @@
       <% }else{ %>
         <% events.forEach(function(event){ %>
           <div class="event col-md-4 col-sm-6 mb-5">
-            <img src="<%= event.image %>" class="event-img img-thumbnail">
+            <img src="/uploads/<%= event.img_name %>" class="event-img img-thumbnail">
             <div class="img-overlay">
                 <div id="info">
                     <% var date = event.date.toDateString(); %>

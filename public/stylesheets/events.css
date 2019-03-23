@@ -32,13 +32,13 @@
 	transition: 500ms;
 }
 
-.fas, .far{
+.nav{
 	color: gray;
 	opacity: 0;
 	transition: 500ms;
 }
 
-.fas:hover, .far:hover{
+.nav:hover{
 	color: black;
 }
 

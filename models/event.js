@@ -18,7 +18,7 @@ var EventSchema = new mongoose.Schema({
   date: Date,
   start_time: String,
   end_time: String,
-  image: String,
+  img_name: { type: String, default: "stub.png" },
   description: String,
   location: String,
   location_link: String,
