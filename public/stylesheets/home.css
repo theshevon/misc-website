@@ -216,3 +216,7 @@ div.mouse span.scroll-down {
 .scrolled{
   opacity: 0;
 }
+
+.logos img{
+  height: 70px;
+}

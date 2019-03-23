@@ -80,13 +80,16 @@
         </a>
     </div>
   </section>
+  <% } %>
 
-  <!-- <section id="sponsors" class="py-5">
+  <section id="sponsors" class="py-5">
     <div class="container">
         <h1 class="mb-5">Sponsors</h1>
-        <img src="/images/sponsors/sponsor_0.png" alt="accenture_logo" class="img-fluid">
+        <div class="logos d-flex flex-wrap justify-content-center">
+            <img src="/images/sponsors/sponsor_0.png" alt="accenture_logo" class="img-fluid">
+        </div>
     </div>
-   </section> -->
+   </section>
 
 </div>
 
@@ -95,6 +98,5 @@
         $("#scroll-anim").toggleClass("scrolled", $(this).scrollTop() > $("#banner").height()/2);
     });
 </script>
-<% } %>
 
 <% include ./partials/footer %>
