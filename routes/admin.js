@@ -63,31 +63,31 @@ function isLoggedIn(req, res, next){
     res.redirect("/admin");
 }
 
-// NEW USER REGISTRATION PAGE
-router.get("/register", function(req, res){
-    res.render("register");
-});
+// // NEW USER REGISTRATION PAGE
+// router.get("/register", function(req, res){
+//     res.render("register");
+// });
 
-// REGISTER NEW USER
-router.post("/register", function(req, res){
+// // REGISTER NEW USER
+// router.post("/register", function(req, res){
 
-    // verify username 
-    User.register(new User({username: req.body.username}), req.body.password, 
-                                                            function(err, user){
+//     // verify username 
+//     User.register(new User({username: req.body.username}), req.body.password, 
+//                                                             function(err, user){
 
-        if (err){
-            console.log(err);
-            req.flash("error", "Username already in use!");
-            res.redirect('/register');
-        }
+//         if (err){
+//             console.log(err);
+//             req.flash("error", "Username already in use!");
+//             res.redirect('/register');
+//         }
 
-        // logs user in and runs 'serialize' method
-        passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Successfully Logged In!");
-            res.redirect("/code");
-        });
-    })
-});
+//         // logs user in and runs 'serialize' method
+//         passport.authenticate("local")(req, res, function(){
+//             req.flash("success", "Successfully Logged In!");
+//             res.redirect("/code");
+//         });
+//     })
+// });
 
 
 module.exports = router;
