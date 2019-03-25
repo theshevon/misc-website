@@ -63,3 +63,7 @@ a{
 a:hover{
 	color: white;
 }
+
+body{
+	overflow-x: hidden !important;
+}
