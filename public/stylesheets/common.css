@@ -78,6 +78,10 @@
   margin-bottom: 0;
 }
 
+html{
+  overflow-x: hidden;
+}
+
 body{
   color: black;
   background-color: white;
