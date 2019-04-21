@@ -18,17 +18,15 @@
     <% }else{ %>
         <% var postCount = 0 %>
         <% posts.forEach(function(post){ %>
+
             <a href="<%= post.link %>" target="_blank">
             <% if (postCount < 5) { %>
                 <div class="b-post <%= classes[postCount] %> mb-2">
             <% }else{ %>
                 <div class="b-post <%= classes[postCount] %> mb-2 float-right">
             <% } %>
-                    <% if (post.content.indexOf("<figure>") !== -1 ){ %>
-                    <img src="<%= getImgSrc(post.content) %>" class="img-fluid" alt="">
-                    <% }else { %>
-                    <img src="./images/stub.png" class="img-fluid" alt="">
-                    <% } %>
+                    <img src="https://cdn-images-1.medium.com/max/1024/1*XAikuXkQo0d2iVkkYvBLDA.jpeg" class="img-fluid" alt="">
+                    
                     <div class="container info">
                         <h3><%=post.title%></h3>
                     </div>

@@ -23,8 +23,17 @@ var EventSchema = new mongoose.Schema({
   location: String,
   location_link: String,
   page_link: String,
-  created_by: User_t,
-  created_on: Date_t,
+  created_by: {
+                id:{
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: 'User'
+                },
+                username: String
+              },
+  created_on: {
+                type: Date,
+                default: Date.now
+              },
   last_edited_by: User_t,
   last_edited_on: Date_t
 });

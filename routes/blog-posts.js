@@ -1,4 +1,5 @@
-var feedReader = require("feed-reader"),
+var Parser     = require('rss-parser'),
+    parser     = new Parser(),
     express    = require("express");
 
 var router     = express.Router();
@@ -8,11 +9,12 @@ router.get("/blog", function(req, res){
     // rss url of blog
     var feedURL = "https://medium.com/feed/@umisc";
     
-    feedReader.parse(feedURL).then((feed) => {
-        res.render("blog", {posts: feed.entries});
-    }).catch((err) => {
-        res.render("blog", {posts: []});
-    });
+    (async () => {
+        
+        // CURRENTLY HARDCODED FOR THE FIRST BLOG POST
+        let feed = await parser.parseURL(feedURL);
+        res.render("blog", {posts: feed.items});
+    })();
 
 });
 
