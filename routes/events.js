@@ -61,7 +61,7 @@ router.get("/events/:id/edit", isLoggedIn, function(req, res){
     Event.findById(req.params.id, function(err, event){
         if (err || !event){
             req.flash("error", "The event does not exist!")
-            res.redirect("/events/" + date.getFullYear() + "/" + 
+            res.redirect("/events/" + date.getFullYear() + "/" +
                                                             date.getMonth());
         } else{
             res.render("edit-event", {event:event});
@@ -84,10 +84,10 @@ router.get("/events/:year/:month", function(req, res){
         }
         events = getEventsForSpecificTime(events, month, year);
         res.render("events", {
-                                month: month, 
-                                year: year, 
-                                events: events, 
-                                prev: getUpdateTimeString(month, year, "prev"), 
+                                month: month,
+                                year: year,
+                                events: events,
+                                prev: getUpdateTimeString(month, year, "prev"),
                                 next: getUpdateTimeString(month, year, "next")
                             });
     });
@@ -95,7 +95,7 @@ router.get("/events/:year/:month", function(req, res){
 
 // CREATE AN EVENT
 router.post("/events", isLoggedIn, upload, function(req, res){
-    
+
     var creator = {
                     id: req.user._id,
                     username: req.user.username
@@ -116,12 +116,12 @@ router.post("/events", isLoggedIn, upload, function(req, res){
       if (err){
         req.flash("error", "Sorry, your request couldn't be completed at this \
                                                                         time.")
-        res.redirect("/events/" + event.date.getFullYear() + "/" + 
+        res.redirect("/events/" + event.date.getFullYear() + "/" +
                                                         event.date.getMonth());
       }
 
       req.flash("success", "Event Successfully Added");
-      res.redirect("/events/" + event.date.getFullYear() + "/" + 
+      res.redirect("/events/" + event.date.getFullYear() + "/" +
                                                         event.date.getMonth());
     });
 });
@@ -135,7 +135,7 @@ router.get("/events/:id", function(req, res){
         console.log(event);
           if (err || !event){
             req.flash("error", "The event does not exist!")
-            res.redirect("/events/" + date.getFullYear() + "/" + 
+            res.redirect("/events/" + date.getFullYear() + "/" +
                                                             date.getMonth());
           }
           res.render("show-event", {event:event});
@@ -144,7 +144,7 @@ router.get("/events/:id", function(req, res){
 
 // UPDATE AN EVENT
 router.put("/events/:id", isLoggedIn, upload, function(req, res){
-    
+
     var editor = {
                     id: req.user._id,
                     username: req.user.username
@@ -194,16 +194,16 @@ router.delete("/events/:id", isLoggedIn, function(req, res){
 /*================================helper functions============================*/
 
 /**
- * Finds the events corresponding to a specified month and year, orders them 
+ * Finds the events corresponding to a specified month and year, orders them
  * chronologically and returns an array of Event objects
  */
 function getEventsForSpecificTime(allEvents, month, year){
-    
+
     var events = [];
 
-    // find the events 
+    // find the events
     allEvents.forEach(function(event){
-        if (event.date.getMonth() === month && event.date.getFullYear() === 
+        if (event.date.getMonth() === month && event.date.getFullYear() ===
                                                                         year){
             events.push(event);
         }
@@ -216,7 +216,7 @@ function getEventsForSpecificTime(allEvents, month, year){
 }
 
 /**
- * Provides the substring to complete the hrefs for the next and prev month 
+ * Provides the substring to complete the hrefs for the next and prev month
  * buttons
  */
 function getUpdateTimeString(month, year, dir){
@@ -248,7 +248,7 @@ function isLoggedIn(req, res, next){
     req.flash("error", "Please Login First!");
     res.redirect("/admin");
 }
-  
+
 module.exports = router;
 
 

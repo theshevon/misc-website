@@ -45,6 +45,10 @@
   width: 25%;
 }
 
+#sponsors{
+  background: white;
+}
+
 .card{
   border: none;
   background-color: black;
@@ -99,7 +103,7 @@
 .event:hover .event-img {
 	opacity: 0.1;
 }
-  
+
 .event:hover .img-overlay {
 	opacity: 1;
 }

@@ -24,7 +24,7 @@ router.get("/home", function(req, res){
           res.redirect("/home");
       }
       events = getEventsForSpecificTime(events, month, year);
-      res.render("home", { 
+      res.render("home", {
                             events    : events,
                             month     : month,
                             year      : year
@@ -47,14 +47,14 @@ module.exports = router;
 /*==================================helper functions==========================*/
 
 /**
- * Finds the events corresponding to a specified month and year, orders them 
+ * Finds the events corresponding to a specified month and year, orders them
  * chronologically and returns an array of Event objects
  */
 function getEventsForSpecificTime(allEvents, month, year){
-    
+
   var events = [];
 
-  // find the events 
+  // find the events
   allEvents.forEach(function(event){
       if (event.date.getMonth() === month && event.date.getFullYear() === year){
           events.push(event);
