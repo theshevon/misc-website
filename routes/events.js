@@ -3,8 +3,7 @@ var Event   = require("../models/event"),
     multer  = require("multer"),
     path    = require("path");
 
-var router = express.Router(),
-    date   = new Date();
+var router = express.Router();
 
 /*================================multer config===============================*/
 
@@ -48,6 +47,7 @@ function checkFileType(file, cb){
 
 // REDIRECTION TO MONTHLY EVENTS
 router.get("/events", function(req, res){
+    var date   = new Date();
     res.redirect("/events/" + date.getFullYear() + "/" + date.getMonth());
 });
 
@@ -60,7 +60,8 @@ router.get("/events/new", isLoggedIn, function(req, res){
 router.get("/events/:id/edit", isLoggedIn, function(req, res){
     Event.findById(req.params.id, function(err, event){
         if (err || !event){
-            req.flash("error", "The event does not exist!")
+            req.flash("error", "The event does not exist!");
+            var date   = new Date();
             res.redirect("/events/" + date.getFullYear() + "/" +
                                                             date.getMonth());
         } else{
@@ -115,7 +116,7 @@ router.post("/events", isLoggedIn, upload, function(req, res){
     Event.create(req.body.event, function(err, event){
       if (err){
         req.flash("error", "Sorry, your request couldn't be completed at this \
-                                                                        time.")
+                                                                        time.");
         res.redirect("/events/" + event.date.getFullYear() + "/" +
                                                         event.date.getMonth());
       }
@@ -135,6 +136,7 @@ router.get("/events/:id", function(req, res){
         console.log(event);
           if (err || !event){
             req.flash("error", "The event does not exist!")
+            var date   = new Date();
             res.redirect("/events/" + date.getFullYear() + "/" +
                                                             date.getMonth());
           }
